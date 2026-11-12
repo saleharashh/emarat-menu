@@ -73,10 +73,10 @@ export function CategoryStrip({
               }}
               type="button"
               onClick={() => handleClick(category.id)}
-              className={`group relative h-[84px] w-[144px] shrink-0 overflow-hidden rounded-2xl transition-all sm:h-[92px] sm:w-[164px] ${
+              className={`group relative h-[84px] w-[144px] shrink-0 overflow-hidden rounded-2xl backdrop-blur-md transition-all sm:h-[92px] sm:w-[164px] ${
                 isActive
-                  ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-lg shadow-primary/15"
-                  : "border border-border/80 opacity-80 hover:opacity-100"
+                  ? "border border-white/70 ring-2 ring-primary ring-offset-2 ring-offset-background shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.7),0_12px_26px_-4px_rgba(122,67,37,0.25)]"
+                  : "border border-white/60 bg-card/50 opacity-85 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_6px_16px_-2px_rgba(60,36,22,0.06)] hover:opacity-100 hover:border-white/90"
               }`}
             >
               {coverImage ? (
@@ -85,13 +85,13 @@ export function CategoryStrip({
                   src={coverImage}
                   alt={category.name}
                   className={`absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-105 ${
-                    isActive ? "brightness-90" : "brightness-70"
+                    isActive ? "brightness-95" : "brightness-75"
                   }`}
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-blush/80">
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blush/90 via-card/80 to-secondary/80 backdrop-blur-md">
                   {Icon && (
-                    <Icon className="size-8 text-primary/40" strokeWidth={1.5} />
+                    <Icon className="size-8 text-primary/50" strokeWidth={1.5} />
                   )}
                 </div>
               )}
@@ -99,17 +99,17 @@ export function CategoryStrip({
               <div
                 className={`absolute inset-0 ${
                   isActive
-                    ? "bg-gradient-to-t from-[#3d2b29]/80 via-[#3d2b29]/35 to-[#3d2b29]/15"
-                    : "bg-[#3d2b29]/45"
+                    ? "bg-gradient-to-t from-[#27170f]/85 via-[#27170f]/40 to-[#27170f]/15"
+                    : "bg-[#27170f]/50"
                 }`}
               />
 
               <div className="relative z-10 flex size-full flex-col items-center justify-center px-2 text-center">
-                <span className="line-clamp-2 text-xs font-bold text-[#fffaf8] drop-shadow-sm sm:text-sm">
+                <span className="line-clamp-2 text-xs font-bold text-[#fffdfa] drop-shadow-sm sm:text-sm">
                   {category.name}
                 </span>
                 {category.nameEn && (
-                  <span className="font-serif-en mt-0.5 line-clamp-1 text-xs font-medium tracking-wider text-[#fffaf8]/85 italic drop-shadow-sm">
+                  <span className="font-serif-en mt-0.5 line-clamp-1 text-xs font-medium tracking-wider text-[#fffdfa]/85 italic drop-shadow-sm">
                     {category.nameEn}
                   </span>
                 )}
@@ -132,10 +132,10 @@ export function CategoryStrip({
                 }}
                 type="button"
                 onClick={() => onSelectSubcategory(sub.id)}
-                className={`shrink-0 rounded-full px-4 py-2 text-center transition-all ${
+                className={`shrink-0 rounded-full px-4 py-2 text-center backdrop-blur-xl transition-all ${
                   isActive
-                    ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20"
-                    : "border border-border bg-card/85 text-foreground hover:bg-blush/60"
+                    ? "border border-white/40 bg-gradient-to-r from-primary to-[#8c4d2b] text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_8px_20px_-3px_rgba(122,67,37,0.3)]"
+                    : "border border-white/80 bg-card/70 text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_4px_14px_-2px_rgba(60,36,22,0.06)] hover:bg-card/90 hover:border-white"
                 }`}
               >
                 <span className="block text-xs font-bold sm:text-sm">
@@ -144,7 +144,7 @@ export function CategoryStrip({
                 {sub.nameEn && (
                   <span
                     className={`font-serif-en mt-0.5 block text-[11px] font-medium italic ${
-                      isActive ? "text-primary-foreground/85" : "text-muted-foreground"
+                      isActive ? "text-primary-foreground/90" : "text-muted-foreground"
                     }`}
                   >
                     {sub.nameEn}

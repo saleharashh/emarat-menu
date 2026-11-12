@@ -32,14 +32,14 @@ async function getMenuData(): Promise<{
 function PageSkeleton() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="border-b border-border px-4 py-2">
+      <div className="border-b border-white/60 bg-background/80 px-4 py-2 backdrop-blur-xl">
         <div className="mx-auto flex h-12 max-w-2xl items-center justify-between">
           <div className="flex gap-2">
-            <Skeleton className="size-9 rounded-xl" />
-            <Skeleton className="size-9 rounded-xl" />
+            <Skeleton className="size-9 rounded-full" />
+            <Skeleton className="size-9 rounded-full" />
           </div>
           <Skeleton className="size-12 rounded-full" />
-          <Skeleton className="size-9 rounded-xl" />
+          <Skeleton className="size-9 rounded-full" />
         </div>
       </div>
 
@@ -48,13 +48,13 @@ function PageSkeleton() {
           {Array.from({ length: 4 }).map((_, i) => (
             <Skeleton
               key={i}
-              className="h-[84px] w-[144px] shrink-0 rounded-xl sm:h-[92px] sm:w-[164px]"
+              className="h-[84px] w-[144px] shrink-0 rounded-2xl sm:h-[92px] sm:w-[164px]"
             />
           ))}
         </div>
-        <Skeleton className="h-64 w-full rounded-2xl" />
+        <Skeleton className="h-64 w-full rounded-3xl" />
         {Array.from({ length: 4 }).map((_, i) => (
-          <Skeleton key={i} className="h-36 w-full rounded-2xl" />
+          <Skeleton key={i} className="h-36 w-full rounded-3xl" />
         ))}
       </div>
     </div>

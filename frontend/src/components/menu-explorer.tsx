@@ -351,10 +351,10 @@ export function MenuExplorer({
 
         {sectionItems.length === 0 ? (
           <div
-            className={`flex flex-col items-center justify-center rounded-3xl border border-border bg-card/80 py-16 text-center ${animClass}`}
+            className={`flex flex-col items-center justify-center rounded-3xl border border-white/70 bg-card/70 py-16 text-center backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_12px_32px_-4px_rgba(60,36,22,0.08)] dark:border-white/12 dark:bg-card/65 ${animClass}`}
             style={{ "--stagger-index": 0 } as CSSProperties}
           >
-            <CoffeeIcon className="size-10 text-primary/45" />
+            <CoffeeIcon className="size-10 text-primary/50" />
             <p className="mt-3 text-sm font-bold text-foreground">
               آیتمی یافت نشد
             </p>
@@ -417,7 +417,7 @@ export function MenuExplorer({
   return (
     <>
       {/* Sticky Top Header */}
-      <header className="sticky top-0 z-30 border-b border-border/80 bg-background/90 backdrop-blur-md">
+      <header className="sticky top-0 z-30 border-b border-white/60 bg-background/80 backdrop-blur-2xl shadow-xs dark:border-white/10 dark:bg-background/80">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="w-10" aria-hidden="true" />
 
@@ -435,7 +435,7 @@ export function MenuExplorer({
               type="button"
               onClick={handleHeaderBack}
               aria-label="بازگشت"
-              className="flex size-10 items-center justify-center rounded-full text-foreground transition hover:bg-blush/70"
+              className="flex size-10 items-center justify-center rounded-full border border-transparent text-foreground transition hover:border-white/70 hover:bg-card/70 hover:backdrop-blur-md active:scale-95"
             >
               <ChevronLeftIcon className="size-6" />
             </button>
@@ -539,10 +539,10 @@ export function MenuExplorer({
             <button
               type="button"
               onClick={() => setCartOpen(true)}
-              className="flex w-full items-center justify-between rounded-full border border-white/45 bg-primary/75 px-5 py-3.5 text-primary-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_14px_36px_-6px_rgba(191,123,116,0.38)] backdrop-blur-xl backdrop-saturate-150 transition hover:bg-primary/85 active:scale-[0.99]"
+              className="flex w-full items-center justify-between rounded-full border border-white/55 bg-gradient-to-r from-primary/95 via-[#8c4d2b]/95 to-primary/95 px-5 py-3.5 text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.5),0_18px_45px_-6px_rgba(122,67,37,0.42)] backdrop-blur-2xl backdrop-saturate-200 transition-all hover:brightness-105 active:scale-[0.99]"
             >
               <span className="flex items-center gap-2.5">
-                <span className="flex size-7 items-center justify-center rounded-full bg-primary-foreground/95 text-xs font-bold text-primary shadow-xs">
+                <span className="flex size-7 items-center justify-center rounded-full bg-white/95 text-xs font-bold text-primary shadow-xs">
                   {formatNumber(count)}
                 </span>
                 <span className="text-sm font-bold sm:text-base">

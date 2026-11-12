@@ -1,7 +1,7 @@
 export function CafeLogo({ className = "size-12" }: { className?: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-full border border-primary/35 bg-card text-primary shadow-sm shadow-primary/10 ring-4 ring-blush/60 ${className}`}
+      className={`flex items-center justify-center rounded-full border border-white/80 bg-card/80 text-primary shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_18px_-2px_rgba(122,67,37,0.18)] backdrop-blur-xl ring-4 ring-white/50 transition-transform active:scale-95 dark:border-white/20 dark:bg-card/70 dark:ring-white/10 ${className}`}
       aria-label="لوگوی کافه عمارت"
     >
       <svg

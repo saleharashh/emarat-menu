@@ -51,78 +51,78 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ── Blush & Dusty Rose Editorial Cafe Palette ─────────────────
-   blush cream · rose quartz · dusty rose · cocoa plum · champagne */
+/* ── Roasted Coffee & Warm Khaki Editorial Cafe Palette ─────────────────
+   warm oat khaki · espresso roast · golden caramel · warm mocha · cream */
 :root {
-  --background: #fbf1ef;
-  --foreground: #3d2b29;
-  --card: #fff9f7;
-  --card-foreground: #3d2b29;
-  --blush: #f7e2de;
-  --popover: #fff9f7;
-  --popover-foreground: #3d2b29;
-  --primary: #bf7b74;
-  --primary-foreground: #fffaf8;
-  --secondary: #f5e2de;
-  --secondary-foreground: #4e3835;
-  --muted: #f3e4e1;
-  --muted-foreground: #846764;
-  --accent: #ecd1cc;
-  --accent-foreground: #3d2b29;
-  --destructive: #b84a49;
-  --border: #e7ccc7;
-  --input: #e2c3bd;
-  --ring: #c88b84;
-  --chart-1: #bf7b74;
-  --chart-2: #d4a373;
-  --chart-3: #8fa382;
-  --chart-4: #7b9a9b;
-  --chart-5: #d9a7a0;
+  --background: #f7f3ec;
+  --foreground: #2d1e17;
+  --card: #fbf8f3;
+  --card-foreground: #2d1e17;
+  --blush: #ebdccb; /* warm khaki tone */
+  --popover: #fbf8f3;
+  --popover-foreground: #2d1e17;
+  --primary: #7a4325;
+  --primary-foreground: #fffcf8;
+  --secondary: #ede3d4;
+  --secondary-foreground: #3c291d;
+  --muted: #eae0d1;
+  --muted-foreground: #766355;
+  --accent: #e2d3be;
+  --accent-foreground: #2d1e17;
+  --destructive: #ab3a38;
+  --border: #decbb7;
+  --input: #d4bfab;
+  --ring: #945732;
+  --chart-1: #7a4325;
+  --chart-2: #c49058;
+  --chart-3: #8a9675;
+  --chart-4: #6b8c8d;
+  --chart-5: #b97f5b;
   --radius: 1rem;
-  --sidebar: #f8eae7;
-  --sidebar-foreground: #3d2b29;
-  --sidebar-primary: #bf7b74;
-  --sidebar-primary-foreground: #fffaf8;
-  --sidebar-accent: #f1dcd8;
-  --sidebar-accent-foreground: #3d2b29;
-  --sidebar-border: #e7ccc7;
-  --sidebar-ring: #c88b84;
+  --sidebar: #f2e9dc;
+  --sidebar-foreground: #2d1e17;
+  --sidebar-primary: #7a4325;
+  --sidebar-primary-foreground: #fffcf8;
+  --sidebar-accent: #e8dccb;
+  --sidebar-accent-foreground: #2d1e17;
+  --sidebar-border: #decbb7;
+  --sidebar-ring: #945732;
 }
 
-/* Deep cocoa-plum & dusty rose dark variant */
+/* Deep roasted espresso & dark soil khaki dark variant */
 .dark {
-  --background: #211717;
-  --foreground: #f8eae7;
-  --card: #2c1f1f;
-  --card-foreground: #f8eae7;
-  --blush: #382727;
-  --popover: #2c1f1f;
-  --popover-foreground: #f8eae7;
-  --primary: #d6958e;
-  --primary-foreground: #241818;
-  --secondary: #392828;
-  --secondary-foreground: #f4e2df;
-  --muted: #342424;
-  --muted-foreground: #c4a4a0;
-  --accent: #463131;
-  --accent-foreground: #fbf1ef;
-  --destructive: #e07270;
-  --border: rgba(248, 234, 231, 0.14);
-  --input: rgba(248, 234, 231, 0.18);
-  --ring: rgba(214, 149, 142, 0.6);
-  --chart-1: #d6958e;
-  --chart-2: #deb68d;
-  --chart-3: #a7ba9b;
-  --chart-4: #8fb0b1;
-  --chart-5: #e6b8b2;
-  --sidebar: #1b1212;
-  --sidebar-foreground: #f8eae7;
-  --sidebar-primary: #d6958e;
-  --sidebar-primary-foreground: #241818;
-  --sidebar-accent: #392828;
-  --sidebar-accent-foreground: #f8eae7;
-  --sidebar-border: rgba(248, 234, 231, 0.14);
-  --sidebar-ring: rgba(214, 149, 142, 0.6);
+  --background: #18110d;
+  --foreground: #f5ece2;
+  --card: #231914;
+  --card-foreground: #f5ece2;
+  --blush: #2e2019;
+  --popover: #231914;
+  --popover-foreground: #f5ece2;
+  --primary: #dca06d;
+  --primary-foreground: #1c110a;
+  --secondary: #2c1f18;
+  --secondary-foreground: #f2e8dc;
+  --muted: #271b15;
+  --muted-foreground: #b59e8e;
+  --accent: #382820;
+  --accent-foreground: #f7f1ea;
+  --destructive: #e06c6a;
+  --border: rgba(245, 236, 226, 0.14);
+  --input: rgba(245, 236, 226, 0.18);
+  --ring: rgba(220, 160, 109, 0.6);
+  --chart-1: #dca06d;
+  --chart-2: #dfad76;
+  --chart-3: #a4b391;
+  --chart-4: #7ea4a5;
+  --chart-5: #e19d7d;
+  --sidebar: #130d0a;
+  --sidebar-foreground: #f5ece2;
+  --sidebar-primary: #dca06d;
+  --sidebar-primary-foreground: #1c110a;
+  --sidebar-accent: #2c1f18;
+  --sidebar-accent-foreground: #f5ece2;
+  --sidebar-border: rgba(245, 236, 226, 0.14);
+  --sidebar-ring: rgba(220, 160, 109, 0.6);
 }
 
 @layer base {
@@ -134,20 +134,20 @@
     background-image:
       radial-gradient(
         900px 460px at 88% -4%,
-        rgba(242, 204, 198, 0.55),
+        rgba(224, 185, 150, 0.42),
         transparent 68%
       ),
       radial-gradient(
         820px 520px at 8% 92%,
-        rgba(244, 212, 206, 0.48),
+        rgba(235, 208, 178, 0.38),
         transparent 70%
       ),
       radial-gradient(
         1000px 540px at 50% 25%,
-        rgba(255, 255, 255, 0.65),
+        rgba(255, 255, 255, 0.72),
         transparent 75%
       ),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23bf7b74' stroke-opacity='0.065' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M26 38c4-9 12-13 20-12-1 9-5 16-14 20'/%3E%3Cpath d='M26 38c6-5 12-8 17-10'/%3E%3Cpath d='M92 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z'/%3E%3Cpath d='M82 88c-4-7-10-10-17-9 1 7 4 13 12 16'/%3E%3Cpath d='M82 88c-5-4-10-6-14-8'/%3E%3Ccircle cx='34' cy='92' r='1.3' fill='%23bf7b74' fill-opacity='0.09'/%3E%3C/g%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%237a4325' stroke-opacity='0.065' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M26 38c4-9 12-13 20-12-1 9-5 16-14 20'/%3E%3Cpath d='M26 38c6-5 12-8 17-10'/%3E%3Cpath d='M92 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z'/%3E%3Cpath d='M82 88c-4-7-10-10-17-9 1 7 4 13 12 16'/%3E%3Cpath d='M82 88c-5-4-10-6-14-8'/%3E%3Ccircle cx='34' cy='92' r='1.3' fill='%237a4325' fill-opacity='0.09'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
   }
   html {
@@ -167,7 +167,38 @@
 }
 
 @utility pattern-botanical {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='0 0 108 108'%3E%3Cg fill='none' stroke='%23bf7b74' stroke-opacity='0.18' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 44c5-11 14-16 24-15-1 11-6 19-17 24'/%3E%3Cpath d='M22 44c7-6 14-10 20-12'/%3E%3Cpath d='M78 26l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z'/%3E%3Cpath d='M76 80c-5-8-12-12-20-11 1 8 5 15 14 19'/%3E%3Ccircle cx='54' cy='54' r='1.5' fill='%23bf7b74' fill-opacity='0.22'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='0 0 108 108'%3E%3Cg fill='none' stroke='%237a4325' stroke-opacity='0.18' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 44c5-11 14-16 24-15-1 11-6 19-17 24'/%3E%3Cpath d='M22 44c7-6 14-10 20-12'/%3E%3Cpath d='M78 26l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z'/%3E%3Cpath d='M76 80c-5-8-12-12-20-11 1 8 5 15 14 19'/%3E%3Ccircle cx='54' cy='54' r='1.5' fill='%237a4325' fill-opacity='0.22'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── Heavy Glassmorphism Utilities ────────────────────────────── */
+@utility glass-card {
+  background-color: rgba(251, 248, 243, 0.72);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
+    0 12px 32px -4px rgba(60, 36, 22, 0.08);
+}
+
+@utility glass-featured {
+  background: linear-gradient(145deg, rgba(251, 248, 243, 0.85) 0%, rgba(235, 220, 203, 0.65) 100%);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.95),
+    0 18px 42px -6px rgba(74, 43, 26, 0.14);
+}
+
+@utility glass-pill {
+  background-color: rgba(251, 248, 243, 0.75);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
+    0 4px 14px -2px rgba(60, 36, 22, 0.08);
 }
 
 @keyframes menu-slide-out-left {

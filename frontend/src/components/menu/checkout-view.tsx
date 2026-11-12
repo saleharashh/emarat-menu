@@ -109,7 +109,7 @@ export function CheckoutView({
       aria-label="تکمیل سفارش"
     >
       {/* Top Bar */}
-      <header className="sticky top-0 z-20 border-b border-border bg-background/95 backdrop-blur-md">
+      <header className="sticky top-0 z-20 border-b border-white/60 bg-background/80 backdrop-blur-2xl shadow-xs dark:border-white/10 dark:bg-background/80">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="flex w-10 items-center justify-start">
             {cartItems.length > 0 && (
@@ -182,7 +182,7 @@ export function CheckoutView({
                           className="flex items-center justify-between gap-3 py-3.5"
                         >
                           <div className="flex min-w-0 flex-1 items-center gap-3">
-                            <div className="size-14 shrink-0 overflow-hidden rounded-full border-2 border-card bg-muted shadow-xs ring-1 ring-border">
+                            <div className="size-14 shrink-0 overflow-hidden rounded-full border-2 border-white/80 bg-muted shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_12px_-2px_rgba(60,36,22,0.1)] ring-1 ring-primary/20">
                               <ItemThumbnail
                                 src={image}
                                 alt={ci.name}
@@ -194,7 +194,7 @@ export function CheckoutView({
                               <p className="truncate text-sm font-bold text-foreground sm:text-base">
                                 {ci.name}
                               </p>
-                              <p className="mt-1 text-xs font-medium text-primary sm:text-sm">
+                              <p className="mt-1 text-xs font-semibold text-primary sm:text-sm">
                                 {formatToman(ci.price * ci.qty)}
                               </p>
                             </div>
@@ -205,7 +205,7 @@ export function CheckoutView({
                               type="button"
                               onClick={() => setQty(ci.itemId, ci.qty + 1)}
                               aria-label={`افزایش تعداد ${ci.name}`}
-                              className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm shadow-primary/20 transition hover:bg-primary/90 active:scale-95"
+                              className="flex size-9 items-center justify-center rounded-full border border-white/40 bg-gradient-to-br from-primary to-[#8c4d2b] text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_16px_-2px_rgba(122,67,37,0.3)] backdrop-blur-md transition hover:scale-105 active:scale-95"
                             >
                               <PlusIcon className="size-4 stroke-[2.5]" />
                             </button>
@@ -216,7 +216,7 @@ export function CheckoutView({
                               type="button"
                               onClick={() => setQty(ci.itemId, ci.qty - 1)}
                               aria-label={`کاهش تعداد ${ci.name}`}
-                              className="flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition hover:bg-blush/60 active:scale-95"
+                              className="flex size-9 items-center justify-center rounded-full border border-white/70 bg-card/70 text-foreground shadow-xs backdrop-blur-md transition hover:border-white hover:bg-card/90 active:scale-95"
                             >
                               <MinusIcon className="size-4 stroke-[2.5]" />
                             </button>
@@ -230,7 +230,7 @@ export function CheckoutView({
             </div>
 
             {/* Summary Box */}
-            <div className="mt-6 space-y-3.5 rounded-3xl border border-primary/20 bg-card/95 p-4 shadow-sm shadow-primary/10 sm:p-5">
+            <div className="mt-6 space-y-3.5 rounded-3xl border border-white/80 bg-card/75 p-4 backdrop-blur-2xl shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,0.9),0_18px_40px_-8px_rgba(74,43,26,0.1)] sm:p-5">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">تعداد اقلام سبد</span>
                 <span className="font-semibold text-foreground">
@@ -265,7 +265,7 @@ export function CheckoutView({
             </div>
 
             {/* Staff instruction banner */}
-            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-primary/15 bg-blush/65 p-4 text-center">
+            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-white/70 bg-gradient-to-r from-blush/60 via-card/70 to-blush/60 p-4 text-center backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.7)]">
               <span className="shrink-0 text-xs text-primary" aria-hidden="true">
                 ♥
               </span>

@@ -55,7 +55,7 @@ export function SplashScreen() {
       {/* Matching editorial radial glow + subtle botanical pattern */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(680px_420px_at_50%_46%,rgba(255,250,248,0.85)_0%,rgba(247,226,222,0.35)_52%,transparent_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(680px_420px_at_50%_46%,rgba(255,252,248,0.9)_0%,rgba(235,220,203,0.35)_52%,transparent_100%)]"
       />
       <div
         aria-hidden="true"
@@ -66,7 +66,7 @@ export function SplashScreen() {
       <button
         type="button"
         onClick={dismiss}
-        className="absolute top-5 left-5 z-20 rounded-full border border-border bg-card/85 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur-md transition hover:bg-card hover:text-foreground active:scale-95 sm:top-6 sm:left-6 sm:text-sm"
+        className="absolute top-5 left-5 z-20 rounded-full border border-white/70 bg-card/75 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_4px_12px_-2px_rgba(60,36,22,0.08)] backdrop-blur-xl transition hover:border-white hover:bg-card/90 hover:text-foreground active:scale-95 sm:top-6 sm:left-6 sm:text-sm"
       >
         رد کردن
       </button>
@@ -107,23 +107,23 @@ export function SplashScreen() {
 
             {/* Cup gradients */}
             <linearGradient id="splash-cup-body" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#ead6d0" />
-              <stop offset="28%" stopColor="#fff9f7" />
-              <stop offset="68%" stopColor="#fdf3f0" />
-              <stop offset="100%" stopColor="#dfc4bd" />
+              <stop offset="0%" stopColor="#e8dccb" />
+              <stop offset="28%" stopColor="#fbf8f3" />
+              <stop offset="68%" stopColor="#f7f2ea" />
+              <stop offset="100%" stopColor="#dfceba" />
             </linearGradient>
 
             <linearGradient id="splash-cup-lid" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#271918" />
-              <stop offset="35%" stopColor="#46312e" />
-              <stop offset="75%" stopColor="#382523" />
-              <stop offset="100%" stopColor="#221514" />
+              <stop offset="0%" stopColor="#221611" />
+              <stop offset="35%" stopColor="#3e281f" />
+              <stop offset="75%" stopColor="#321f18" />
+              <stop offset="100%" stopColor="#1c120e" />
             </linearGradient>
 
             <radialGradient id="splash-floor-shadow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#3d2b29" stopOpacity="0.22" />
-              <stop offset="65%" stopColor="#3d2b29" stopOpacity="0.08" />
-              <stop offset="100%" stopColor="#3d2b29" stopOpacity="0" />
+              <stop offset="0%" stopColor="#2d1e17" stopOpacity="0.22" />
+              <stop offset="65%" stopColor="#2d1e17" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#2d1e17" stopOpacity="0" />
             </radialGradient>
 
             <clipPath id="splash-ice-clip">
@@ -287,7 +287,7 @@ export function SplashScreen() {
             <path
               d="M85 154 L195 154 L181 275 C180 282 171 287 140 287 C109 287 100 282 99 275 Z"
               fill="url(#splash-cup-body)"
-              stroke="#d9bdb6"
+              stroke="#d5c2ad"
               strokeWidth="1.2"
             />
 
@@ -295,7 +295,7 @@ export function SplashScreen() {
             <g clipPath="url(#splash-cup-clip)">
               <g
                 fill="none"
-                stroke="#bf7b74"
+                stroke="#7a4325"
                 strokeOpacity="0.22"
                 strokeWidth="1.2"
               >
@@ -309,12 +309,12 @@ export function SplashScreen() {
               {/* Warm cocoa base stripe */}
               <path
                 d="M92 268 Q140 274 188 268 L184 290 L96 290 Z"
-                fill="#5c362e"
+                fill="#4a2c20"
                 opacity="0.92"
               />
               <path
                 d="M93 265 Q140 271 187 265"
-                stroke="#bf7b74"
+                stroke="#7a4325"
                 strokeWidth="2.5"
                 fill="none"
               />
@@ -334,8 +334,8 @@ export function SplashScreen() {
               cx="140"
               cy="214"
               r="24"
-              fill="#fff9f7"
-              stroke="#bf7b74"
+              fill="#fbf8f3"
+              stroke="#7a4325"
               strokeWidth="1.5"
             />
             <circle
@@ -343,7 +343,7 @@ export function SplashScreen() {
               cy="214"
               r="20"
               fill="none"
-              stroke="#e7ccc7"
+              stroke="#decbb7"
               strokeWidth="1"
             />
             {/* Coffee bean + arch emblem inside medallion */}
@@ -354,11 +354,11 @@ export function SplashScreen() {
                 rx="7"
                 ry="10"
                 transform="rotate(-22)"
-                fill="#4a2c26"
+                fill="#4a2c20"
               />
               <path
                 d="M-2.2 -7.5 C1 -2 -1 2 2.2 7.5"
-                stroke="#fff9f7"
+                stroke="#fbf8f3"
                 strokeWidth="1.6"
                 strokeLinecap="round"
                 fill="none"
@@ -389,12 +389,12 @@ export function SplashScreen() {
                 width="24"
                 height="5"
                 rx="2"
-                fill="#271918"
+                fill="#1c120e"
               />
               {/* Lid bevel highlight */}
               <path
                 d="M84 146 L196 146"
-                stroke="#7c5b55"
+                stroke="#634537"
                 strokeWidth="1.2"
                 strokeLinecap="round"
                 opacity="0.65"
@@ -405,7 +405,7 @@ export function SplashScreen() {
           {/* 5. Gentle Rising Steam Wisps */}
           <g
             fill="none"
-            stroke="#846764"
+            stroke="#8a7161"
             strokeWidth="1.8"
             strokeLinecap="round"
             className="splash-anim-steam"

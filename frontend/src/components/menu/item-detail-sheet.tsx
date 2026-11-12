@@ -56,7 +56,7 @@ export function ItemDetailSheet({
               {/* Floating drag handle */}
               <div className="mx-auto mb-2.5 h-1.5 w-12 shrink-0 rounded-full bg-white/60 backdrop-blur-sm" />
 
-              <div className="flex flex-col overflow-hidden rounded-t-3xl border border-white/55 bg-card/65 shadow-[0_24px_60px_-12px_rgba(61,43,41,0.28),inset_0_1px_0_rgba(255,255,255,0.75)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/15 dark:bg-card/65 dark:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.12)] sm:rounded-3xl">
+              <div className="flex flex-col overflow-hidden rounded-t-3xl border border-white/70 bg-card/75 shadow-[0_24px_60px_-12px_rgba(50,30,18,0.32),inset_0_1.5px_1px_rgba(255,255,255,0.85)] backdrop-blur-3xl backdrop-saturate-180 dark:border-white/15 dark:bg-card/70 dark:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.12)] sm:rounded-3xl">
                 <div className="overflow-y-auto">
                   {/* Top visual */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
@@ -117,7 +117,7 @@ export function ItemDetailSheet({
                 </div>
 
                 {/* Sticky Footer */}
-                <div className="flex items-center gap-2.5 border-t border-white/45 bg-white/30 p-3.5 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.05] sm:gap-3 sm:p-4">
+                <div className="flex items-center gap-2.5 border-t border-white/45 bg-white/40 p-3.5 backdrop-blur-2xl dark:border-white/10 dark:bg-white/[0.05] sm:gap-3 sm:p-4">
                   {cartCount > 0 && (
                     <button
                       type="button"
@@ -125,9 +125,9 @@ export function ItemDetailSheet({
                         onClose();
                         onOpenCart();
                       }}
-                      className="flex h-12 flex-[1.2] items-center justify-center gap-2 rounded-full border border-white/40 bg-primary/80 px-3 text-xs font-bold whitespace-nowrap text-primary-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_8px_20px_-4px_rgba(191,123,116,0.35)] backdrop-blur-xl backdrop-saturate-150 transition hover:bg-primary/90 sm:flex-1 sm:gap-2.5 sm:px-4 sm:text-sm"
+                      className="flex h-12 flex-[1.2] items-center justify-center gap-2 rounded-full border border-white/45 bg-gradient-to-r from-primary/95 to-[#8c4d2b]/95 px-3 text-xs font-bold whitespace-nowrap text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.4),0_8px_22px_-4px_rgba(122,67,37,0.4)] backdrop-blur-xl backdrop-saturate-180 transition hover:brightness-105 sm:flex-1 sm:gap-2.5 sm:px-4 sm:text-sm"
                     >
-                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary-foreground text-[11px] font-bold text-primary sm:size-6 sm:text-xs">
+                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-white text-[11px] font-bold text-primary sm:size-6 sm:text-xs">
                         {formatNumber(cartCount)}
                       </span>
                       مشاهده سبد خرید
@@ -137,7 +137,7 @@ export function ItemDetailSheet({
                   <button
                     type="button"
                     onClick={onClose}
-                    className={`flex h-12 items-center justify-center rounded-full border border-white/55 bg-white/45 px-3 text-xs font-semibold whitespace-nowrap text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md transition hover:bg-white/65 dark:border-white/15 dark:bg-white/10 dark:hover:bg-white/15 sm:px-4 sm:text-sm ${
+                    className={`flex h-12 items-center justify-center rounded-full border border-white/70 bg-white/55 px-3 text-xs font-semibold whitespace-nowrap text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-xl transition hover:bg-white/75 dark:border-white/15 dark:bg-white/10 dark:hover:bg-white/15 sm:px-4 sm:text-sm ${
                       cartCount > 0 ? "flex-1" : "w-full"
                     }`}
                   >

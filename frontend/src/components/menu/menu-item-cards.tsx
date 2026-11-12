@@ -92,7 +92,7 @@ export function ItemActionControl({
 }: ItemActionControlProps) {
   if (!item.isAvailable) {
     return (
-      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-border bg-secondary/80 px-3.5 text-xs font-medium text-muted-foreground">
+      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-white/60 bg-secondary/75 px-3.5 text-xs font-medium text-muted-foreground backdrop-blur-md shadow-xs">
         اتمام موجودی
       </span>
     );
@@ -101,13 +101,13 @@ export function ItemActionControl({
   if (qty > 0) {
     return (
       <div
-        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full bg-primary px-1.5 text-primary-foreground shadow-sm shadow-primary/20"
+        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-white/35 bg-gradient-to-r from-primary to-[#8c4d2b] px-1.5 text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_16px_-2px_rgba(122,67,37,0.35)] backdrop-blur-lg"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onDecrease}
-          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/15 active:scale-95"
+          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/20 active:scale-95"
           aria-label={`کاهش تعداد ${item.name}`}
         >
           <MinusIcon className="size-3.5 stroke-[2.5]" />
@@ -118,7 +118,7 @@ export function ItemActionControl({
         <button
           type="button"
           onClick={onIncrease}
-          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/15 active:scale-95"
+          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/20 active:scale-95"
           aria-label={`افزودن یک عدد ${item.name}`}
         >
           <PlusIcon className="size-3.5 stroke-[2.5]" />
@@ -135,7 +135,7 @@ export function ItemActionControl({
         onAdd();
       }}
       aria-label={`افزودن ${item.name} به سبد`}
-      className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm shadow-primary/20 transition hover:bg-primary/90 active:scale-95"
+      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/40 bg-gradient-to-br from-primary to-[#8c4d2b] text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),0_6px_16px_-2px_rgba(122,67,37,0.3)] backdrop-blur-md transition hover:scale-105 active:scale-95"
     >
       <PlusIcon className="size-4.5 stroke-[2.2]" />
     </button>
@@ -229,7 +229,7 @@ export function FeaturedItemCard({
   return (
     <article
       onClick={onSelect}
-      className="cursor-pointer overflow-hidden rounded-3xl border border-primary/20 bg-blush/60 shadow-sm shadow-primary/10 transition hover:border-primary/40 hover:shadow-md"
+      className="cursor-pointer overflow-hidden rounded-3xl border border-white/80 bg-gradient-to-br from-card/85 via-blush/45 to-card/70 backdrop-blur-2xl shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,0.9),0_18px_40px_-8px_rgba(74,43,26,0.12)] transition-all duration-300 hover:border-white hover:shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,1),0_22px_48px_-6px_rgba(122,67,37,0.18)] dark:border-white/15 dark:bg-gradient-to-br dark:from-card/80 dark:to-card/50 dark:shadow-[0_18px_40px_-8px_rgba(0,0,0,0.5)]"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
         <ItemThumbnail
@@ -238,7 +238,7 @@ export function FeaturedItemCard({
           className="size-full"
           iconClassName="size-12"
         />
-        <span className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/90 px-3 py-1 text-xs font-medium text-primary-foreground shadow-sm backdrop-blur-sm">
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/40 bg-primary/90 px-3.5 py-1 text-xs font-semibold text-primary-foreground shadow-md backdrop-blur-md">
           <span aria-hidden="true">✦</span>
           پیشنهاد مجموعه
         </span>
@@ -260,10 +260,10 @@ export function FeaturedItemCard({
         )}
 
         <div className="mt-4 flex items-center gap-3">
-          <span className="text-sm font-bold whitespace-nowrap text-foreground sm:text-base">
+          <span className="text-sm font-bold whitespace-nowrap text-primary sm:text-base">
             {formatToman(item.price)}
           </span>
-          <span className="h-px flex-1 border-b border-dotted border-primary/35" />
+          <span className="h-px flex-1 border-b border-dotted border-primary/30" />
           <ItemActionControl
             item={item}
             qty={qty}
@@ -290,7 +290,7 @@ export function CompactItemCard({
   return (
     <article
       onClick={onSelect}
-      className="cursor-pointer rounded-3xl border border-border/90 bg-card/90 p-4 shadow-sm shadow-primary/5 transition hover:border-primary/40 hover:bg-card"
+      className="cursor-pointer rounded-3xl border border-white/75 bg-card/75 p-4 backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_12px_32px_-4px_rgba(60,36,22,0.07)] transition-all duration-300 hover:border-white hover:bg-card/90 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_18px_36px_-4px_rgba(122,67,37,0.14)] dark:border-white/12 dark:bg-card/65 dark:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.4)]"
     >
       <div className="flex items-center justify-between gap-3.5">
         <div className="min-w-0 flex-1">
@@ -309,7 +309,7 @@ export function CompactItemCard({
           )}
         </div>
 
-        <div className="size-24 shrink-0 overflow-hidden rounded-full border-2 border-card bg-muted shadow-sm shadow-primary/15 ring-1 ring-border sm:size-28">
+        <div className="size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/80 bg-muted shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_16px_-2px_rgba(60,36,22,0.12)] ring-2 ring-primary/20 sm:size-28">
           <ItemThumbnail
             src={image}
             alt={item.name}
