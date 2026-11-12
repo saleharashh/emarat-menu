@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
 import { User } from './auth/user.entity';
 import { CategoriesModule } from './categories/categories.module';
@@ -16,16 +17,26 @@ import { UploadsModule } from './uploads/uploads.module';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'postgres',
-        host: config.get('DB_HOST', 'localhost'),
-        port: config.get<number>('DB_PORT', 5432),
-        username: config.get('DB_USER', 'postgres'),
-        password: config.get('DB_PASSWORD', ''),
-        database: config.get('DB_NAME', 'emarat_menu'),
-        entities: [User, Category, MenuItem, SiteSettings],
-        synchronize: true,
-      }),
+      useFactory: (config: ConfigService): TypeOrmModuleOptions => {
+        const databaseUrl = config.get<string>('DATABASE_URL');
+        const sslEnabled = config.get<string>('DB_SSL') === 'true';
+
+        return {
+          type: 'postgres',
+          ...(databaseUrl
+            ? { url: databaseUrl }
+            : {
+                host: config.get<string>('DB_HOST', 'localhost'),
+                port: Number(config.get<string>('DB_PORT', '5432')),
+                username: config.get<string>('DB_USER', 'postgres'),
+                password: config.get<string>('DB_PASSWORD', ''),
+                database: config.get<string>('DB_NAME', 'emarat_menu'),
+              }),
+          ...(sslEnabled ? { ssl: { rejectUnauthorized: false } } : {}),
+          entities: [User, Category, MenuItem, SiteSettings],
+          synchronize: config.get<string>('DB_SYNCHRONIZE', 'true') !== 'false',
+        };
+      },
     }),
     AuthModule,
     CategoriesModule,
@@ -33,5 +44,6 @@ import { UploadsModule } from './uploads/uploads.module';
     SettingsModule,
     UploadsModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}

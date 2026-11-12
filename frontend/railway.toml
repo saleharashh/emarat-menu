@@ -1,0 +1,11 @@
+[build]
+builder = "railpack"
+buildCommand = "npm ci && npm run build"
+watchPatterns = ["frontend/**"]
+
+[deploy]
+startCommand = "npm run start"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5
