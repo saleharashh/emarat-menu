@@ -135,7 +135,7 @@ export function useCategorySwipe({
 
         const { canGoNext: allowNext, canGoPrev: allowPrev } =
           optionsRef.current;
-        const hitsBoundary = (dx < 0 && !allowNext) || (dx > 0 && !allowPrev);
+        const hitsBoundary = (dx > 0 && !allowNext) || (dx < 0 && !allowPrev);
         const effectiveDx = hitsBoundary
           ? Math.sign(dx) *
             Math.min(RUBBER_BAND_MAX_PX, Math.abs(dx) * RUBBER_BAND_DAMPING)
@@ -170,14 +170,14 @@ export function useCategorySwipe({
 
         const goNext =
           allowNext &&
-          (rawDx <= -SWIPE_COMMIT_DISTANCE_PX ||
-            (vx <= -SWIPE_FLICK_VELOCITY_PX_MS &&
-              rawDx <= -SWIPE_FLICK_MIN_DISTANCE_PX));
-        const goPrev =
-          allowPrev &&
           (rawDx >= SWIPE_COMMIT_DISTANCE_PX ||
             (vx >= SWIPE_FLICK_VELOCITY_PX_MS &&
               rawDx >= SWIPE_FLICK_MIN_DISTANCE_PX));
+        const goPrev =
+          allowPrev &&
+          (rawDx <= -SWIPE_COMMIT_DISTANCE_PX ||
+            (vx <= -SWIPE_FLICK_VELOCITY_PX_MS &&
+              rawDx <= -SWIPE_FLICK_MIN_DISTANCE_PX));
 
         if (goNext) {
           commitStep("next", startOffsetX);

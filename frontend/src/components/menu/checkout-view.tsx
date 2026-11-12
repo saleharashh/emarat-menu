@@ -7,13 +7,23 @@ import {
   ShoppingCartIcon,
   Trash2Icon,
 } from "lucide-react";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useCart, type CartItem } from "@/components/cart-provider";
 import {
   ItemThumbnail,
   SectionDivider,
 } from "@/components/menu/menu-item-cards";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { resolveImageUrl } from "@/lib/api";
 import { formatNumber, formatToman } from "@/lib/format";
 import type { Category, MenuItem } from "@/lib/types";
@@ -34,15 +44,16 @@ export function CheckoutView({
   onClose,
 }: CheckoutViewProps) {
   const { items: cartItems, count, total, setQty, clear } = useCart();
+  const [confirmClearOpen, setConfirmClearOpen] = useState(false);
 
   useEffect(() => {
     if (!open) return;
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape" && !confirmClearOpen) onClose();
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, onClose]);
+  }, [open, confirmClearOpen, onClose]);
 
   const itemLookup = useMemo(() => {
     const map = new Map<number, MenuItem>();
@@ -104,7 +115,7 @@ export function CheckoutView({
             {cartItems.length > 0 && (
               <button
                 type="button"
-                onClick={clear}
+                onClick={() => setConfirmClearOpen(true)}
                 title="خالی کردن سبد خرید"
                 aria-label="خالی کردن سبد خرید"
                 className="flex size-9 items-center justify-center rounded-xl text-muted-foreground transition hover:bg-secondary hover:text-destructive"
@@ -277,7 +288,7 @@ export function CheckoutView({
               </button>
               <button
                 type="button"
-                onClick={clear}
+                onClick={() => setConfirmClearOpen(true)}
                 className="h-11 rounded-full border border-destructive/30 bg-destructive/10 px-5 text-sm font-medium text-destructive transition hover:bg-destructive/20"
               >
                 خالی کردن سبد
@@ -286,6 +297,32 @@ export function CheckoutView({
           </div>
         )}
       </main>
+
+      <AlertDialog
+        open={open && confirmClearOpen}
+        onOpenChange={setConfirmClearOpen}
+      >
+        <AlertDialogContent dir="rtl" className="z-[60] rounded-2xl">
+          <AlertDialogHeader className="place-items-start text-right sm:place-items-start sm:text-right">
+            <AlertDialogTitle>خالی کردن سبد خرید؟</AlertDialogTitle>
+            <AlertDialogDescription>
+              تمام آیتم‌های انتخاب‌شده از سبد خرید شما حذف خواهند شد.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="rounded-b-2xl sm:justify-start">
+            <AlertDialogAction
+              variant="destructive"
+              onClick={() => {
+                clear();
+                setConfirmClearOpen(false);
+              }}
+            >
+              بله، خالی شود
+            </AlertDialogAction>
+            <AlertDialogCancel>انصراف</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

@@ -404,14 +404,14 @@ export function MenuExplorer({
 
   const incomingAnimClass = stepAnimation.direction
     ? stepAnimation.direction === "next"
-      ? "animate-menu-in-right"
-      : "animate-menu-in-left"
+      ? "animate-menu-in-left"
+      : "animate-menu-in-right"
     : "";
 
   const outgoingAnimClass = outgoingLayer
     ? outgoingLayer.direction === "next"
-      ? "animate-menu-out-left"
-      : "animate-menu-out-right"
+      ? "animate-menu-out-right"
+      : "animate-menu-out-left"
     : "";
 
   return (
