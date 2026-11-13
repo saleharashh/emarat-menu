@@ -133,14 +133,14 @@ export function MenuDrawer({
                 onClose();
                 onOpenCart();
               }}
-              className="flex h-11 w-full items-center justify-between rounded-full border border-white/35 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-4 text-sm font-black text-stone-950 shadow-[0_8px_24px_rgba(245,158,11,0.4)] backdrop-blur-md transition hover:brightness-105"
+              className="flex h-11 w-full items-center justify-between rounded-full border border-white/25 bg-black/60 px-4 text-sm font-black text-white shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-md transition hover:bg-black/75 hover:border-white/40 cursor-pointer"
             >
               <span className="flex items-center gap-2">
-                <ShoppingCartIcon className="size-4" />
+                <ShoppingCartIcon className="size-4 text-white" />
                 مشاهده سبد خرید
               </span>
               {cartCount > 0 && (
-                <span className="rounded-full bg-white px-2 py-0.5 text-xs font-bold text-primary shadow-xs">
+                <span className="rounded-full border border-white/20 bg-white/15 px-2 py-0.5 text-xs font-black text-white shadow-xs backdrop-blur-md">
                   {formatNumber(cartCount)}
                 </span>
               )}

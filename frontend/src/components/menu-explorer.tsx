@@ -557,7 +557,7 @@ export function MenuExplorer({
         </div>
       </main>
 
-      {/* Floating Bottom Cart Bar with Luminous Caramel Glass Accent and Spring Motion */}
+      {/* Floating Bottom Cart Bar with Frosted Glassmorphism and White Text */}
       <AnimatePresence>
         {count > 0 && !cartOpen && (
           <motion.div
@@ -573,7 +573,7 @@ export function MenuExplorer({
                 whileHover={{ scale: 1.015, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setCartOpen(true)}
-                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-white/35 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] px-5 py-3.5 text-stone-950 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.7),0_16px_36px_rgba(217,144,59,0.28)] backdrop-blur-3xl backdrop-saturate-200 transition-all hover:brightness-105 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/95 before:to-transparent"
+                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-white/25 bg-black/60 px-5 py-3.5 text-white shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.25),0_16px_36px_rgba(0,0,0,0.65)] ring-1 ring-white/10 backdrop-blur-3xl backdrop-saturate-200 transition-all hover:bg-black/75 hover:border-white/40 hover:ring-white/20 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent cursor-pointer"
               >
                 <span className="flex items-center gap-2.5">
                   <motion.span
@@ -581,11 +581,11 @@ export function MenuExplorer({
                     initial={{ scale: 1.35 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                    className="flex size-7 items-center justify-center rounded-full bg-stone-950 text-xs font-black text-amber-300 shadow-xs"
+                    className="flex size-7 items-center justify-center rounded-full border border-white/20 bg-white/15 text-xs font-black text-white shadow-xs backdrop-blur-md"
                   >
                     {formatNumber(count)}
                   </motion.span>
-                  <span className="text-sm font-black sm:text-base">
+                  <span className="text-sm font-black text-white sm:text-base">
                     مشاهده سبد خرید
                   </span>
                 </span>
@@ -594,7 +594,7 @@ export function MenuExplorer({
                   initial={{ opacity: 0.7, y: 3 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-sm font-black sm:text-base"
+                  className="text-sm font-black text-white sm:text-base"
                 >
                   {formatToman(total)}
                 </motion.span>

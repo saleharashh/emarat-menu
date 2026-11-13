@@ -167,9 +167,9 @@ export function ItemDetailDialog({
                         onClose();
                         onOpenCart();
                       }}
-                      className="flex h-11 flex-[1.2] items-center justify-center gap-2 rounded-full border border-white/35 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] px-3 text-xs font-black whitespace-nowrap text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_8px_20px_rgba(217,144,59,0.25)] backdrop-blur-2xl transition hover:brightness-105 sm:flex-1 sm:text-sm cursor-pointer"
+                      className="flex h-11 flex-[1.2] items-center justify-center gap-2 rounded-full border border-white/25 bg-black/60 px-3 text-xs font-black whitespace-nowrap text-white shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-2xl transition hover:bg-black/75 hover:border-white/40 sm:flex-1 sm:text-sm cursor-pointer"
                     >
-                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-stone-950 text-[11px] font-black text-amber-300 sm:size-5.5">
+                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/15 text-[11px] font-black text-white sm:size-5.5">
                         {formatNumber(cartCount)}
                       </span>
                       مشاهده سبد خرید
