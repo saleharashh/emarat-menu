@@ -12,18 +12,25 @@ async function getMenuData(): Promise<{
   settings: SiteSettings | null;
 }> {
   try {
+    const fetchOptions: RequestInit = {
+      next: { revalidate: 30 },
+    };
     const [categories, items, settings] = await Promise.all([
-      fetch(`${API_URL}/categories`, { cache: "no-store" }).then((r) =>
-        r.json(),
+      fetch(`${API_URL}/categories`, fetchOptions).then((r) =>
+        r.ok ? r.json() : [],
       ),
-      fetch(`${API_URL}/menu-items`, { cache: "no-store" }).then((r) =>
-        r.json(),
+      fetch(`${API_URL}/menu-items`, fetchOptions).then((r) =>
+        r.ok ? r.json() : [],
       ),
-      fetch(`${API_URL}/settings`, { cache: "no-store" }).then((r) =>
+      fetch(`${API_URL}/settings`, fetchOptions).then((r) =>
         r.ok ? r.json() : null,
       ),
     ]);
-    return { categories, items, settings };
+    return {
+      categories: Array.isArray(categories) ? categories : [],
+      items: Array.isArray(items) ? items : [],
+      settings,
+    };
   } catch {
     return { categories: [], items: [], settings: null };
   }

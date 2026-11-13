@@ -4,9 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 type SplashStatus = "playing" | "fading" | "done";
 
-const ANIMATION_DURATION_MS = 3600;
-const REDUCED_MOTION_DURATION_MS = 1200;
-const FADE_DURATION_MS = 500;
+const ANIMATION_DURATION_MS = 1800;
+const REDUCED_MOTION_DURATION_MS = 800;
+const FADE_DURATION_MS = 400;
 
 export function SplashScreen() {
   const [status, setStatus] = useState<SplashStatus>("playing");
@@ -15,7 +15,20 @@ export function SplashScreen() {
   const dismiss = useCallback(() => {
     if (dismissedRef.current) return;
     dismissedRef.current = true;
+    try {
+      sessionStorage.setItem("emarat_splash_shown", "1");
+    } catch {}
     setStatus("fading");
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("emarat_splash_shown") === "1") {
+        setStatus("done");
+        return;
+      }
+      sessionStorage.setItem("emarat_splash_shown", "1");
+    } catch {}
   }, []);
 
   useEffect(() => {

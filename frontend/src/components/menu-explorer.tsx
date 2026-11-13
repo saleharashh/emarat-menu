@@ -9,7 +9,7 @@ import { useCart } from "@/components/cart-provider";
 import { CafeLogo } from "@/components/menu/cafe-logo";
 import { CategoryStrip } from "@/components/menu/category-strip";
 import { CheckoutView } from "@/components/menu/checkout-view";
-import { ItemDetailSheet } from "@/components/menu/item-detail-sheet";
+import { ItemDetailDialog } from "@/components/menu/item-detail-dialog";
 import {
   CompactItemCard,
   FeaturedItemCard,
@@ -384,7 +384,15 @@ export function MenuExplorer({
                   }}
                   className={animClass || undefined}
                   style={
-                    { "--stagger-index": Math.min(idx, 6) } as CSSProperties
+                    {
+                      "--stagger-index": Math.min(idx, 6),
+                      ...(idx > 3
+                        ? {
+                            contentVisibility: "auto",
+                            containIntrinsicSize: "0 130px",
+                          }
+                        : {}),
+                    } as CSSProperties
                   }
                 >
                   <CardComponent
@@ -596,8 +604,8 @@ export function MenuExplorer({
         )}
       </AnimatePresence>
 
-      {/* Item Detail Bottom Sheet */}
-      <ItemDetailSheet
+      {/* Item Detail Dialog */}
+      <ItemDetailDialog
         item={selectedItem}
         qty={selectedItem ? (qtyById.get(selectedItem.id) ?? 0) : 0}
         cartCount={count}

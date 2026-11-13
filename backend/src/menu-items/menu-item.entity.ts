@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  Index,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
@@ -30,12 +31,15 @@ export class MenuItem {
   @Column({ default: true })
   isAvailable: boolean;
 
+  @Index()
   @Column({ default: false })
   isFeatured: boolean;
 
+  @Index()
   @Column({ default: 0 })
   sort: number;
 
+  @Index()
   @Column({ nullable: true })
   categoryId: number | null;
 

@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  Index,
   JoinColumn,
   ManyToOne,
   OneToMany,
@@ -25,9 +26,11 @@ export class Category {
   @Column({ type: 'varchar', nullable: true })
   imageUrl: string | null;
 
+  @Index()
   @Column({ default: 0 })
   sort: number;
 
+  @Index()
   @Column({ nullable: true })
   parentId: number | null;
 

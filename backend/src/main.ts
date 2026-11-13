@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import compression from 'compression';
 import { DataSource } from 'typeorm';
 import { AppModule } from './app.module';
 import { seedDatabase } from './seed-data';
@@ -9,9 +10,12 @@ import { getUploadDir } from './uploads/upload-dir';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.use(compression());
   app.setGlobalPrefix('api');
   app.useStaticAssets(getUploadDir(), {
     prefix: '/uploads/',
+    maxAge: 31536000000,
+    immutable: true,
   });
 
   const corsOrigins = (process.env.CORS_ORIGIN ?? 'http://localhost:3000')
