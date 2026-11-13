@@ -66,7 +66,7 @@ export function SplashScreen() {
       <button
         type="button"
         onClick={dismiss}
-        className="absolute top-5 left-5 z-20 rounded-full border border-white/70 bg-card/75 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_4px_12px_-2px_rgba(60,36,22,0.08)] backdrop-blur-xl transition hover:border-white hover:bg-card/90 hover:text-foreground active:scale-95 sm:top-6 sm:left-6 sm:text-sm"
+        className="absolute top-5 left-5 z-20 rounded-full border border-white/80 bg-card/75 px-4 py-1.5 text-xs font-semibold text-muted-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_16px_-2px_rgba(56,30,16,0.08)] backdrop-blur-2xl transition hover:border-white hover:bg-card/90 hover:text-foreground active:scale-95 sm:top-6 sm:left-6 sm:text-sm dark:border-white/14 dark:bg-card/65"
       >
         رد کردن
       </button>

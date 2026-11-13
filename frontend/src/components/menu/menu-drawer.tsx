@@ -46,8 +46,8 @@ export function MenuDrawer({
       }}
     >
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs transition-opacity duration-200 ease-out data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
-        <DialogPrimitive.Popup className="fixed inset-y-0 right-0 z-50 flex w-80 max-w-[85vw] flex-col border-l border-white/60 bg-background/90 text-foreground shadow-2xl backdrop-blur-2xl outline-none transition-[transform,opacity] duration-200 ease-out dark:border-white/10 dark:bg-background/90 data-[starting-style]:translate-x-full data-[starting-style]:opacity-0 data-[ending-style]:translate-x-full data-[ending-style]:opacity-0">
+        <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/45 backdrop-blur-sm transition-opacity duration-200 ease-out data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
+        <DialogPrimitive.Popup className="fixed inset-y-0 right-0 z-50 flex w-80 max-w-[85vw] flex-col border-l border-white/80 bg-background/80 text-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.9),0_24px_60px_rgba(0,0,0,0.3)] backdrop-blur-3xl outline-none transition-[transform,opacity] duration-200 ease-out dark:border-white/14 dark:bg-background/80 data-[starting-style]:translate-x-full data-[starting-style]:opacity-0 data-[ending-style]:translate-x-full data-[ending-style]:opacity-0">
           {/* Header card */}
           <div className="relative overflow-hidden border-b border-white/60 px-5 pt-5 pb-6 dark:border-white/10">
             {cover && (

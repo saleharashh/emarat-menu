@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronLeftIcon,
   MinusIcon,
@@ -102,42 +103,50 @@ export function CheckoutView({
   const payableTotal = total + taxAmount;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background text-foreground"
+    <motion.div
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.98 }}
+      transition={{ duration: 0.22, ease: "easeOut" }}
+      className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background/95 text-foreground backdrop-blur-3xl"
       role="dialog"
       aria-modal="true"
       aria-label="تکمیل سفارش"
     >
-      {/* Top Bar */}
-      <header className="sticky top-0 z-20 border-b border-white/60 bg-background/80 backdrop-blur-2xl shadow-xs dark:border-white/10 dark:bg-background/80">
+      {/* Top Bar with Pure Frosted Glass */}
+      <header className="sticky top-0 z-20 border-b border-white/70 bg-background/70 backdrop-blur-3xl shadow-[0_4px_24px_-4px_rgba(56,30,16,0.06)] dark:border-white/12 dark:bg-background/70">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="flex w-10 items-center justify-start">
             {cartItems.length > 0 && (
-              <button
+              <motion.button
                 type="button"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() => setConfirmClearOpen(true)}
                 title="خالی کردن سبد خرید"
                 aria-label="خالی کردن سبد خرید"
-                className="flex size-9 items-center justify-center rounded-xl text-muted-foreground transition hover:bg-secondary hover:text-destructive"
+                className="flex size-9 items-center justify-center rounded-xl border border-white/60 bg-card/60 text-muted-foreground backdrop-blur-xl shadow-xs transition hover:border-destructive/40 hover:bg-destructive/10 hover:text-destructive dark:border-white/12 dark:bg-card/50"
               >
                 <Trash2Icon className="size-4" />
-              </button>
+              </motion.button>
             )}
           </div>
 
-          <h1 className="font-display text-xl text-foreground sm:text-2xl">
+          <h1 className="font-display text-xl font-bold text-foreground sm:text-2xl">
             تکمیل سفارش
           </h1>
 
           <div className="flex w-10 items-center justify-end">
-            <button
+            <motion.button
               type="button"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={onClose}
               aria-label="بازگشت به منو"
-              className="flex size-9 items-center justify-center rounded-xl text-foreground transition hover:bg-secondary"
+              className="flex size-9 items-center justify-center rounded-xl border border-white/60 bg-card/60 text-foreground backdrop-blur-xl shadow-xs transition hover:border-white hover:bg-card/90 dark:border-white/12 dark:bg-card/50"
             >
               <ChevronLeftIcon className="size-6" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </header>
@@ -146,7 +155,7 @@ export function CheckoutView({
       <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-5 pb-12">
         {cartItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <div className="flex size-16 items-center justify-center rounded-2xl border border-border bg-card text-primary/50">
+            <div className="flex size-16 items-center justify-center rounded-2xl border border-white/80 bg-card/75 text-primary/60 backdrop-blur-xl shadow-sm">
               <ShoppingCartIcon className="size-7" />
             </div>
             <h2 className="mt-4 text-base font-bold text-foreground">
@@ -155,13 +164,15 @@ export function CheckoutView({
             <p className="mt-1.5 text-sm text-muted-foreground">
               آیتم‌های مورد علاقه‌ات را از منو اضافه کن.
             </p>
-            <button
+            <motion.button
               type="button"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
               onClick={onClose}
-              className="mt-6 h-11 rounded-full bg-primary px-6 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition hover:bg-primary/90"
+              className="mt-6 h-11 rounded-full border border-white/50 bg-gradient-to-r from-primary via-[#cf7b24] to-[#a45414] px-6 text-sm font-bold text-primary-foreground shadow-[0_8px_24px_-4px_rgba(184,101,27,0.38)] backdrop-blur-xl transition hover:brightness-105"
             >
               بازگشت به منو
-            </button>
+            </motion.button>
           </div>
         ) : (
           <div className="flex flex-col">
@@ -173,64 +184,86 @@ export function CheckoutView({
                     title={group.title}
                     subtitleEn={group.titleEn}
                   />
-                  <div className="divide-y divide-border/80">
-                    {group.items.map((ci) => {
-                      const image = resolveImageUrl(ci.imageUrl);
-                      return (
-                        <div
-                          key={ci.itemId}
-                          className="flex items-center justify-between gap-3 py-3.5"
-                        >
-                          <div className="flex min-w-0 flex-1 items-center gap-3">
-                            <div className="size-14 shrink-0 overflow-hidden rounded-full border-2 border-white/80 bg-muted shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_4px_12px_-2px_rgba(60,36,22,0.1)] ring-1 ring-primary/20">
-                              <ItemThumbnail
-                                src={image}
-                                alt={ci.name}
-                                className="size-full"
-                                iconClassName="size-5"
-                              />
+                  <div className="divide-y divide-border/60">
+                    <AnimatePresence initial={false}>
+                      {group.items.map((ci) => {
+                        const image = resolveImageUrl(ci.imageUrl);
+                        return (
+                          <motion.div
+                            key={ci.itemId}
+                            layout
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, height: 0, overflow: "hidden" }}
+                            transition={{ duration: 0.22 }}
+                            className="flex items-center justify-between gap-3 py-3.5"
+                          >
+                            <div className="flex min-w-0 flex-1 items-center gap-3">
+                              <div className="size-14 shrink-0 overflow-hidden rounded-full border-2 border-white/90 bg-muted/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_4px_12px_-2px_rgba(56,30,16,0.1)] ring-1 ring-primary/25">
+                                <ItemThumbnail
+                                  src={image}
+                                  alt={ci.name}
+                                  className="size-full"
+                                  iconClassName="size-5"
+                                />
+                              </div>
+                              <div className="min-w-0">
+                                <p className="truncate text-sm font-bold text-foreground sm:text-base">
+                                  {ci.name}
+                                </p>
+                                <p className="mt-1 text-xs font-semibold text-primary sm:text-sm">
+                                  {formatToman(ci.price * ci.qty)}
+                                </p>
+                              </div>
                             </div>
-                            <div className="min-w-0">
-                              <p className="truncate text-sm font-bold text-foreground sm:text-base">
-                                {ci.name}
-                              </p>
-                              <p className="mt-1 text-xs font-semibold text-primary sm:text-sm">
-                                {formatToman(ci.price * ci.qty)}
-                              </p>
-                            </div>
-                          </div>
 
-                          <div className="flex shrink-0 items-center gap-3">
-                            <button
-                              type="button"
-                              onClick={() => setQty(ci.itemId, ci.qty + 1)}
-                              aria-label={`افزایش تعداد ${ci.name}`}
-                              className="flex size-9 items-center justify-center rounded-full border border-white/40 bg-gradient-to-br from-primary to-[#8c4d2b] text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_16px_-2px_rgba(122,67,37,0.3)] backdrop-blur-md transition hover:scale-105 active:scale-95"
-                            >
-                              <PlusIcon className="size-4 stroke-[2.5]" />
-                            </button>
-                            <span className="w-5 text-center text-sm font-bold text-foreground tabular-nums">
-                              {formatNumber(ci.qty)}
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() => setQty(ci.itemId, ci.qty - 1)}
-                              aria-label={`کاهش تعداد ${ci.name}`}
-                              className="flex size-9 items-center justify-center rounded-full border border-white/70 bg-card/70 text-foreground shadow-xs backdrop-blur-md transition hover:border-white hover:bg-card/90 active:scale-95"
-                            >
-                              <MinusIcon className="size-4 stroke-[2.5]" />
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    })}
+                            <div className="flex shrink-0 items-center gap-3">
+                              <motion.button
+                                type="button"
+                                whileHover={{ scale: 1.15 }}
+                                whileTap={{ scale: 0.85 }}
+                                onClick={() => setQty(ci.itemId, ci.qty + 1)}
+                                aria-label={`افزایش تعداد ${ci.name}`}
+                                className="flex size-9 items-center justify-center rounded-full border border-white/50 bg-gradient-to-br from-primary to-[#cf7b24] text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_6px_16px_-2px_rgba(184,101,27,0.35)] backdrop-blur-xl"
+                              >
+                                <PlusIcon className="size-4 stroke-[2.5]" />
+                              </motion.button>
+                              <div className="relative w-5 flex items-center justify-center overflow-hidden">
+                                <AnimatePresence mode="popLayout" initial={false}>
+                                  <motion.span
+                                    key={ci.qty}
+                                    initial={{ y: 8, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: -8, opacity: 0 }}
+                                    transition={{ duration: 0.15 }}
+                                    className="text-center text-sm font-bold text-foreground tabular-nums"
+                                  >
+                                    {formatNumber(ci.qty)}
+                                  </motion.span>
+                                </AnimatePresence>
+                              </div>
+                              <motion.button
+                                type="button"
+                                whileHover={{ scale: 1.15 }}
+                                whileTap={{ scale: 0.85 }}
+                                onClick={() => setQty(ci.itemId, ci.qty - 1)}
+                                aria-label={`کاهش تعداد ${ci.name}`}
+                                className="flex size-9 items-center justify-center rounded-full border border-white/70 bg-card/70 text-foreground shadow-xs backdrop-blur-xl transition hover:border-white hover:bg-card/90 dark:border-white/12 dark:bg-card/65"
+                              >
+                                <MinusIcon className="size-4 stroke-[2.5]" />
+                              </motion.button>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </AnimatePresence>
                   </div>
                 </section>
               ))}
             </div>
 
-            {/* Summary Box */}
-            <div className="mt-6 space-y-3.5 rounded-3xl border border-white/80 bg-card/75 p-4 backdrop-blur-2xl shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,0.9),0_18px_40px_-8px_rgba(74,43,26,0.1)] sm:p-5">
+            {/* Summary Box with Frosted Glass */}
+            <div className="mt-6 space-y-3.5 rounded-3xl border border-white/85 bg-card/70 p-4 backdrop-blur-3xl shadow-[inset_0_2px_1.5px_rgba(255,255,255,0.95),0_18px_42px_-6px_rgba(56,30,16,0.08)] sm:p-5 dark:border-white/14 dark:bg-card/65">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">تعداد اقلام سبد</span>
                 <span className="font-semibold text-foreground">
@@ -258,14 +291,19 @@ export function CheckoutView({
                 <span className="text-base font-bold text-foreground">
                   مبلغ قابل پرداخت
                 </span>
-                <span className="text-base font-extrabold text-primary sm:text-lg">
+                <motion.span
+                  key={payableTotal}
+                  initial={{ opacity: 0.8, y: 2 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-base font-extrabold text-primary sm:text-lg"
+                >
                   {formatToman(payableTotal)}
-                </span>
+                </motion.span>
               </div>
             </div>
 
             {/* Staff instruction banner */}
-            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-white/70 bg-gradient-to-r from-blush/60 via-card/70 to-blush/60 p-4 text-center backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.7)]">
+            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-white/75 bg-gradient-to-r from-blush/60 via-card/70 to-blush/60 p-4 text-center backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.7)] dark:border-white/12 dark:bg-card/60">
               <span className="shrink-0 text-xs text-primary" aria-hidden="true">
                 ♥
               </span>
@@ -279,20 +317,24 @@ export function CheckoutView({
             </div>
 
             <div className="mt-5 flex items-center justify-center gap-3">
-              <button
+              <motion.button
                 type="button"
+                whileHover={{ scale: 1.015 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={onClose}
-                className="h-11 flex-1 rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition hover:bg-primary/90"
+                className="h-11 flex-1 rounded-full border border-white/50 bg-gradient-to-r from-primary via-[#cf7b24] to-[#a45414] text-sm font-bold text-primary-foreground shadow-[0_8px_24px_-4px_rgba(184,101,27,0.35)] backdrop-blur-xl transition hover:brightness-105"
               >
                 بازگشت به منو
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 type="button"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => setConfirmClearOpen(true)}
-                className="h-11 rounded-full border border-destructive/30 bg-destructive/10 px-5 text-sm font-medium text-destructive transition hover:bg-destructive/20"
+                className="h-11 rounded-full border border-destructive/35 bg-destructive/10 px-5 text-sm font-medium text-destructive backdrop-blur-md transition hover:bg-destructive/20"
               >
                 خالی کردن سبد
-              </button>
+              </motion.button>
             </div>
           </div>
         )}
@@ -302,14 +344,14 @@ export function CheckoutView({
         open={open && confirmClearOpen}
         onOpenChange={setConfirmClearOpen}
       >
-        <AlertDialogContent dir="rtl" className="z-[60] rounded-2xl">
+        <AlertDialogContent dir="rtl" className="z-[60] rounded-3xl">
           <AlertDialogHeader className="place-items-start text-right sm:place-items-start sm:text-right">
             <AlertDialogTitle>خالی کردن سبد خرید؟</AlertDialogTitle>
             <AlertDialogDescription>
               تمام آیتم‌های انتخاب‌شده از سبد خرید شما حذف خواهند شد.
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter className="rounded-b-2xl sm:justify-start">
+          <AlertDialogFooter className="rounded-b-3xl sm:justify-start">
             <AlertDialogAction
               variant="destructive"
               onClick={() => {
@@ -323,6 +365,6 @@ export function CheckoutView({
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </div>
+    </motion.div>
   );
 }

@@ -51,78 +51,94 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ── Roasted Coffee & Warm Khaki Editorial Cafe Palette ─────────────────
-   warm oat khaki · espresso roast · golden caramel · warm mocha · cream */
+/* ── 60-30-10 Brown-Based Color Palette & Glassmorphic System ─────────
+   60% Dominant:  Warm Velvet Latte / Cafe Cream Ambient Canvas (#f7f2ea)
+   30% Secondary: Deep Roasted Espresso Bean & Walnut Timber Structure (#2c1910)
+   10% Accent:    Radiant Golden Honey Caramel & Amber Glow (#b8651b) ──── */
 :root {
-  --background: #f7f3ec;
-  --foreground: #2d1e17;
-  --card: #fbf8f3;
-  --card-foreground: #2d1e17;
-  --blush: #ebdccb; /* warm khaki tone */
-  --popover: #fbf8f3;
-  --popover-foreground: #2d1e17;
-  --primary: #7a4325;
-  --primary-foreground: #fffcf8;
-  --secondary: #ede3d4;
-  --secondary-foreground: #3c291d;
-  --muted: #eae0d1;
-  --muted-foreground: #766355;
-  --accent: #e2d3be;
-  --accent-foreground: #2d1e17;
-  --destructive: #ab3a38;
-  --border: #decbb7;
-  --input: #d4bfab;
-  --ring: #945732;
-  --chart-1: #7a4325;
-  --chart-2: #c49058;
-  --chart-3: #8a9675;
-  --chart-4: #6b8c8d;
-  --chart-5: #b97f5b;
+  /* 60% Dominant Canvas */
+  --background: #f7f2ea;
+
+  /* 30% Secondary Structure & Deep Coffee Bean Typography */
+  --foreground: #2c1910;
+  --card: rgba(254, 251, 246, 0.72);
+  --card-foreground: #2c1910;
+  --blush: #ebdccb; /* warm oat tone */
+  --popover: rgba(254, 251, 246, 0.85);
+  --popover-foreground: #2c1910;
+  --secondary: rgba(240, 230, 218, 0.75);
+  --secondary-foreground: #382012;
+  --muted: #ebe1d4;
+  --muted-foreground: #785f4e;
+  --border: rgba(142, 92, 58, 0.22);
+  --input: rgba(142, 92, 58, 0.28);
+
+  /* 10% Accent Focal Points: Golden Amber Roast & Honey Caramel */
+  --primary: #b8651b;
+  --primary-foreground: #fffdf9;
+  --accent: #f4e6d4;
+  --accent-foreground: #2c1910;
+  --destructive: #b33935;
+  --ring: #b8651b;
+
+  --chart-1: #b8651b;
+  --chart-2: #8c4e23;
+  --chart-3: #5c351a;
+  --chart-4: #df9138;
+  --chart-5: #6f8566;
   --radius: 1rem;
-  --sidebar: #f2e9dc;
-  --sidebar-foreground: #2d1e17;
-  --sidebar-primary: #7a4325;
-  --sidebar-primary-foreground: #fffcf8;
-  --sidebar-accent: #e8dccb;
-  --sidebar-accent-foreground: #2d1e17;
-  --sidebar-border: #decbb7;
-  --sidebar-ring: #945732;
+
+  --sidebar: #f3eae0;
+  --sidebar-foreground: #2c1910;
+  --sidebar-primary: #b8651b;
+  --sidebar-primary-foreground: #fffdf9;
+  --sidebar-accent: #ebdccb;
+  --sidebar-accent-foreground: #2c1910;
+  --sidebar-border: rgba(142, 92, 58, 0.22);
+  --sidebar-ring: #b8651b;
 }
 
-/* Deep roasted espresso & dark soil khaki dark variant */
+/* Dark Mode: Deep Roasted Obsidian Espresso with Warm Amber Glass */
 .dark {
-  --background: #18110d;
-  --foreground: #f5ece2;
-  --card: #231914;
-  --card-foreground: #f5ece2;
-  --blush: #2e2019;
-  --popover: #231914;
-  --popover-foreground: #f5ece2;
-  --primary: #dca06d;
-  --primary-foreground: #1c110a;
-  --secondary: #2c1f18;
-  --secondary-foreground: #f2e8dc;
-  --muted: #271b15;
-  --muted-foreground: #b59e8e;
-  --accent: #382820;
-  --accent-foreground: #f7f1ea;
-  --destructive: #e06c6a;
-  --border: rgba(245, 236, 226, 0.14);
-  --input: rgba(245, 236, 226, 0.18);
-  --ring: rgba(220, 160, 109, 0.6);
-  --chart-1: #dca06d;
-  --chart-2: #dfad76;
-  --chart-3: #a4b391;
-  --chart-4: #7ea4a5;
-  --chart-5: #e19d7d;
-  --sidebar: #130d0a;
-  --sidebar-foreground: #f5ece2;
-  --sidebar-primary: #dca06d;
-  --sidebar-primary-foreground: #1c110a;
-  --sidebar-accent: #2c1f18;
-  --sidebar-accent-foreground: #f5ece2;
-  --sidebar-border: rgba(245, 236, 226, 0.14);
-  --sidebar-ring: rgba(220, 160, 109, 0.6);
+  /* 60% Dominant Deep Coffee Canvas */
+  --background: #140d09;
+
+  /* 30% Secondary Dark Frosted Glass & Warm Foam Typography */
+  --foreground: #f6ede4;
+  --card: rgba(28, 19, 14, 0.72);
+  --card-foreground: #f6ede4;
+  --blush: #2b1b13;
+  --popover: rgba(28, 19, 14, 0.85);
+  --popover-foreground: #f6ede4;
+  --secondary: rgba(38, 25, 18, 0.75);
+  --secondary-foreground: #f6ede4;
+  --muted: #241812;
+  --muted-foreground: #b7a091;
+  --border: rgba(246, 237, 228, 0.14);
+  --input: rgba(246, 237, 228, 0.2);
+
+  /* 10% Accent: Glowing Caramel Amber */
+  --primary: #df8a28;
+  --primary-foreground: #150d08;
+  --accent: #3a2519;
+  --accent-foreground: #f8f2eb;
+  --destructive: #e26765;
+  --ring: rgba(223, 138, 40, 0.6);
+
+  --chart-1: #df8a28;
+  --chart-2: #c47622;
+  --chart-3: #9b5a1f;
+  --chart-4: #e8a652;
+  --chart-5: #8ea478;
+
+  --sidebar: #100a07;
+  --sidebar-foreground: #f6ede4;
+  --sidebar-primary: #df8a28;
+  --sidebar-primary-foreground: #150d08;
+  --sidebar-accent: #261811;
+  --sidebar-accent-foreground: #f6ede4;
+  --sidebar-border: rgba(246, 237, 228, 0.14);
+  --sidebar-ring: rgba(223, 138, 40, 0.6);
 }
 
 @layer base {
@@ -133,21 +149,46 @@
     @apply bg-background text-foreground;
     background-image:
       radial-gradient(
-        900px 460px at 88% -4%,
-        rgba(224, 185, 150, 0.42),
-        transparent 68%
-      ),
-      radial-gradient(
-        820px 520px at 8% 92%,
-        rgba(235, 208, 178, 0.38),
+        920px 520px at 92% -6%,
+        rgba(218, 154, 94, 0.38),
         transparent 70%
       ),
       radial-gradient(
-        1000px 540px at 50% 25%,
-        rgba(255, 255, 255, 0.72),
+        860px 580px at 8% 94%,
+        rgba(184, 112, 62, 0.3),
+        transparent 72%
+      ),
+      radial-gradient(
+        1100px 600px at 50% 26%,
+        rgba(255, 255, 255, 0.82),
         transparent 75%
       ),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%237a4325' stroke-opacity='0.065' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M26 38c4-9 12-13 20-12-1 9-5 16-14 20'/%3E%3Cpath d='M26 38c6-5 12-8 17-10'/%3E%3Cpath d='M92 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z'/%3E%3Cpath d='M82 88c-4-7-10-10-17-9 1 7 4 13 12 16'/%3E%3Cpath d='M82 88c-5-4-10-6-14-8'/%3E%3Ccircle cx='34' cy='92' r='1.3' fill='%237a4325' fill-opacity='0.09'/%3E%3C/g%3E%3C/svg%3E");
+      radial-gradient(
+        700px 400px at 50% 80%,
+        rgba(224, 160, 96, 0.2),
+        transparent 70%
+      ),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%238c4e23' stroke-opacity='0.07' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M26 38c4-9 12-13 20-12-1 9-5 16-14 20'/%3E%3Cpath d='M26 38c6-5 12-8 17-10'/%3E%3Cpath d='M92 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z'/%3E%3Cpath d='M82 88c-4-7-10-10-17-9 1 7 4 13 12 16'/%3E%3Cpath d='M82 88c-5-4-10-6-14-8'/%3E%3Ccircle cx='34' cy='92' r='1.3' fill='%238c4e23' fill-opacity='0.09'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+  }
+  .dark body {
+    background-image:
+      radial-gradient(
+        900px 520px at 90% -6%,
+        rgba(223, 138, 40, 0.22),
+        transparent 70%
+      ),
+      radial-gradient(
+        840px 560px at 8% 92%,
+        rgba(156, 85, 33, 0.24),
+        transparent 72%
+      ),
+      radial-gradient(
+        960px 520px at 50% 28%,
+        rgba(40, 24, 16, 0.7),
+        transparent 75%
+      ),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23df8a28' stroke-opacity='0.06' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M26 38c4-9 12-13 20-12-1 9-5 16-14 20'/%3E%3Cpath d='M26 38c6-5 12-8 17-10'/%3E%3Cpath d='M92 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z'/%3E%3Cpath d='M82 88c-4-7-10-10-17-9 1 7 4 13 12 16'/%3E%3Cpath d='M82 88c-5-4-10-6-14-8'/%3E%3Ccircle cx='34' cy='92' r='1.3' fill='%23df8a28' fill-opacity='0.08'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
   }
   html {
@@ -167,38 +208,99 @@
 }
 
 @utility pattern-botanical {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='0 0 108 108'%3E%3Cg fill='none' stroke='%237a4325' stroke-opacity='0.18' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 44c5-11 14-16 24-15-1 11-6 19-17 24'/%3E%3Cpath d='M22 44c7-6 14-10 20-12'/%3E%3Cpath d='M78 26l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z'/%3E%3Cpath d='M76 80c-5-8-12-12-20-11 1 8 5 15 14 19'/%3E%3Ccircle cx='54' cy='54' r='1.5' fill='%237a4325' fill-opacity='0.22'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='0 0 108 108'%3E%3Cg fill='none' stroke='%238c4e23' stroke-opacity='0.16' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 44c5-11 14-16 24-15-1 11-6 19-17 24'/%3E%3Cpath d='M22 44c7-6 14-10 20-12'/%3E%3Cpath d='M78 26l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z'/%3E%3Cpath d='M76 80c-5-8-12-12-20-11 1 8 5 15 14 19'/%3E%3Ccircle cx='54' cy='54' r='1.5' fill='%238c4e23' fill-opacity='0.2'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* ── Heavy Glassmorphism Utilities ────────────────────────────── */
+/* ── Complete Glassmorphism Utilities ────────────────────────────── */
 @utility glass-card {
-  background-color: rgba(251, 248, 243, 0.72);
-  backdrop-filter: blur(24px) saturate(170%);
-  -webkit-backdrop-filter: blur(24px) saturate(170%);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  box-shadow:
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
-    0 12px 32px -4px rgba(60, 36, 22, 0.08);
-}
-
-@utility glass-featured {
-  background: linear-gradient(145deg, rgba(251, 248, 243, 0.85) 0%, rgba(235, 220, 203, 0.65) 100%);
+  background: linear-gradient(145deg, rgba(255, 252, 246, 0.72) 0%, rgba(246, 237, 226, 0.58) 100%);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow:
     inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.95),
-    0 18px 42px -6px rgba(74, 43, 26, 0.14);
+    0 12px 34px -6px rgba(56, 30, 16, 0.08);
+}
+.dark .glass-card {
+  background: linear-gradient(145deg, rgba(28, 19, 14, 0.72) 0%, rgba(20, 13, 9, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+    0 14px 34px -6px rgba(0, 0, 0, 0.5);
+}
+
+@utility glass-featured {
+  background: linear-gradient(145deg, rgba(255, 252, 246, 0.8) 0%, rgba(239, 226, 211, 0.55) 100%);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    0 20px 48px -8px rgba(78, 43, 22, 0.14);
+}
+.dark .glass-featured {
+  background: linear-gradient(145deg, rgba(34, 22, 16, 0.8) 0%, rgba(22, 14, 10, 0.55) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.15),
+    0 20px 48px -8px rgba(0, 0, 0, 0.6);
 }
 
 @utility glass-pill {
-  background-color: rgba(251, 248, 243, 0.75);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 252, 246, 0.7);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow:
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
-    0 4px 14px -2px rgba(60, 36, 22, 0.08);
+    0 4px 16px -2px rgba(56, 30, 16, 0.06);
+}
+.dark .glass-pill {
+  background: rgba(28, 19, 14, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.1),
+    0 4px 16px -2px rgba(0, 0, 0, 0.35);
+}
+
+@utility glass-accent {
+  background: linear-gradient(135deg, rgba(206, 122, 38, 0.94) 0%, rgba(184, 101, 27, 0.96) 100%);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.65),
+    0 8px 24px -4px rgba(184, 101, 27, 0.42);
+}
+
+@utility glass-bar {
+  background: rgba(255, 252, 246, 0.75);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 4px 20px -4px rgba(56, 30, 16, 0.06);
+}
+.dark .glass-bar {
+  background: rgba(20, 13, 9, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.4);
+}
+
+@utility glass-sheet {
+  background: linear-gradient(180deg, rgba(255, 252, 246, 0.85) 0%, rgba(246, 237, 226, 0.75) 100%);
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    inset 0 2px 2px 0 rgba(255, 255, 255, 0.95),
+    0 28px 70px -14px rgba(45, 25, 14, 0.32);
+}
+.dark .glass-sheet {
+  background: linear-gradient(180deg, rgba(28, 19, 14, 0.85) 0%, rgba(18, 12, 8, 0.78) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
+    0 28px 70px -14px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes menu-slide-out-left {

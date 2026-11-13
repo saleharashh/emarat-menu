@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeftIcon, CoffeeIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
@@ -351,10 +352,10 @@ export function MenuExplorer({
 
         {sectionItems.length === 0 ? (
           <div
-            className={`flex flex-col items-center justify-center rounded-3xl border border-white/70 bg-card/70 py-16 text-center backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_12px_32px_-4px_rgba(60,36,22,0.08)] dark:border-white/12 dark:bg-card/65 ${animClass}`}
+            className={`flex flex-col items-center justify-center rounded-3xl border border-white/80 bg-card/70 py-16 text-center backdrop-blur-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.9),0_12px_32px_-4px_rgba(56,30,16,0.08)] dark:border-white/14 dark:bg-card/65 ${animClass}`}
             style={{ "--stagger-index": 0 } as CSSProperties}
           >
-            <CoffeeIcon className="size-10 text-primary/50" />
+            <CoffeeIcon className="size-10 text-primary/60" />
             <p className="mt-3 text-sm font-bold text-foreground">
               آیتمی یافت نشد
             </p>
@@ -372,8 +373,15 @@ export function MenuExplorer({
                 : CompactItemCard;
 
               return (
-                <div
+                <motion.div
                   key={item.id}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.32,
+                    delay: Math.min(idx * 0.035, 0.25),
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className={animClass || undefined}
                   style={
                     { "--stagger-index": Math.min(idx, 6) } as CSSProperties
@@ -393,7 +401,7 @@ export function MenuExplorer({
                       interactive ? () => setQty(item.id, qty + 1) : () => {}
                     }
                   />
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -416,29 +424,33 @@ export function MenuExplorer({
 
   return (
     <>
-      {/* Sticky Top Header */}
-      <header className="sticky top-0 z-30 border-b border-white/60 bg-background/80 backdrop-blur-2xl shadow-xs dark:border-white/10 dark:bg-background/80">
+      {/* Sticky Top Header with Pure Frosted Glass */}
+      <header className="sticky top-0 z-30 border-b border-white/70 bg-background/70 backdrop-blur-3xl shadow-[0_4px_24px_-4px_rgba(56,30,16,0.06)] dark:border-white/12 dark:bg-background/70">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="w-10" aria-hidden="true" />
 
-          <button
+          <motion.button
             type="button"
+            whileHover={{ scale: 1.06, rotate: 4 }}
+            whileTap={{ scale: 0.92 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="rounded-full transition active:scale-95"
+            className="rounded-full transition"
             aria-label="کافه عمارت"
           >
             <CafeLogo className="size-12" />
-          </button>
+          </motion.button>
 
           <div className="flex w-10 items-center justify-end">
-            <button
+            <motion.button
               type="button"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.9 }}
               onClick={handleHeaderBack}
               aria-label="بازگشت"
-              className="flex size-10 items-center justify-center rounded-full border border-transparent text-foreground transition hover:border-white/70 hover:bg-card/70 hover:backdrop-blur-md active:scale-95"
+              className="flex size-10 items-center justify-center rounded-full border border-white/70 bg-card/60 text-foreground backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] transition hover:border-white hover:bg-card/90 dark:border-white/12 dark:bg-card/50"
             >
               <ChevronLeftIcon className="size-6" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </header>
@@ -460,9 +472,14 @@ export function MenuExplorer({
             </h1>
             <div className="mt-1.5 flex items-center gap-2 text-primary/70">
               <span className="h-px w-8 bg-primary/35" />
-              <span className="text-[11px]" aria-hidden="true">
+              <motion.span
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+                className="inline-block text-[11px] text-primary"
+                aria-hidden="true"
+              >
                 ♥
-              </span>
+              </motion.span>
               <span className="h-px w-8 bg-primary/35" />
             </div>
             <p className="font-serif-en mt-1 text-xs tracking-[0.2em] text-muted-foreground uppercase">
@@ -532,30 +549,52 @@ export function MenuExplorer({
         </div>
       </main>
 
-      {/* Floating Bottom Cart Bar */}
-      {count > 0 && !cartOpen && (
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 p-3 sm:p-4">
-          <div className="pointer-events-auto mx-auto max-w-2xl">
-            <button
-              type="button"
-              onClick={() => setCartOpen(true)}
-              className="flex w-full items-center justify-between rounded-full border border-white/55 bg-gradient-to-r from-primary/95 via-[#8c4d2b]/95 to-primary/95 px-5 py-3.5 text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.5),0_18px_45px_-6px_rgba(122,67,37,0.42)] backdrop-blur-2xl backdrop-saturate-200 transition-all hover:brightness-105 active:scale-[0.99]"
-            >
-              <span className="flex items-center gap-2.5">
-                <span className="flex size-7 items-center justify-center rounded-full bg-white/95 text-xs font-bold text-primary shadow-xs">
-                  {formatNumber(count)}
+      {/* Floating Bottom Cart Bar with Luminous Caramel Glass Accent and Spring Motion */}
+      <AnimatePresence>
+        {count > 0 && !cartOpen && (
+          <motion.div
+            initial={{ y: 80, opacity: 0, scale: 0.94 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 80, opacity: 0, scale: 0.94 }}
+            transition={{ type: "spring", stiffness: 420, damping: 28 }}
+            className="pointer-events-none fixed inset-x-0 bottom-0 z-40 p-3 sm:p-4"
+          >
+            <div className="pointer-events-auto mx-auto max-w-2xl">
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.015, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setCartOpen(true)}
+                className="flex w-full items-center justify-between rounded-full border border-white/60 bg-gradient-to-r from-primary via-[#cf7b24] to-[#a45414] px-5 py-3.5 text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_18px_48px_-6px_rgba(184,101,27,0.48)] backdrop-blur-3xl backdrop-saturate-200 transition-all hover:brightness-105"
+              >
+                <span className="flex items-center gap-2.5">
+                  <motion.span
+                    key={count}
+                    initial={{ scale: 1.35 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                    className="flex size-7 items-center justify-center rounded-full bg-white/95 text-xs font-bold text-primary shadow-xs"
+                  >
+                    {formatNumber(count)}
+                  </motion.span>
+                  <span className="text-sm font-bold sm:text-base">
+                    مشاهده سبد خرید
+                  </span>
                 </span>
-                <span className="text-sm font-bold sm:text-base">
-                  مشاهده سبد خرید
-                </span>
-              </span>
-              <span className="text-sm font-extrabold sm:text-base">
-                {formatToman(total)}
-              </span>
-            </button>
-          </div>
-        </div>
-      )}
+                <motion.span
+                  key={total}
+                  initial={{ opacity: 0.7, y: 3 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm font-extrabold sm:text-base"
+                >
+                  {formatToman(total)}
+                </motion.span>
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Item Detail Bottom Sheet */}
       <ItemDetailSheet

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, AnimatePresence } from "motion/react";
 import { ImageIcon, MinusIcon, PlusIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -30,7 +31,7 @@ function ItemImage({
   if (failed) {
     return (
       <div
-        className={`flex items-center justify-center bg-muted text-primary/25 ${className}`}
+        className={`flex items-center justify-center bg-muted/70 text-primary/30 ${className}`}
       >
         <ImageIcon className={iconClassName} strokeWidth={1.5} />
       </div>
@@ -57,7 +58,7 @@ export function ItemThumbnail({
   if (!src) {
     return (
       <div
-        className={`flex items-center justify-center bg-muted text-primary/25 ${className}`}
+        className={`flex items-center justify-center bg-muted/70 text-primary/30 ${className}`}
       >
         <ImageIcon className={iconClassName} strokeWidth={1.5} />
       </div>
@@ -92,7 +93,7 @@ export function ItemActionControl({
 }: ItemActionControlProps) {
   if (!item.isAvailable) {
     return (
-      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-white/60 bg-secondary/75 px-3.5 text-xs font-medium text-muted-foreground backdrop-blur-md shadow-xs">
+      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-white/70 bg-secondary/70 px-3.5 text-xs font-medium text-muted-foreground backdrop-blur-md shadow-xs dark:border-white/10 dark:bg-secondary/60">
         اتمام موجودی
       </span>
     );
@@ -100,45 +101,68 @@ export function ItemActionControl({
 
   if (qty > 0) {
     return (
-      <div
-        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-white/35 bg-gradient-to-r from-primary to-[#8c4d2b] px-1.5 text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_16px_-2px_rgba(122,67,37,0.35)] backdrop-blur-lg"
+      <motion.div
+        layout
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-white/50 bg-gradient-to-r from-primary via-[#cf7b24] to-primary px-1.5 text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.5),0_6px_18px_-2px_rgba(184,101,27,0.4)] backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
+        <motion.button
           type="button"
           onClick={onDecrease}
-          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/20 active:scale-95"
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.85 }}
+          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/20"
           aria-label={`کاهش تعداد ${item.name}`}
         >
           <MinusIcon className="size-3.5 stroke-[2.5]" />
-        </button>
-        <span className="min-w-4 text-center text-sm font-bold tabular-nums">
-          {formatNumber(qty)}
-        </span>
-        <button
+        </motion.button>
+        <div className="relative min-w-4 flex items-center justify-center overflow-hidden">
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.span
+              key={qty}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.16, ease: "easeOut" }}
+              className="text-center text-sm font-bold tabular-nums"
+            >
+              {formatNumber(qty)}
+            </motion.span>
+          </AnimatePresence>
+        </div>
+        <motion.button
           type="button"
           onClick={onIncrease}
-          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/20 active:scale-95"
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.85 }}
+          className="flex size-7 items-center justify-center rounded-full text-primary-foreground transition hover:bg-primary-foreground/20"
           aria-label={`افزودن یک عدد ${item.name}`}
         >
           <PlusIcon className="size-3.5 stroke-[2.5]" />
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
     );
   }
 
   return (
-    <button
+    <motion.button
       type="button"
+      layout
+      whileHover={{ scale: 1.12 }}
+      whileTap={{ scale: 0.88 }}
+      transition={{ type: "spring", stiffness: 500, damping: 28 }}
       onClick={(e) => {
         e.stopPropagation();
         onAdd();
       }}
       aria-label={`افزودن ${item.name} به سبد`}
-      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/40 bg-gradient-to-br from-primary to-[#8c4d2b] text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),0_6px_16px_-2px_rgba(122,67,37,0.3)] backdrop-blur-md transition hover:scale-105 active:scale-95"
+      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/55 bg-gradient-to-br from-primary to-[#cf7b24] text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_6px_18px_-2px_rgba(184,101,27,0.38)] backdrop-blur-xl"
     >
       <PlusIcon className="size-4.5 stroke-[2.2]" />
-    </button>
+    </motion.button>
   );
 }
 
@@ -148,7 +172,7 @@ function BotanicalSprig({ flipped = false }: { flipped?: boolean }) {
       viewBox="0 0 28 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`h-4 w-7 shrink-0 text-primary/70 ${flipped ? "-scale-x-100" : ""}`}
+      className={`h-4 w-7 shrink-0 text-primary/75 ${flipped ? "-scale-x-100" : ""}`}
       aria-hidden="true"
     >
       <path
@@ -186,8 +210,8 @@ interface SectionDividerProps {
 
 export function SectionDivider({ title, subtitleEn }: SectionDividerProps) {
   return (
-    <div className="my-3 flex items-center gap-3 py-2">
-      <span className="h-px flex-1 bg-gradient-to-l from-transparent via-border to-primary/40" />
+    <div className="my-3.5 flex items-center gap-3 py-2">
+      <span className="h-px flex-1 bg-gradient-to-l from-transparent via-border to-primary/50" />
       <span className="flex items-center gap-2.5">
         <BotanicalSprig />
         <span className="text-center">
@@ -195,14 +219,14 @@ export function SectionDivider({ title, subtitleEn }: SectionDividerProps) {
             {title}
           </h2>
           {subtitleEn && (
-            <p className="font-serif-en mt-0.5 text-xs font-medium tracking-[0.16em] text-primary uppercase">
+            <p className="font-serif-en mt-0.5 text-xs font-medium tracking-[0.18em] text-primary uppercase">
               {subtitleEn}
             </p>
           )}
         </span>
         <BotanicalSprig flipped />
       </span>
-      <span className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-primary/40" />
+      <span className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-primary/50" />
     </div>
   );
 }
@@ -227,18 +251,21 @@ export function FeaturedItemCard({
   const image = resolveImageUrl(item.imageUrl);
 
   return (
-    <article
+    <motion.article
       onClick={onSelect}
-      className="cursor-pointer overflow-hidden rounded-3xl border border-white/80 bg-gradient-to-br from-card/85 via-blush/45 to-card/70 backdrop-blur-2xl shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,0.9),0_18px_40px_-8px_rgba(74,43,26,0.12)] transition-all duration-300 hover:border-white hover:shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,1),0_22px_48px_-6px_rgba(122,67,37,0.18)] dark:border-white/15 dark:bg-gradient-to-br dark:from-card/80 dark:to-card/50 dark:shadow-[0_18px_40px_-8px_rgba(0,0,0,0.5)]"
+      whileHover={{ y: -3, scale: 1.008 }}
+      whileTap={{ scale: 0.985 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className="cursor-pointer overflow-hidden rounded-3xl border border-white/85 bg-gradient-to-br from-card/85 via-blush/40 to-card/70 backdrop-blur-3xl shadow-[inset_0_2px_2px_rgba(255,255,255,0.95),0_20px_46px_-8px_rgba(78,43,22,0.12)] transition-colors hover:border-white hover:shadow-[inset_0_2px_2px_rgba(255,255,255,1),0_24px_54px_-6px_rgba(184,101,27,0.22)] dark:border-white/16 dark:bg-gradient-to-br dark:from-card/75 dark:to-card/45 dark:shadow-[0_20px_46px_-8px_rgba(0,0,0,0.55)]"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/60">
         <ItemThumbnail
           src={image}
           alt={item.name}
-          className="size-full"
+          className="size-full transition-transform duration-500 hover:scale-105"
           iconClassName="size-12"
         />
-        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/40 bg-primary/90 px-3.5 py-1 text-xs font-semibold text-primary-foreground shadow-md backdrop-blur-md">
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/50 bg-gradient-to-r from-primary/95 to-[#cf7b24]/95 px-3.5 py-1 text-xs font-semibold text-primary-foreground shadow-md backdrop-blur-md">
           <span aria-hidden="true">✦</span>
           پیشنهاد مجموعه
         </span>
@@ -260,10 +287,10 @@ export function FeaturedItemCard({
         )}
 
         <div className="mt-4 flex items-center gap-3">
-          <span className="text-sm font-bold whitespace-nowrap text-primary sm:text-base">
+          <span className="text-sm font-extrabold whitespace-nowrap text-primary sm:text-base">
             {formatToman(item.price)}
           </span>
-          <span className="h-px flex-1 border-b border-dotted border-primary/30" />
+          <span className="h-px flex-1 border-b border-dotted border-border" />
           <ItemActionControl
             item={item}
             qty={qty}
@@ -273,7 +300,7 @@ export function FeaturedItemCard({
           />
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -288,9 +315,12 @@ export function CompactItemCard({
   const image = resolveImageUrl(item.imageUrl);
 
   return (
-    <article
+    <motion.article
       onClick={onSelect}
-      className="cursor-pointer rounded-3xl border border-white/75 bg-card/75 p-4 backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_12px_32px_-4px_rgba(60,36,22,0.07)] transition-all duration-300 hover:border-white hover:bg-card/90 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_18px_36px_-4px_rgba(122,67,37,0.14)] dark:border-white/12 dark:bg-card/65 dark:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.4)]"
+      whileHover={{ y: -2, scale: 1.008 }}
+      whileTap={{ scale: 0.985 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className="cursor-pointer rounded-3xl border border-white/80 bg-card/70 p-4 backdrop-blur-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.9),0_12px_32px_-4px_rgba(56,30,16,0.08)] transition-colors hover:border-white hover:bg-card/85 hover:shadow-[inset_0_1.5px_1px_rgba(255,255,255,1),0_18px_38px_-4px_rgba(184,101,27,0.16)] dark:border-white/14 dark:bg-card/65 dark:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.4)]"
     >
       <div className="flex items-center justify-between gap-3.5">
         <div className="min-w-0 flex-1">
@@ -309,18 +339,18 @@ export function CompactItemCard({
           )}
         </div>
 
-        <div className="size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/80 bg-muted shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_16px_-2px_rgba(60,36,22,0.12)] ring-2 ring-primary/20 sm:size-28">
+        <div className="size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/90 bg-muted/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_6px_18px_-2px_rgba(56,30,16,0.1)] ring-2 ring-primary/25 sm:size-28">
           <ItemThumbnail
             src={image}
             alt={item.name}
-            className="size-full"
+            className="size-full transition-transform duration-500 hover:scale-105"
             iconClassName="size-8"
           />
         </div>
       </div>
 
       <div className="mt-3.5 flex items-center gap-3">
-        <span className="text-sm font-bold whitespace-nowrap text-primary sm:text-base">
+        <span className="text-sm font-extrabold whitespace-nowrap text-primary sm:text-base">
           {formatToman(item.price)}
         </span>
         <span className="h-px flex-1 border-b border-dotted border-border" />
@@ -332,6 +362,6 @@ export function CompactItemCard({
           onIncrease={onIncrease}
         />
       </div>
-    </article>
+    </motion.article>
   );
 }

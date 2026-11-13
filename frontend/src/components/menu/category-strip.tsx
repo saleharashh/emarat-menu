@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "motion/react";
 import { useEffect, useRef } from "react";
 
 import { getCategoryIcon } from "@/lib/category-icons";
@@ -66,17 +67,20 @@ export function CategoryStrip({
           const Icon = getCategoryIcon(category.icon);
 
           return (
-            <button
+            <motion.button
               key={category.id}
               ref={(el) => {
                 buttonRefs.current[category.id] = el;
               }}
               type="button"
               onClick={() => handleClick(category.id)}
-              className={`group relative h-[84px] w-[144px] shrink-0 overflow-hidden rounded-2xl backdrop-blur-md transition-all sm:h-[92px] sm:w-[164px] ${
+              whileHover={{ scale: 1.025, y: -1 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 450, damping: 25 }}
+              className={`group relative h-[86px] w-[148px] shrink-0 overflow-hidden rounded-2xl backdrop-blur-xl transition-all sm:h-[94px] sm:w-[168px] ${
                 isActive
-                  ? "border border-white/70 ring-2 ring-primary ring-offset-2 ring-offset-background shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.7),0_12px_26px_-4px_rgba(122,67,37,0.25)]"
-                  : "border border-white/60 bg-card/50 opacity-85 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_6px_16px_-2px_rgba(60,36,22,0.06)] hover:opacity-100 hover:border-white/90"
+                  ? "border-2 border-primary ring-4 ring-primary/25 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.85),0_14px_30px_-4px_rgba(184,101,27,0.35)]"
+                  : "border border-white/75 bg-card/60 opacity-85 shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_6px_18px_-2px_rgba(56,30,16,0.06)] hover:opacity-100 hover:border-white hover:bg-card/85 dark:border-white/12 dark:bg-card/60"
               }`}
             >
               {coverImage ? (
@@ -89,7 +93,7 @@ export function CategoryStrip({
                   }`}
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blush/90 via-card/80 to-secondary/80 backdrop-blur-md">
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blush/80 via-card/75 to-secondary/75 backdrop-blur-md">
                   {Icon && (
                     <Icon className="size-8 text-primary/50" strokeWidth={1.5} />
                   )}
@@ -99,8 +103,8 @@ export function CategoryStrip({
               <div
                 className={`absolute inset-0 ${
                   isActive
-                    ? "bg-gradient-to-t from-[#27170f]/85 via-[#27170f]/40 to-[#27170f]/15"
-                    : "bg-[#27170f]/50"
+                    ? "bg-gradient-to-t from-[#201109]/90 via-[#201109]/45 to-transparent"
+                    : "bg-gradient-to-t from-[#201109]/80 via-[#201109]/40 to-[#201109]/20"
                 }`}
               />
 
@@ -114,43 +118,55 @@ export function CategoryStrip({
                   </span>
                 )}
               </div>
-            </button>
+            </motion.button>
           );
         })}
       </div>
 
-      {/* Subcategory pill tabs (shown when active category has children) */}
+      {/* Subcategory pill tabs with Framer Motion layoutId */}
       {subcategories.length > 0 && (
         <div className="no-scrollbar flex items-center gap-2 overflow-x-auto px-4 pb-1">
           {subcategories.map((sub) => {
             const isActive = sub.id === activeSubcategoryId;
             return (
-              <button
+              <motion.button
                 key={sub.id}
                 ref={(el) => {
                   subButtonRefs.current[sub.id] = el;
                 }}
                 type="button"
                 onClick={() => onSelectSubcategory(sub.id)}
-                className={`shrink-0 rounded-full px-4 py-2 text-center backdrop-blur-xl transition-all ${
-                  isActive
-                    ? "border border-white/40 bg-gradient-to-r from-primary to-[#8c4d2b] text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_8px_20px_-3px_rgba(122,67,37,0.3)]"
-                    : "border border-white/80 bg-card/70 text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_4px_14px_-2px_rgba(60,36,22,0.06)] hover:bg-card/90 hover:border-white"
-                }`}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative shrink-0 rounded-full px-4 py-2 text-center backdrop-blur-2xl transition-all"
               >
-                <span className="block text-xs font-bold sm:text-sm">
+                {isActive && (
+                  <motion.div
+                    layoutId="activeSubcategoryPill"
+                    className="absolute inset-0 rounded-full border border-white/55 bg-gradient-to-r from-primary via-[#cf7b24] to-primary shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_8px_24px_-3px_rgba(184,101,27,0.42)]"
+                    transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                  />
+                )}
+                {!isActive && (
+                  <div className="absolute inset-0 rounded-full border border-white/80 bg-card/70 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_4px_16px_-2px_rgba(56,30,16,0.06)] hover:bg-card/90 hover:border-white dark:border-white/12 dark:bg-card/65" />
+                )}
+                <span
+                  className={`relative z-10 block text-xs font-bold sm:text-sm transition-colors ${
+                    isActive ? "text-primary-foreground" : "text-foreground"
+                  }`}
+                >
                   {sub.name}
                 </span>
                 {sub.nameEn && (
                   <span
-                    className={`font-serif-en mt-0.5 block text-[11px] font-medium italic ${
+                    className={`font-serif-en relative z-10 mt-0.5 block text-[11px] font-medium italic transition-colors ${
                       isActive ? "text-primary-foreground/90" : "text-muted-foreground"
                     }`}
                   >
                     {sub.nameEn}
                   </span>
                 )}
-              </button>
+              </motion.button>
             );
           })}
         </div>
