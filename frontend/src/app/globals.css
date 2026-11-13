@@ -1,19 +1,41 @@
+@import "shabnam-font/dist/font-face.css";
 @import "vazirmatn/Vazirmatn-font-face.css";
 @import "vazirmatn/Vazirmatn-Variable-font-face.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: 'Shabnam-FD';
+  src: url('shabnam-font/dist/Farsi-Digits/Shabnam-FD.woff2') format('woff2'),
+       url('shabnam-font/dist/Farsi-Digits/Shabnam-FD.woff') format('woff');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Shabnam-FD';
+  src: url('shabnam-font/dist/Farsi-Digits/Shabnam-Bold-FD.woff2') format('woff2'),
+       url('shabnam-font/dist/Farsi-Digits/Shabnam-Bold-FD.woff') format('woff');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Shabnam-FD';
+  src: url('shabnam-font/dist/Farsi-Digits/Shabnam-Medium-FD.woff2') format('woff2'),
+       url('shabnam-font/dist/Farsi-Digits/Shabnam-Medium-FD.woff') format('woff');
+  font-weight: 500;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-display: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-traditional: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif-fa: "Shabnam", "Shabnam-FD", serif;
   --font-serif-en: "Cormorant Garamond", Georgia, serif;
-  --font-heading: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --color-blush: var(--blush);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -53,93 +75,94 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ── Clean Smoked Crystal Glassmorphism System ─────────────────────────
-   Obsidian & Smoked Quartz Canvas with Radiant Liquid Amber Caustics
-   Reduced white & cream tones for true high-refraction optical glass ──── */
+/* ── Traditional Persian Haveli & Teahouse Design System ───────────────
+   عمارت قاجاری: لاجوردی، فیروزه‌ای نیشابور، طلای زعفرانی، لاکی اناری و طاق جناغی ─── */
 :root {
-  --font-sans: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-heading: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-traditional: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif-fa: "Shabnam", "Shabnam-FD", serif;
   --font-serif-en: "Cormorant Garamond", Georgia, serif;
 
-  /* Deep Atmospheric Smoked Glass Canvas */
-  --background: #0d0a08;
-  --foreground: #faf9f6;
+  /* Deep Atmospheric Persian Midnight Indigo Canvas (شبستان عمارت) */
+  --background: #0a0f15;
+  --foreground: #fbf8f1;
 
-  /* Crystal Glass Surfaces */
-  --card: rgba(22, 16, 13, 0.55);
-  --card-foreground: #faf9f6;
-  --blush: #1c140f;
-  --popover: rgba(18, 13, 10, 0.78);
-  --popover-foreground: #faf9f6;
-  --secondary: rgba(255, 255, 255, 0.07);
-  --secondary-foreground: #f3ede7;
+  /* Traditional glazed surfaces with gold filigree */
+  --card: rgba(16, 23, 33, 0.76);
+  --card-foreground: #fbf8f1;
+  --blush: #182230;
+  --popover: rgba(13, 19, 28, 0.92);
+  --popover-foreground: #fbf8f1;
+  --secondary: rgba(20, 143, 150, 0.14);
+  --secondary-foreground: #5eead4;
   --muted: rgba(255, 255, 255, 0.06);
-  --muted-foreground: #b5a89c;
-  --border: rgba(255, 255, 255, 0.13);
-  --input: rgba(255, 255, 255, 0.14);
+  --muted-foreground: #b8ab9b;
+  --border: rgba(229, 170, 56, 0.22);
+  --input: rgba(229, 170, 56, 0.2);
 
-  /* Elegant Champagne-Gold Smoked Glass Accents */
-  --primary: #d9903b;
-  --primary-foreground: #0c0805;
-  --accent: rgba(217, 144, 59, 0.12);
-  --accent-foreground: #fde68a;
-  --destructive: #ef4444;
-  --ring: rgba(217, 144, 59, 0.4);
+  /* Authentic Saffron Gold & Madder/Turquoise Accents */
+  --primary: #e5aa38;
+  --primary-foreground: #090e13;
+  --accent: rgba(20, 143, 150, 0.18);
+  --accent-foreground: #5eead4;
+  --destructive: #b91c1c;
+  --ring: rgba(229, 170, 56, 0.45);
 
-  --chart-1: #d9903b;
-  --chart-2: #b45309;
-  --chart-3: #92400e;
-  --chart-4: #e09f47;
+  --chart-1: #e5aa38;
+  --chart-2: #148f96;
+  --chart-3: #99222c;
+  --chart-4: #c4693d;
   --chart-5: #10b981;
   --radius: 1rem;
 
-  --sidebar: #0f0c09;
-  --sidebar-foreground: #faf9f6;
-  --sidebar-primary: #d9903b;
-  --sidebar-primary-foreground: #0c0805;
-  --sidebar-accent: rgba(255, 255, 255, 0.08);
-  --sidebar-accent-foreground: #faf9f6;
-  --sidebar-border: rgba(255, 255, 255, 0.12);
-  --sidebar-ring: rgba(217, 144, 59, 0.4);
+  --sidebar: #0d131b;
+  --sidebar-foreground: #fbf8f1;
+  --sidebar-primary: #e5aa38;
+  --sidebar-primary-foreground: #090e13;
+  --sidebar-accent: rgba(20, 143, 150, 0.14);
+  --sidebar-accent-foreground: #fbf8f1;
+  --sidebar-border: rgba(229, 170, 56, 0.2);
+  --sidebar-ring: rgba(229, 170, 56, 0.45);
 }
 
 .dark {
-  --background: #0d0a08;
-  --foreground: #faf9f6;
-  --card: rgba(22, 16, 13, 0.55);
-  --card-foreground: #faf9f6;
-  --blush: #1c140f;
-  --popover: rgba(18, 13, 10, 0.78);
-  --popover-foreground: #faf9f6;
-  --secondary: rgba(255, 255, 255, 0.07);
-  --secondary-foreground: #f3ede7;
+  --background: #0a0f15;
+  --foreground: #fbf8f1;
+  --card: rgba(16, 23, 33, 0.76);
+  --card-foreground: #fbf8f1;
+  --blush: #182230;
+  --popover: rgba(13, 19, 28, 0.92);
+  --popover-foreground: #fbf8f1;
+  --secondary: rgba(20, 143, 150, 0.14);
+  --secondary-foreground: #5eead4;
   --muted: rgba(255, 255, 255, 0.06);
-  --muted-foreground: #b5a89c;
-  --border: rgba(255, 255, 255, 0.13);
-  --input: rgba(255, 255, 255, 0.14);
+  --muted-foreground: #b8ab9b;
+  --border: rgba(229, 170, 56, 0.22);
+  --input: rgba(229, 170, 56, 0.2);
 
-  --primary: #d9903b;
-  --primary-foreground: #0c0805;
-  --accent: rgba(217, 144, 59, 0.12);
-  --accent-foreground: #fde68a;
-  --destructive: #ef4444;
-  --ring: rgba(217, 144, 59, 0.4);
+  --primary: #e5aa38;
+  --primary-foreground: #090e13;
+  --accent: rgba(20, 143, 150, 0.18);
+  --accent-foreground: #5eead4;
+  --destructive: #b91c1c;
+  --ring: rgba(229, 170, 56, 0.45);
 
-  --chart-1: #d9903b;
-  --chart-2: #b45309;
-  --chart-3: #92400e;
-  --chart-4: #e09f47;
+  --chart-1: #e5aa38;
+  --chart-2: #148f96;
+  --chart-3: #99222c;
+  --chart-4: #c4693d;
   --chart-5: #10b981;
 
-  --sidebar: #0f0c09;
-  --sidebar-foreground: #faf9f6;
-  --sidebar-primary: #d9903b;
-  --sidebar-primary-foreground: #0c0805;
-  --sidebar-accent: rgba(255, 255, 255, 0.08);
-  --sidebar-accent-foreground: #faf9f6;
-  --sidebar-border: rgba(255, 255, 255, 0.12);
-  --sidebar-ring: rgba(217, 144, 59, 0.4);
+  --sidebar: #0d131b;
+  --sidebar-foreground: #fbf8f1;
+  --sidebar-primary: #e5aa38;
+  --sidebar-primary-foreground: #090e13;
+  --sidebar-accent: rgba(20, 143, 150, 0.14);
+  --sidebar-accent-foreground: #fbf8f1;
+  --sidebar-border: rgba(229, 170, 56, 0.2);
+  --sidebar-ring: rgba(229, 170, 56, 0.45);
 }
 
 @layer base {
@@ -162,40 +185,40 @@
     background-image:
       radial-gradient(
         920px 520px at 90% -6%,
-        rgba(217, 144, 59, 0.045),
+        rgba(229, 170, 56, 0.05),
         transparent 70%
       ),
       radial-gradient(
         860px 580px at 8% 94%,
-        rgba(180, 83, 9, 0.035),
+        rgba(20, 143, 150, 0.04),
         transparent 72%
       ),
       radial-gradient(
         960px 520px at 50% 28%,
-        rgba(24, 17, 13, 0.7),
+        rgba(15, 22, 32, 0.75),
         transparent 75%
       ),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23d9903b' stroke-opacity='0.02' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M26 38c4-9 12-13 20-12-1 9-5 16-14 20'/%3E%3Cpath d='M26 38c6-5 12-8 17-10'/%3E%3Cpath d='M92 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z'/%3E%3Cpath d='M82 88c-4-7-10-10-17-9 1 7 4 13 12 16'/%3E%3Cpath d='M82 88c-5-4-10-6-14-8'/%3E%3Ccircle cx='34' cy='92' r='1.3' fill='%23d9903b' fill-opacity='0.02'/%3E%3C/g%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23e5aa38' stroke-opacity='0.035' stroke-width='0.9'%3E%3Cpolygon points='48,6 90,48 48,90 6,48'/%3E%3Cpolygon points='48,18 78,48 48,78 18,48'/%3E%3Ccircle cx='48' cy='48' r='14' stroke='%23148f96' stroke-opacity='0.04'/%3E%3Cpath d='M48 0v96M0 48h96' stroke-opacity='0.02'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
   }
   .dark body {
     background-image:
       radial-gradient(
         920px 520px at 90% -6%,
-        rgba(217, 144, 59, 0.045),
+        rgba(229, 170, 56, 0.05),
         transparent 70%
       ),
       radial-gradient(
         860px 580px at 8% 94%,
-        rgba(180, 83, 9, 0.035),
+        rgba(20, 143, 150, 0.04),
         transparent 72%
       ),
       radial-gradient(
         960px 520px at 50% 28%,
-        rgba(24, 17, 13, 0.7),
+        rgba(15, 22, 32, 0.75),
         transparent 75%
       ),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23d9903b' stroke-opacity='0.02' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M26 38c4-9 12-13 20-12-1 9-5 16-14 20'/%3E%3Cpath d='M26 38c6-5 12-8 17-10'/%3E%3Cpath d='M92 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z'/%3E%3Cpath d='M82 88c-4-7-10-10-17-9 1 7 4 13 12 16'/%3E%3Cpath d='M82 88c-5-4-10-6-14-8'/%3E%3Ccircle cx='34' cy='92' r='1.3' fill='%23d9903b' fill-opacity='0.02'/%3E%3C/g%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23e5aa38' stroke-opacity='0.035' stroke-width='0.9'%3E%3Cpolygon points='48,6 90,48 48,90 6,48'/%3E%3Cpolygon points='48,18 78,48 48,78 18,48'/%3E%3Ccircle cx='48' cy='48' r='14' stroke='%23148f96' stroke-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
   }
   .dark {
@@ -211,13 +234,19 @@
 }
 
 @utility font-sans {
-  font-family: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 @utility font-display {
-  font-family: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 @utility font-heading {
-  font-family: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+@utility font-traditional {
+  font-family: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+@utility font-amiri {
+  font-family: "Shabnam", "Shabnam-FD", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 @utility font-serif-en {
   font-family: "Cormorant Garamond", Georgia, serif;
@@ -230,8 +259,30 @@
   }
 }
 
+@utility pattern-girih {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23e5aa38' stroke-opacity='0.04' stroke-width='0.9'%3E%3Cpolygon points='48,6 90,48 48,90 6,48'/%3E%3Cpolygon points='48,18 78,48 48,78 18,48'/%3E%3Ccircle cx='48' cy='48' r='14' stroke='%23148f96' stroke-opacity='0.05'/%3E%3Cpath d='M48 0v96M0 48h96' stroke-opacity='0.02'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 @utility pattern-botanical {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='0 0 108 108'%3E%3Cg fill='none' stroke='%238c4e23' stroke-opacity='0.16' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 44c5-11 14-16 24-15-1 11-6 19-17 24'/%3E%3Cpath d='M22 44c7-6 14-10 20-12'/%3E%3Cpath d='M78 26l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z'/%3E%3Cpath d='M76 80c-5-8-12-12-20-11 1 8 5 15 14 19'/%3E%3Ccircle cx='54' cy='54' r='1.5' fill='%238c4e23' fill-opacity='0.2'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23e5aa38' stroke-opacity='0.04' stroke-width='0.9'%3E%3Cpolygon points='48,6 90,48 48,90 6,48'/%3E%3Cpolygon points='48,18 78,48 48,78 18,48'/%3E%3Ccircle cx='48' cy='48' r='14' stroke='%23148f96' stroke-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── Persian Mansion & Teahouse Cards & Surfaces ── */
+@utility persian-card {
+  background: linear-gradient(145deg, rgba(24, 33, 47, 0.72) 0%, rgba(14, 20, 30, 0.8) 100%);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(229, 170, 56, 0.22);
+  box-shadow:
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.5),
+    0 12px 32px -8px rgba(0, 0, 0, 0.7),
+    0 0 24px -10px rgba(229, 170, 56, 0.08);
+}
+
+@utility arch-top {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }
 
 /* ── Complete Ultra-Clean Crystal Glassmorphism Utilities (High Performance) ── */

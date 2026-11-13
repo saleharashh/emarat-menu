@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { ImageIcon, MinusIcon, PlusIcon } from "lucide-react";
+import { FlameIcon, ImageIcon, MinusIcon, PlusIcon, SnowflakeIcon, SparklesIcon } from "lucide-react";
 import { useState } from "react";
 
 import { formatNumber, formatToman } from "@/lib/format";
@@ -31,7 +31,7 @@ function ItemImage({
   if (failed) {
     return (
       <div
-        className={`flex items-center justify-center bg-muted/70 text-primary/30 ${className}`}
+        className={`flex items-center justify-center bg-[#131b26] text-amber-400/40 ${className}`}
       >
         <ImageIcon className={iconClassName} strokeWidth={1.5} />
       </div>
@@ -60,7 +60,7 @@ export function ItemThumbnail({
   if (!src) {
     return (
       <div
-        className={`flex items-center justify-center bg-muted/70 text-primary/30 ${className}`}
+        className={`flex items-center justify-center bg-[#131b26] text-amber-400/40 ${className}`}
       >
         <ImageIcon className={iconClassName} strokeWidth={1.5} />
       </div>
@@ -76,6 +76,36 @@ export function ItemThumbnail({
       iconClassName={iconClassName}
     />
   );
+}
+
+export interface TraditionalMeta {
+  temperament?: "طبع گرم" | "طبع خنک" | "معتدل";
+  specialBadge?: string;
+  isHot?: boolean;
+  isCool?: boolean;
+}
+
+export function getTraditionalMeta(item: MenuItem): TraditionalMeta {
+  const name = item.name;
+  if (name.includes("زعفران") || name.includes("نبات") || name.includes("دارچین") || name.includes("هل")) {
+    return { temperament: "طبع گرم", specialBadge: "زعفران سرگل و هل", isHot: true };
+  }
+  if (name.includes("سکنجبین") || name.includes("خیار") || name.includes("نعنا")) {
+    return { temperament: "طبع خنک", specialBadge: "سکنجبین سنتی عمارت", isCool: true };
+  }
+  if (name.includes("بیدمشک") || name.includes("گلاب") || name.includes("بهارنارنج")) {
+    return { temperament: "طبع خنک", specialBadge: "عرق ناب و گلاب اعلا", isCool: true };
+  }
+  if (name.includes("ترک") || name.includes("قهوه")) {
+    return { temperament: "طبع گرم", specialBadge: "دم‌کشیده در جذوه مسی", isHot: true };
+  }
+  if (name.includes("فالوده") || name.includes("شولی") || name.includes("آش")) {
+    return { temperament: "طبع خنک", specialBadge: "طعم اصیل دیار بادگیرها", isCool: true };
+  }
+  if (name.includes("باقلوا") || name.includes("قطاب") || name.includes("شله") || name.includes("پشمک")) {
+    return { temperament: "طبع گرم", specialBadge: "دست‌پخت سنتی یزد", isHot: true };
+  }
+  return { temperament: "معتدل" };
 }
 
 interface ItemActionControlProps {
@@ -95,8 +125,8 @@ export function ItemActionControl({
 }: ItemActionControlProps) {
   if (!item.isAvailable) {
     return (
-      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/[0.05] px-3.5 text-xs font-medium text-stone-400 backdrop-blur-md shadow-xs">
-        اتمام موجودی
+      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-amber-500/20 bg-stone-900/60 px-3.5 text-xs font-medium text-stone-400 backdrop-blur-md shadow-xs">
+        تمام شد
       </span>
     );
   }
@@ -108,7 +138,7 @@ export function ItemActionControl({
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-white/30 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] px-1.5 text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_6px_18px_rgba(217,144,59,0.25)] backdrop-blur-xl"
+        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-amber-300/40 bg-gradient-to-r from-[#d97706] via-[#f59e0b] to-[#d97706] px-1.5 text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_6px_18px_rgba(229,170,56,0.35)] backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <motion.button
@@ -116,7 +146,7 @@ export function ItemActionControl({
           onClick={onDecrease}
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.85 }}
-          className="flex size-7 items-center justify-center rounded-full text-stone-950 transition hover:bg-black/15"
+          className="flex size-7 items-center justify-center rounded-full text-stone-950 transition hover:bg-black/15 cursor-pointer"
           aria-label={`کاهش تعداد ${item.name}`}
         >
           <MinusIcon className="size-3.5 stroke-[2.5]" />
@@ -140,7 +170,7 @@ export function ItemActionControl({
           onClick={onIncrease}
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.85 }}
-          className="flex size-7 items-center justify-center rounded-full text-stone-950 transition hover:bg-black/15"
+          className="flex size-7 items-center justify-center rounded-full text-stone-950 transition hover:bg-black/15 cursor-pointer"
           aria-label={`افزودن یک عدد ${item.name}`}
         >
           <PlusIcon className="size-3.5 stroke-[2.5]" />
@@ -160,45 +190,48 @@ export function ItemActionControl({
         e.stopPropagation();
         onAdd();
       }}
-      aria-label={`افزودن ${item.name} به سبد`}
-      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/35 bg-gradient-to-br from-[#ca8234] via-[#df9b47] to-[#ca8234] text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_6px_18px_rgba(217,144,59,0.25)] backdrop-blur-xl"
+      aria-label={`افزودن ${item.name} به سفارش`}
+      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-amber-300/50 bg-gradient-to-br from-[#d97706] via-[#f59e0b] to-[#d97706] text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_6px_18px_rgba(229,170,56,0.35)] backdrop-blur-xl cursor-pointer"
     >
       <PlusIcon className="size-4.5 stroke-[2.5]" />
     </motion.button>
   );
 }
 
-function BotanicalSprig({ flipped = false }: { flipped?: boolean }) {
+function PersianEslimiSprig({ flipped = false }: { flipped?: boolean }) {
   return (
     <svg
-      viewBox="0 0 28 16"
+      viewBox="0 0 36 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`h-4 w-7 shrink-0 text-primary/75 ${flipped ? "-scale-x-100" : ""}`}
+      className={`h-4.5 w-9 shrink-0 text-amber-400/80 ${flipped ? "-scale-x-100" : ""}`}
       aria-hidden="true"
     >
       <path
-        d="M2 13C7.5 11.5 14 8 24 4.5"
+        d="M2 14C8 13 16 8 32 4"
         stroke="currentColor"
-        strokeWidth="1.2"
+        strokeWidth="1.4"
         strokeLinecap="round"
       />
       <path
-        d="M9 10.6C7.5 7.8 8.5 5 11 4C11.8 6.8 11 9.2 9 10.6Z"
+        d="M10 11.5C8 8.5 9 5 12.5 4C13.5 7 12.5 9.5 10 11.5Z"
         stroke="currentColor"
-        strokeWidth="1.15"
+        strokeWidth="1.2"
+        fill="rgba(20,143,150,0.22)"
         strokeLinejoin="round"
       />
       <path
-        d="M15.5 8C14.8 5.2 16.4 2.8 19 2.4C19.2 5 17.8 7 15.5 8Z"
+        d="M19 8.5C18 5.5 20 3 23 2.5C23.5 5.5 22 7.5 19 8.5Z"
         stroke="currentColor"
-        strokeWidth="1.15"
+        strokeWidth="1.2"
+        fill="rgba(229,170,56,0.25)"
         strokeLinejoin="round"
       />
       <path
-        d="M13 9.2C14.5 11.4 16.8 12.2 19 11.2C17.8 9.2 15.5 8.4 13 9.2Z"
+        d="M16 10C18 12.5 21 13 23.5 12C22 9.5 19.5 9 16 10Z"
         stroke="currentColor"
-        strokeWidth="1.15"
+        strokeWidth="1.2"
+        fill="rgba(20,143,150,0.22)"
         strokeLinejoin="round"
       />
     </svg>
@@ -212,23 +245,23 @@ interface SectionDividerProps {
 
 export function SectionDivider({ title, subtitleEn }: SectionDividerProps) {
   return (
-    <div className="my-4 flex items-center gap-3 py-2">
-      <span className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-500/30 to-amber-400/50" />
-      <span className="flex items-center gap-2.5">
-        <BotanicalSprig />
-        <span className="text-center">
-          <h2 className="font-display text-lg font-bold text-white sm:text-xl">
+    <div className="my-5 flex items-center gap-3 py-2">
+      <span className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-400/40 to-teal-400/50" />
+      <span className="flex items-center gap-2">
+        <PersianEslimiSprig />
+        <span className="text-center px-1">
+          <h2 className="font-heading text-xl font-bold tracking-tight text-[#fbf8f1] sm:text-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
             {title}
           </h2>
           {subtitleEn && (
-            <p className="font-serif-en mt-0.5 text-xs font-medium tracking-[0.2em] text-amber-300/80 uppercase">
+            <p className="font-serif-en mt-0.5 text-xs font-semibold tracking-[0.22em] text-amber-300/85 uppercase">
               {subtitleEn}
             </p>
           )}
         </span>
-        <BotanicalSprig flipped />
+        <PersianEslimiSprig flipped />
       </span>
-      <span className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/30 to-amber-400/50" />
+      <span className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-400/40 to-teal-400/50" />
     </div>
   );
 }
@@ -251,6 +284,7 @@ export function FeaturedItemCard({
   onIncrease,
 }: MenuItemCardProps) {
   const image = resolveImageUrl(item.imageUrl);
+  const meta = getTraditionalMeta(item);
 
   return (
     <motion.article
@@ -258,44 +292,63 @@ export function FeaturedItemCard({
       whileHover={{ y: -3, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-featured transition-all duration-300 hover:border-amber-400/35 hover:shadow-[inset_0_2px_2px_rgba(255,255,255,0.4),0_24px_50px_-8px_rgba(217,144,59,0.18)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent"
+      className="group relative cursor-pointer overflow-hidden rounded-[32px] sm:rounded-[38px] border border-amber-400/35 bg-gradient-to-b from-[#182333]/90 via-[#101925]/90 to-[#0b1018]/95 p-0.5 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.15),0_18px_45px_rgba(0,0,0,0.75)] transition-all duration-300 hover:border-amber-400/60 hover:shadow-[0_20px_50px_rgba(229,170,56,0.15)] ring-1 ring-teal-500/20"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/40">
+      {/* Persian Arch-styled Header Image */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-[30px] sm:rounded-t-[36px] bg-[#0c121a]">
         <ItemThumbnail
           src={image}
           alt={item.name}
           className="size-full transition-transform duration-500 group-hover:scale-105"
           iconClassName="size-12"
         />
-        {/* Optical Glass Sheen over visual */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-white/10" />
+        {/* Warm lantern gradient over visual */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b1018] via-transparent to-black/30" />
 
-        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-gradient-to-r from-[#ca8234]/95 via-[#df9b47]/95 to-[#ca8234]/95 px-3 py-0.5 text-xs font-bold text-stone-950 shadow-[0_4px_14px_rgba(217,144,59,0.25),inset_0_1px_1px_rgba(255,255,255,0.7)] backdrop-blur-xl">
-          <span aria-hidden="true">✦</span>
-          پیشنهاد مجموعه
-        </span>
+        {/* Persian Arch Badge - تحفه عمارت */}
+        <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-amber-300/40 bg-gradient-to-r from-[#99222c]/95 via-[#b91c1c]/95 to-[#99222c]/95 px-3 py-1 text-xs font-bold text-amber-100 shadow-[0_4px_16px_rgba(153,34,44,0.4),inset_0_1px_1px_rgba(255,255,255,0.4)] backdrop-blur-md">
+          <SparklesIcon className="size-3 text-amber-300" />
+          <span>پیشنهاد عمارت طاق</span>
+        </div>
+
+        {/* Temperament Tag (طبع سنتی) */}
+        {meta.temperament && (
+          <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-[#0e1622]/85 px-2.5 py-0.5 text-[11px] font-bold text-amber-200 backdrop-blur-md shadow-xs">
+            {meta.isHot && <FlameIcon className="size-3 text-amber-400" />}
+            {meta.isCool && <SnowflakeIcon className="size-3 text-teal-300" />}
+            <span>{meta.temperament}</span>
+            {meta.specialBadge && <span className="opacity-70">• {meta.specialBadge}</span>}
+          </div>
+        )}
       </div>
 
       <div className="relative p-4 sm:p-5">
-        <h3 className="font-display text-lg font-bold text-white sm:text-xl">
-          {item.name}
-        </h3>
-        {item.nameEn && (
-          <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wider text-amber-200/75 italic">
-            {item.nameEn}
-          </p>
-        )}
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <h3 className="font-heading text-xl font-bold text-[#fbf8f1] sm:text-2xl drop-shadow-sm">
+              {item.name}
+            </h3>
+            {item.nameEn && (
+              <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wider text-amber-200/70 italic">
+                {item.nameEn}
+              </p>
+            )}
+          </div>
+        </div>
+
         {item.description && (
-          <p className="mt-1.5 line-clamp-2 text-xs leading-6 text-stone-300/85 sm:text-sm">
+          <p className="mt-2 line-clamp-2 text-xs leading-6 text-stone-300/85 sm:text-sm">
             {item.description}
           </p>
         )}
 
         <div className="mt-4 flex items-center gap-3">
-          <span className="text-base font-black whitespace-nowrap text-amber-300 drop-shadow-[0_2px_8px_rgba(217,144,59,0.22)] sm:text-lg">
-            {formatToman(item.price)}
-          </span>
-          <span className="h-px flex-1 border-b border-dotted border-white/15" />
+          <div className="flex items-baseline gap-1">
+            <span className="text-lg font-black whitespace-nowrap text-[#fcd34d] drop-shadow-[0_2px_8px_rgba(229,170,56,0.3)] sm:text-xl">
+              {formatToman(item.price)}
+            </span>
+          </div>
+          <span className="h-px flex-1 border-b border-dotted border-amber-400/20" />
           <ItemActionControl
             item={item}
             qty={qty}
@@ -318,6 +371,7 @@ export function CompactItemCard({
   onIncrease,
 }: MenuItemCardProps) {
   const image = resolveImageUrl(item.imageUrl);
+  const meta = getTraditionalMeta(item);
 
   return (
     <motion.article
@@ -325,44 +379,61 @@ export function CompactItemCard({
       whileHover={{ y: -2, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-crystal p-4 transition-all duration-300 hover:border-amber-400/35 hover:shadow-[inset_0_2px_2px_rgba(255,255,255,0.35),0_18px_40px_-6px_rgba(217,144,59,0.15)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/50 before:to-transparent"
+      className="group relative cursor-pointer overflow-hidden rounded-[26px] sm:rounded-[30px] border border-amber-400/25 bg-gradient-to-b from-[#151f2d]/85 via-[#0f1722]/85 to-[#0b1018]/90 p-4 shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,0.1),0_12px_32px_rgba(0,0,0,0.65)] ring-1 ring-teal-500/15 transition-all duration-300 hover:border-amber-400/50 hover:shadow-[0_16px_36px_rgba(229,170,56,0.12)]"
     >
-      {/* Specular Diagonal Sheen Overlay */}
-      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-transparent opacity-80" />
-
       <div className="relative flex items-center justify-between gap-3.5">
         <div className="min-w-0 flex-1">
-          <h3 className="text-sm font-bold text-white sm:text-base">
+          <h3 className="font-heading text-base font-bold text-[#fbf8f1] sm:text-lg">
             {item.name}
           </h3>
           {item.nameEn && (
-            <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wide text-amber-200/75 italic">
+            <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wide text-amber-200/70 italic">
               {item.nameEn}
             </p>
           )}
+
+          {/* Traditional temper & ingredient pill */}
+          {meta.temperament && (
+            <div className="mt-1 flex flex-wrap items-center gap-1.5">
+              <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/25 bg-amber-400/10 px-2 py-0.5 text-[10px] font-bold text-amber-200">
+                {meta.isHot && <FlameIcon className="size-2.5 text-amber-400" />}
+                {meta.isCool && <SnowflakeIcon className="size-2.5 text-teal-300" />}
+                {meta.temperament}
+              </span>
+              {meta.specialBadge && (
+                <span className="text-[11px] text-teal-300/80">
+                  {meta.specialBadge}
+                </span>
+              )}
+            </div>
+          )}
+
           {item.description && (
-            <p className="mt-1.5 line-clamp-2 text-xs leading-6 text-stone-300/85 sm:text-sm">
+            <p className="mt-1.5 line-clamp-2 text-xs leading-5.5 text-stone-300/80 sm:text-sm">
               {item.description}
             </p>
           )}
         </div>
 
-        <div className="relative size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/20 bg-black/50 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.25),0_10px_24px_rgba(0,0,0,0.6)] ring-1 ring-white/15 sm:size-28">
+        {/* Persian Arch-framed Thumbnail (قاب طاقچه و پنج‌دری) */}
+        <div className="relative h-24 w-22 sm:h-28 sm:w-26 shrink-0 overflow-hidden rounded-t-[2.2rem] rounded-b-xl border-2 border-amber-400/40 bg-[#090e15] shadow-[inset_0_1.5px_2px_rgba(229,170,56,0.25),0_8px_20px_rgba(0,0,0,0.65)] ring-1 ring-teal-400/25">
           <ItemThumbnail
             src={image}
             alt={item.name}
             className="size-full transition-transform duration-500 group-hover:scale-105"
             iconClassName="size-8"
           />
-          <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-white/20" />
+          {/* Subtle stained glass glare */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-amber-400/10 to-teal-400/15" />
+          <span className="pointer-events-none absolute top-1 left-1/2 -translate-x-1/2 size-1 rounded-full bg-amber-300/80" />
         </div>
       </div>
 
       <div className="relative mt-3.5 flex items-center gap-3">
-        <span className="text-sm font-black whitespace-nowrap text-amber-300 drop-shadow-[0_2px_8px_rgba(217,144,59,0.22)] sm:text-base">
+        <span className="text-sm font-black whitespace-nowrap text-[#fcd34d] drop-shadow-[0_2px_8px_rgba(229,170,56,0.25)] sm:text-base">
           {formatToman(item.price)}
         </span>
-        <span className="h-px flex-1 border-b border-dotted border-white/15" />
+        <span className="h-px flex-1 border-b border-dotted border-amber-400/20" />
         <ItemActionControl
           item={item}
           qty={qty}

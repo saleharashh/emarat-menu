@@ -6,28 +6,33 @@ export function AmbientGlassBackground() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden select-none transform-gpu"
     >
-      {/* Orb 1: Top-Right Subtle Champagne Bronze Glow */}
+      {/* 1. Turquoise Basin Pool (حوض فیروزه وسط حیاط عمارت) */}
       <div
-        className="absolute -top-20 -right-20 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-[#d9903b]/08 via-[#92400e]/04 to-transparent blur-[110px]"
+        className="absolute -top-24 right-[-10%] h-[560px] w-[560px] rounded-full bg-gradient-to-br from-[#0d9488]/14 via-[#0f766e]/08 to-transparent blur-[120px]"
       />
 
-      {/* Orb 2: Top-Left Soft Smoked Ember Glow */}
+      {/* 2. Amber / Saffron Lantern Glow (نور گرم فانوس و سماور زعفرانی) */}
       <div
-        className="absolute top-24 -left-28 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-[#b45309]/07 via-[#78350f]/03 to-transparent blur-[110px]"
+        className="absolute top-[28%] -left-20 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-[#d97706]/16 via-[#b45309]/08 to-transparent blur-[115px]"
       />
 
-      {/* Orb 3: Center Rich Smoked Quartz Depth */}
+      {/* 3. Ruby Orosi Window Light (نور شیشه‌های ارسی سرخ و اناری) */}
       <div
-        className="absolute top-[40%] -right-20 h-[460px] w-[460px] rounded-full bg-gradient-to-tl from-[#78350f]/06 via-[#451a03]/04 to-transparent blur-[100px]"
+        className="absolute top-[55%] -right-24 h-[500px] w-[500px] rounded-full bg-gradient-to-tl from-[#be123c]/12 via-[#9f1239]/06 to-transparent blur-[110px]"
       />
 
-      {/* Orb 4: Bottom Delicate Golden Warmth */}
+      {/* 4. Deep Persian Lapis Reflection (انعکاس لاجوردی آسمان شب کویر) */}
       <div
-        className="absolute -bottom-20 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#92400e]/06 via-[#d9903b]/03 to-transparent blur-[110px]"
+        className="absolute -bottom-24 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#1d4ed8]/12 via-[#0e7490]/08 to-transparent blur-[125px]"
       />
 
-      {/* Subtle Optical Grain Grid for Tactile Crystal Glass Dispersion */}
-      <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:24px_24px]" />
+      {/* Persian Girih Tile Pattern (گره‌چینی اسلیمی و کاشی‌کاری سنتی ظریف) */}
+      <div
+        className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#e5aa38_1px,transparent_1px)] [background-size:28px_28px]"
+      />
+      <div
+        className="pattern-girih absolute inset-0 opacity-[0.035] [background-size:64px_64px]"
+      />
     </div>
   );
 }

@@ -64,17 +64,17 @@ export function MenuDrawer({
               <div className="flex items-center gap-3">
                 <CafeLogo className="size-12" />
                 <div>
-                  <DialogPrimitive.Title className="font-display text-xl font-bold text-white">
-                    کافه عمارت
+                  <DialogPrimitive.Title className="font-heading text-xl font-bold text-[#fbf8f1]">
+                    کافه عمارت طاق
                   </DialogPrimitive.Title>
-                  <DialogPrimitive.Description className="mt-0.5 text-xs text-amber-200/70">
-                    طعم‌های اصیل و سنتی یزد
+                  <DialogPrimitive.Description className="font-traditional mt-0.5 text-xs text-amber-200/80">
+                    طعم‌های اصیل و سنتی دیار بادگیرها
                   </DialogPrimitive.Description>
                 </div>
               </div>
               <DialogPrimitive.Close
                 aria-label="بستن منو"
-                className="flex size-8 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white shadow-xs backdrop-blur-2xl transition hover:border-amber-400/40 hover:bg-white/[0.12]"
+                className="flex size-8 items-center justify-center rounded-full border border-amber-400/30 bg-[#121b27]/80 text-amber-200 shadow-xs backdrop-blur-2xl transition hover:border-amber-400/60 hover:text-white"
               >
                 <XIcon className="size-4" />
               </DialogPrimitive.Close>
@@ -133,14 +133,14 @@ export function MenuDrawer({
                 onClose();
                 onOpenCart();
               }}
-              className="flex h-11 w-full items-center justify-between rounded-full border border-white/25 bg-black/60 px-4 text-sm font-black text-white shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-md transition hover:bg-black/75 hover:border-white/40 cursor-pointer"
+              className="flex h-11 w-full items-center justify-between rounded-full border border-amber-400/40 bg-gradient-to-r from-[#172333] via-[#0e1724] to-[#172333] px-4 text-sm font-bold text-amber-100 shadow-[inset_0_1.5px_1px_rgba(229,170,56,0.25),0_8px_24px_rgba(0,0,0,0.6)] ring-1 ring-teal-500/20 backdrop-blur-md transition hover:border-amber-400/70 cursor-pointer"
             >
               <span className="flex items-center gap-2">
-                <ShoppingCartIcon className="size-4 text-white" />
-                مشاهده سبد خرید
+                <ShoppingCartIcon className="size-4 text-amber-300" />
+                <span className="font-heading">مشاهده سینی سفارش‌ها</span>
               </span>
               {cartCount > 0 && (
-                <span className="rounded-full border border-white/20 bg-white/15 px-2 py-0.5 text-xs font-black text-white shadow-xs backdrop-blur-md">
+                <span className="rounded-full border border-amber-300/40 bg-amber-500 px-2 py-0.5 text-xs font-black text-stone-950 shadow-xs">
                   {formatNumber(cartCount)}
                 </span>
               )}
