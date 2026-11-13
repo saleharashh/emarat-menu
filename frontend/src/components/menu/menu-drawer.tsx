@@ -47,34 +47,34 @@ export function MenuDrawer({
     >
       <DialogPrimitive.Portal>
         <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/45 backdrop-blur-sm transition-opacity duration-200 ease-out data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
-        <DialogPrimitive.Popup className="fixed inset-y-0 right-0 z-50 flex w-80 max-w-[85vw] flex-col border-l border-white/80 bg-background/80 text-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.9),0_24px_60px_rgba(0,0,0,0.3)] backdrop-blur-3xl outline-none transition-[transform,opacity] duration-200 ease-out dark:border-white/14 dark:bg-background/80 data-[starting-style]:translate-x-full data-[starting-style]:opacity-0 data-[ending-style]:translate-x-full data-[ending-style]:opacity-0">
+        <DialogPrimitive.Popup className="fixed inset-y-0 right-0 z-50 flex w-80 max-w-[85vw] flex-col border-l border-white/15 bg-[#120e0b]/90 text-white shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.2),0_24px_60px_rgba(0,0,0,0.85)] backdrop-blur-3xl outline-none transition-[transform,opacity] duration-200 ease-out data-[starting-style]:translate-x-full data-[starting-style]:opacity-0 data-[ending-style]:translate-x-full data-[ending-style]:opacity-0">
           {/* Header card */}
-          <div className="relative overflow-hidden border-b border-white/60 px-5 pt-5 pb-6 dark:border-white/10">
+          <div className="relative overflow-hidden border-b border-white/10 px-5 pt-5 pb-6">
             {cover && (
               /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={cover}
                 alt=""
-                className="absolute inset-0 size-full object-cover opacity-30"
+                className="absolute inset-0 size-full object-cover opacity-25"
               />
             )}
-            <div className="pattern-botanical absolute inset-0 bg-gradient-to-b from-blush/60 to-background" />
+            <div className="pattern-botanical absolute inset-0 opacity-15 bg-gradient-to-b from-black/60 to-black/80" />
 
             <div className="relative flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <CafeLogo className="size-12" />
                 <div>
-                  <DialogPrimitive.Title className="font-display text-xl font-bold text-foreground">
+                  <DialogPrimitive.Title className="font-display text-xl font-bold text-white">
                     کافه عمارت
                   </DialogPrimitive.Title>
-                  <DialogPrimitive.Description className="mt-0.5 text-xs text-muted-foreground">
+                  <DialogPrimitive.Description className="mt-0.5 text-xs text-amber-200/70">
                     طعم‌های اصیل و سنتی یزد
                   </DialogPrimitive.Description>
                 </div>
               </div>
               <DialogPrimitive.Close
                 aria-label="بستن منو"
-                className="flex size-8 items-center justify-center rounded-full border border-white/80 bg-white/60 text-foreground shadow-xs backdrop-blur-2xl transition hover:border-white hover:bg-white/85"
+                className="flex size-8 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white shadow-xs backdrop-blur-2xl transition hover:border-amber-400/40 hover:bg-white/[0.12]"
               >
                 <XIcon className="size-4" />
               </DialogPrimitive.Close>
@@ -83,7 +83,7 @@ export function MenuDrawer({
 
           {/* Categories navigation */}
           <div className="flex-1 overflow-y-auto p-4">
-            <p className="mb-2.5 px-2 text-xs font-semibold text-muted-foreground">
+            <p className="mb-2.5 px-2 text-xs font-semibold text-stone-400">
               دسته‌بندی‌های منو
             </p>
             <div className="flex flex-col gap-1.5">
@@ -100,20 +100,20 @@ export function MenuDrawer({
                     }}
                     className={`flex items-center justify-between rounded-2xl px-3.5 py-2.5 text-sm font-medium transition ${
                       isActive
-                        ? "border border-white/60 bg-gradient-to-r from-primary to-[#cf7b24] font-bold text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_8px_20px_-2px_rgba(184,101,27,0.35)] backdrop-blur-2xl"
-                        : "border border-white/80 bg-white/45 text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] backdrop-blur-xl hover:border-white hover:bg-white/70"
+                        ? "border border-white/30 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 font-black text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_8px_20px_rgba(245,158,11,0.4)] backdrop-blur-2xl"
+                        : "border border-white/12 bg-white/[0.05] text-stone-200 shadow-[inset_0_1px_1px_rgba(255,255,255,0.12)] backdrop-blur-xl hover:border-white/25 hover:bg-white/[0.1] hover:text-white"
                     }`}
                   >
                     <span className="flex items-center gap-2.5">
-                      {Icon && <Icon className="size-4" />}
+                      {Icon && <Icon className="size-4 text-amber-400" />}
                       {cat.name}
                     </span>
                     {cat.nameEn && (
                       <span
                         className={`font-serif-en text-xs italic ${
                           isActive
-                            ? "text-primary-foreground/80"
-                            : "text-muted-foreground"
+                            ? "text-stone-900/90 font-bold"
+                            : "text-amber-200/60"
                         }`}
                       >
                         {cat.nameEn}
@@ -126,14 +126,14 @@ export function MenuDrawer({
           </div>
 
           {/* Drawer footer actions */}
-          <div className="space-y-2.5 border-t border-white/60 bg-gradient-to-b from-card/60 to-blush/40 p-4 backdrop-blur-2xl dark:border-white/10">
+          <div className="space-y-2.5 border-t border-white/10 bg-black/50 p-4 backdrop-blur-2xl">
             <button
               type="button"
               onClick={() => {
                 onClose();
                 onOpenCart();
               }}
-              className="flex h-11 w-full items-center justify-between rounded-full border border-white/40 bg-gradient-to-r from-primary to-[#8c4d2b] px-4 text-sm font-bold text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_8px_20px_-3px_rgba(122,67,37,0.3)] backdrop-blur-md transition hover:brightness-105"
+              className="flex h-11 w-full items-center justify-between rounded-full border border-white/35 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-4 text-sm font-black text-stone-950 shadow-[0_8px_24px_rgba(245,158,11,0.4)] backdrop-blur-md transition hover:brightness-105"
             >
               <span className="flex items-center gap-2">
                 <ShoppingCartIcon className="size-4" />

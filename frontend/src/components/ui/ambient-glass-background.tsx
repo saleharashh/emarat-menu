@@ -6,48 +6,56 @@ export function AmbientGlassBackground() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden select-none"
     >
-      {/* Orb 1: Top-Right Luminous Caramel Amber Glow */}
+      {/* Orb 1: Top-Right Luminous Amber Glow */}
       <div
-        className="absolute -top-20 -right-20 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-[#df8a28]/45 via-[#b8651b]/35 to-transparent blur-[100px] transform-gpu will-change-transform dark:from-[#df8a28]/30 dark:via-[#9b5a1f]/20"
+        className="absolute -top-28 -right-24 h-[550px] w-[550px] rounded-full bg-gradient-to-br from-[#f59e0b]/35 via-[#d97706]/25 to-transparent blur-[110px] transform-gpu will-change-transform"
         style={{
           animation: "ambient-pulse-slow 9s ease-in-out infinite alternate",
         }}
       />
 
-      {/* Orb 2: Top-Left Warm Creamy Latte & Honey Sunburst */}
+      {/* Orb 2: Top-Left Liquid Honey & Deep Ember Glow */}
       <div
-        className="absolute top-32 -left-28 h-[540px] w-[540px] rounded-full bg-gradient-to-br from-[#f5b866]/40 via-[#ebdccb]/55 to-transparent blur-[120px] transform-gpu will-change-transform dark:from-[#c47622]/25 dark:via-[#3a2519]/40"
+        className="absolute top-28 -left-32 h-[560px] w-[560px] rounded-full bg-gradient-to-br from-[#d97706]/30 via-[#b45309]/20 to-transparent blur-[125px] transform-gpu will-change-transform"
         style={{
           animation: "ambient-float-slow 11s ease-in-out infinite alternate",
         }}
       />
 
-      {/* Orb 3: Center-Right Deep Roasted Mocha & Timber Timber Glow */}
+      {/* Orb 3: Center-Right Warm Smoked Bronze Glow */}
       <div
-        className="absolute top-[36%] -right-28 h-[480px] w-[480px] rounded-full bg-gradient-to-tl from-[#8c4e23]/35 via-[#5c351a]/28 to-transparent blur-[105px] transform-gpu will-change-transform dark:from-[#5c351a]/40 dark:via-[#2c1910]/35"
+        className="absolute top-[34%] -right-24 h-[500px] w-[500px] rounded-full bg-gradient-to-tl from-[#92400e]/28 via-[#78350f]/20 to-transparent blur-[110px] transform-gpu will-change-transform"
         style={{
           animation: "ambient-pulse-slow 10s ease-in-out infinite alternate-reverse",
         }}
       />
 
-      {/* Orb 4: Center-Left Radiant Golden Amber Glow */}
+      {/* Orb 4: Subtle Prismatic Cyan/Ice Reflection for True Optical Glass Dispersion */}
       <div
-        className="absolute top-[56%] -left-20 h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-[#e59838]/42 via-[#b8651b]/30 to-transparent blur-[115px] transform-gpu will-change-transform dark:from-[#df8a28]/28 dark:via-[#5c351a]/25"
+        className="absolute top-[52%] -left-16 h-[460px] w-[460px] rounded-full bg-gradient-to-tr from-[#0284c7]/14 via-[#38bdf8]/08 to-transparent blur-[130px] transform-gpu will-change-transform"
         style={{
-          animation: "ambient-float-slow 12s ease-in-out infinite alternate-reverse",
+          animation: "ambient-float-slow 13s ease-in-out infinite alternate-reverse",
         }}
       />
 
-      {/* Orb 5: Bottom-Center Roasted Hazelnut & Warm Embers */}
+      {/* Orb 5: Center-Left Radiant Amber Glow */}
       <div
-        className="absolute -bottom-24 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#c87622]/38 via-[#df8a28]/28 to-transparent blur-[125px] transform-gpu will-change-transform dark:from-[#9b5a1f]/32 dark:via-[#df8a28]/18"
+        className="absolute top-[58%] -left-20 h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-[#f59e0b]/25 via-[#b45309]/18 to-transparent blur-[115px] transform-gpu will-change-transform"
         style={{
           animation: "ambient-pulse-slow 8.5s ease-in-out infinite alternate",
         }}
       />
 
-      {/* Subtle Botanical Watermark & Fine Dot Grid Texture for Optical Dispersion */}
-      <div className="absolute inset-0 opacity-[0.035] dark:opacity-[0.06] bg-[radial-gradient(#2c1910_1px,transparent_1px)] [background-size:24px_24px]" />
+      {/* Orb 6: Bottom Golden Amber Warmth */}
+      <div
+        className="absolute -bottom-28 left-1/2 h-[580px] w-[580px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#b45309]/25 via-[#f59e0b]/18 to-transparent blur-[130px] transform-gpu will-change-transform"
+        style={{
+          animation: "ambient-float-slow 10s ease-in-out infinite alternate",
+        }}
+      />
+
+      {/* Subtle Optical Grain Grid for Tactile Crystal Glass Dispersion */}
+      <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px]" />
     </div>
   );
 }

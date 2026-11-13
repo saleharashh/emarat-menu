@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="fa"
       dir="rtl"
-      className={`${vazirmatn.variable} ${vazirmatnDisplay.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${vazirmatn.variable} ${vazirmatnDisplay.variable} ${cormorant.variable} dark h-full antialiased`}
     >
       <body className="relative min-h-full flex flex-col bg-background text-foreground selection:bg-primary/20 selection:text-foreground">
         <AmbientGlassBackground />

@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
 
   return (
     <main className="flex flex-1 items-center justify-center px-4 py-12">
-      <Card className="w-full max-w-sm border-white/85 bg-card/75 shadow-[inset_0_2px_1.5px_rgba(255,255,255,0.95),0_24px_50px_-8px_rgba(56,30,16,0.14)] backdrop-blur-3xl dark:border-white/16 dark:bg-card/70">
+      <Card className="w-full max-w-sm glass-crystal border-white/15 shadow-[0_24px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl">
         <CardHeader className="items-center text-center">
           <CardTitle className="flex items-center gap-2">
             <KeyRoundIcon className="size-5 text-primary" />

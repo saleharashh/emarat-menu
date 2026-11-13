@@ -1,7 +1,7 @@
 export function CafeLogo({ className = "size-12" }: { className?: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-full border border-white/95 bg-white/55 text-primary shadow-[inset_0_2px_2px_rgba(255,255,255,1),0_10px_26px_-3px_rgba(184,101,27,0.28)] backdrop-blur-3xl ring-4 ring-white/70 transition-transform active:scale-95 dark:border-white/20 dark:bg-white/10 dark:ring-white/10 ${className}`}
+      className={`flex items-center justify-center rounded-full border border-white/20 bg-white/[0.08] text-amber-400 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.35),0_10px_28px_rgba(0,0,0,0.6)] backdrop-blur-3xl ring-2 ring-white/10 transition-all hover:border-amber-400/50 hover:ring-amber-400/25 active:scale-95 ${className}`}
       aria-label="لوگوی کافه عمارت"
     >
       <svg
@@ -54,7 +54,7 @@ export function CafeLogo({ className = "size-12" }: { className?: string }) {
         <path
           d="M23 28.8C23 28.8 20.4 27.2 20.4 25.5C20.4 24.6 21.1 24 21.9 24C22.4 24 22.8 24.25 23 24.65C23.2 24.25 23.6 24 24.1 24C24.9 24 25.6 24.6 25.6 25.5C25.6 27.2 23 28.8 23 28.8Z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fillOpacity="0.95"
         />
       </svg>
     </div>

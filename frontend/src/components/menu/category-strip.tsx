@@ -79,12 +79,12 @@ export function CategoryStrip({
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
               className={`group relative h-[86px] w-[148px] shrink-0 overflow-hidden rounded-2xl backdrop-blur-2xl transition-all sm:h-[94px] sm:w-[168px] ${
                 isActive
-                  ? "border-2 border-primary ring-4 ring-primary/30 shadow-[inset_0_2px_2px_rgba(255,255,255,0.9),0_16px_34px_-4px_rgba(184,101,27,0.4)]"
-                  : "border border-white/80 bg-white/40 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.85),0_8px_20px_-2px_rgba(56,30,16,0.08)] hover:border-white hover:bg-white/60 dark:border-white/14 dark:bg-white/10"
+                  ? "border-2 border-amber-400 ring-4 ring-amber-500/25 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.4),0_14px_35px_rgba(245,158,11,0.38)]"
+                  : "border border-white/14 bg-white/[0.05] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.18),0_12px_28px_rgba(0,0,0,0.55)] hover:border-white/30 hover:bg-white/[0.09]"
               }`}
             >
               {/* Specular Edge Highlight */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
               {coverImage ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
@@ -95,9 +95,9 @@ export function CategoryStrip({
                   }`}
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blush/80 via-card/75 to-secondary/75 backdrop-blur-md">
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-black/40 via-white/[0.05] to-black/60 backdrop-blur-md">
                   {Icon && (
-                    <Icon className="size-8 text-primary/50" strokeWidth={1.5} />
+                    <Icon className="size-8 text-amber-400/60" strokeWidth={1.5} />
                   )}
                 </div>
               )}
@@ -105,17 +105,17 @@ export function CategoryStrip({
               <div
                 className={`absolute inset-0 ${
                   isActive
-                    ? "bg-gradient-to-t from-[#201109]/90 via-[#201109]/45 to-transparent"
-                    : "bg-gradient-to-t from-[#201109]/80 via-[#201109]/40 to-[#201109]/20"
+                    ? "bg-gradient-to-t from-black/90 via-black/50 to-black/15"
+                    : "bg-gradient-to-t from-black/85 via-black/45 to-black/20"
                 }`}
               />
 
               <div className="relative z-10 flex size-full flex-col items-center justify-center px-2 text-center">
-                <span className="line-clamp-2 text-xs font-bold text-[#fffdfa] drop-shadow-sm sm:text-sm">
+                <span className="line-clamp-2 text-xs font-bold text-white drop-shadow-sm sm:text-sm">
                   {category.name}
                 </span>
                 {category.nameEn && (
-                  <span className="font-serif-en mt-0.5 line-clamp-1 text-xs font-medium tracking-wider text-[#fffdfa]/85 italic drop-shadow-sm">
+                  <span className="font-serif-en mt-0.5 line-clamp-1 text-xs font-medium tracking-wider text-amber-200/80 italic drop-shadow-sm">
                     {category.nameEn}
                   </span>
                 )}
@@ -145,16 +145,16 @@ export function CategoryStrip({
                 {isActive && (
                   <motion.div
                     layoutId="activeSubcategoryPill"
-                    className="absolute inset-0 rounded-full border border-white/70 bg-gradient-to-r from-primary via-[#cf7b24] to-primary shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.7),0_10px_28px_-3px_rgba(184,101,27,0.45)]"
+                    className="absolute inset-0 rounded-full border border-white/40 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.7),0_8px_24px_rgba(245,158,11,0.45)]"
                     transition={{ type: "spring", stiffness: 420, damping: 32 }}
                   />
                 )}
                 {!isActive && (
-                  <div className="absolute inset-0 rounded-full border border-white/85 bg-white/45 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_4px_16px_-2px_rgba(56,30,16,0.06)] hover:bg-white/70 hover:border-white dark:border-white/16 dark:bg-white/10" />
+                  <div className="absolute inset-0 rounded-full border border-white/12 bg-white/[0.05] shadow-[inset_0_1px_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35)] hover:border-white/25 hover:bg-white/[0.1]" />
                 )}
                 <span
                   className={`relative z-10 block text-xs font-bold sm:text-sm transition-colors ${
-                    isActive ? "text-primary-foreground" : "text-foreground"
+                    isActive ? "text-stone-950 font-black" : "text-[#eae3dc]"
                   }`}
                 >
                   {sub.name}
@@ -162,7 +162,7 @@ export function CategoryStrip({
                 {sub.nameEn && (
                   <span
                     className={`font-serif-en relative z-10 mt-0.5 block text-[11px] font-medium italic transition-colors ${
-                      isActive ? "text-primary-foreground/90" : "text-muted-foreground"
+                      isActive ? "text-stone-900/90 font-bold" : "text-amber-200/60"
                     }`}
                   >
                     {sub.nameEn}

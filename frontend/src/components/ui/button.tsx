@@ -8,11 +8,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "border border-white/45 bg-gradient-to-r from-primary via-[#cf7b24] to-[#a45414] text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),0_6px_18px_-2px_rgba(184,101,27,0.35)] backdrop-blur-md hover:brightness-105 active:scale-95",
+          "border border-white/35 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-stone-950 font-bold shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_6px_20px_rgba(245,158,11,0.4)] backdrop-blur-xl hover:brightness-105 active:scale-95",
         outline:
-          "border border-white/75 bg-card/60 text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] backdrop-blur-xl hover:bg-card/85 hover:border-white active:scale-95 dark:border-white/12 dark:bg-card/50",
+          "border border-white/15 bg-white/[0.06] text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_4px_12px_rgba(0,0,0,0.4)] backdrop-blur-xl hover:bg-white/[0.12] hover:border-amber-400/40 active:scale-95",
         secondary:
-          "border border-white/60 bg-secondary/70 text-secondary-foreground backdrop-blur-lg hover:bg-secondary/90 active:scale-95 dark:border-white/10 dark:bg-secondary/60",
+          "border border-white/12 bg-white/[0.08] text-white backdrop-blur-xl hover:bg-white/[0.14] active:scale-95",
         ghost:
           "hover:bg-muted/70 hover:text-foreground active:scale-95 dark:hover:bg-muted/50",
         destructive:

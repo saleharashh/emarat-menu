@@ -447,7 +447,7 @@ export function MenuExplorer({
               whileTap={{ scale: 0.9 }}
               onClick={handleHeaderBack}
               aria-label="بازگشت"
-              className="flex size-10 items-center justify-center rounded-full border border-white/85 bg-white/45 text-foreground backdrop-blur-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.95),0_6px_16px_rgba(56,30,16,0.06)] transition hover:border-white hover:bg-white/70 hover:shadow-[0_8px_20px_rgba(184,101,27,0.22)] dark:border-white/16 dark:bg-white/10 dark:hover:bg-white/20"
+              className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white backdrop-blur-2xl shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.5)] transition hover:border-amber-400/50 hover:bg-white/[0.12]"
             >
               <ChevronLeftIcon className="size-6" />
             </motion.button>
@@ -464,25 +464,25 @@ export function MenuExplorer({
         {/* Editorial Brand Masthead */}
         <div className="px-4 pt-4 pb-1 text-center">
           <div className="mx-auto flex max-w-xs flex-col items-center">
-            <p className="font-serif-en text-sm text-primary italic">
+            <p className="font-serif-en text-sm text-amber-400/90 italic tracking-wider">
               welcome to
             </p>
-            <h1 className="font-display mt-0.5 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+            <h1 className="font-display mt-0.5 bg-gradient-to-b from-white via-amber-100 to-amber-300 bg-clip-text text-3xl font-extrabold tracking-tight text-transparent drop-shadow-[0_2px_12px_rgba(245,158,11,0.3)] sm:text-4xl">
               کافه عمارت
             </h1>
-            <div className="mt-1.5 flex items-center gap-2 text-primary/70">
-              <span className="h-px w-8 bg-primary/35" />
+            <div className="mt-1.5 flex items-center gap-2 text-amber-400/70">
+              <span className="h-px w-8 bg-amber-400/40" />
               <motion.span
                 animate={{ scale: [1, 1.3, 1] }}
                 transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
-                className="inline-block text-[11px] text-primary"
+                className="inline-block text-[11px] text-amber-400"
                 aria-hidden="true"
               >
                 ♥
               </motion.span>
-              <span className="h-px w-8 bg-primary/35" />
+              <span className="h-px w-8 bg-amber-400/40" />
             </div>
-            <p className="font-serif-en mt-1 text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            <p className="font-serif-en mt-1 text-xs tracking-[0.22em] text-stone-400 uppercase">
               GOOD FOOD, GOOD MOOD
             </p>
           </div>
@@ -565,7 +565,7 @@ export function MenuExplorer({
                 whileHover={{ scale: 1.015, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setCartOpen(true)}
-                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-white/70 bg-gradient-to-r from-primary via-[#cf7b24] to-[#a45414] px-5 py-3.5 text-primary-foreground shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.75),0_20px_50px_-6px_rgba(184,101,27,0.52)] backdrop-blur-3xl backdrop-saturate-200 transition-all hover:brightness-105 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/95 before:to-transparent"
+                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-white/35 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-5 py-3.5 text-stone-950 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.7),0_20px_50px_rgba(245,158,11,0.5)] backdrop-blur-3xl backdrop-saturate-200 transition-all hover:brightness-105 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/95 before:to-transparent"
               >
                 <span className="flex items-center gap-2.5">
                   <motion.span
@@ -573,11 +573,11 @@ export function MenuExplorer({
                     initial={{ scale: 1.35 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                    className="flex size-7 items-center justify-center rounded-full bg-white/95 text-xs font-bold text-primary shadow-xs"
+                    className="flex size-7 items-center justify-center rounded-full bg-stone-950 text-xs font-black text-amber-400 shadow-xs"
                   >
                     {formatNumber(count)}
                   </motion.span>
-                  <span className="text-sm font-bold sm:text-base">
+                  <span className="text-sm font-black sm:text-base">
                     مشاهده سبد خرید
                   </span>
                 </span>
@@ -586,7 +586,7 @@ export function MenuExplorer({
                   initial={{ opacity: 0.7, y: 3 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-sm font-extrabold sm:text-base"
+                  className="text-sm font-black sm:text-base"
                 >
                   {formatToman(total)}
                 </motion.span>

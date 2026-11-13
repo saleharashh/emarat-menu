@@ -32,7 +32,7 @@ async function getMenuData(): Promise<{
 function PageSkeleton() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="border-b border-white/70 bg-background/70 px-4 py-2 backdrop-blur-3xl shadow-[0_4px_24px_-4px_rgba(56,30,16,0.06)] dark:border-white/12 dark:bg-background/70">
+      <div className="border-b border-white/10 bg-black/60 px-4 py-2 backdrop-blur-3xl shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
         <div className="mx-auto flex h-12 max-w-2xl items-center justify-between">
           <div className="flex gap-2">
             <Skeleton className="size-9 rounded-full" />

@@ -23,11 +23,11 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  "group/tabs-list inline-flex w-fit items-center justify-center rounded-2xl border border-white/75 bg-card/65 p-1 text-muted-foreground backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] group-data-horizontal/tabs:h-9 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none dark:border-white/12 dark:bg-card/50",
+  "group/tabs-list inline-flex w-fit items-center justify-center rounded-2xl border border-white/14 bg-white/[0.05] p-1 text-stone-400 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] group-data-horizontal/tabs:h-9 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
   {
     variants: {
       variant: {
-        default: "bg-card/65",
+        default: "bg-white/[0.05]",
         line: "gap-1 bg-transparent border-none shadow-none",
       },
     },
@@ -59,7 +59,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
       className={cn(
         "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-xl border border-transparent px-3 py-1 text-sm font-medium whitespace-nowrap text-foreground/70 transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 aria-disabled:pointer-events-none aria-disabled:opacity-50 dark:text-muted-foreground dark:hover:text-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent dark:group-data-[variant=line]/tabs-list:data-active:border-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent",
-        "data-active:border-white/50 data-active:bg-gradient-to-r data-active:from-primary data-active:via-[#cf7b24] data-active:to-primary data-active:text-primary-foreground data-active:shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_12px_rgba(184,101,27,0.3)] dark:data-active:border-white/15 dark:data-active:text-primary-foreground",
+        "data-active:border-white/35 data-active:bg-gradient-to-r data-active:from-amber-500 data-active:via-amber-400 data-active:to-amber-600 data-active:text-stone-950 data-active:font-bold data-active:shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_4px_16px_rgba(245,158,11,0.4)]",
         "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
         className
       )}

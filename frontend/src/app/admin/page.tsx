@@ -63,7 +63,7 @@ export default function AdminPage() {
 
   return (
     <div className="flex min-h-full flex-1 flex-col">
-      <header className="sticky top-0 z-30 border-b border-white/70 bg-background/70 backdrop-blur-3xl shadow-[0_4px_24px_-4px_rgba(56,30,16,0.06)] dark:border-white/12 dark:bg-background/70">
+      <header className="sticky top-0 z-30 glass-header">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-2 font-bold">
             <UtensilsCrossedIcon className="size-5 text-primary" />

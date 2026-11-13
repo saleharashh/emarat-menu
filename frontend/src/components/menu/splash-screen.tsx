@@ -55,18 +55,18 @@ export function SplashScreen() {
       {/* Matching editorial radial glow + subtle botanical pattern */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(680px_420px_at_50%_46%,rgba(255,252,248,0.9)_0%,rgba(235,220,203,0.35)_52%,transparent_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(680px_420px_at_50%_46%,rgba(245,158,11,0.18)_0%,rgba(180,83,9,0.08)_52%,transparent_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pattern-botanical pointer-events-none absolute inset-0 opacity-45"
+        className="pattern-botanical pointer-events-none absolute inset-0 opacity-20"
       />
 
       {/* Skip button */}
       <button
         type="button"
         onClick={dismiss}
-        className="absolute top-5 left-5 z-20 rounded-full border border-white/80 bg-card/75 px-4 py-1.5 text-xs font-semibold text-muted-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_16px_-2px_rgba(56,30,16,0.08)] backdrop-blur-2xl transition hover:border-white hover:bg-card/90 hover:text-foreground active:scale-95 sm:top-6 sm:left-6 sm:text-sm dark:border-white/14 dark:bg-card/65"
+        className="absolute top-5 left-5 z-20 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold text-stone-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_16px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition hover:border-amber-400/40 hover:bg-white/[0.12] hover:text-white active:scale-95 sm:top-6 sm:left-6 sm:text-sm"
       >
         رد کردن
       </button>
@@ -417,10 +417,10 @@ export function SplashScreen() {
 
         {/* Brand reveal */}
         <div className="splash-anim-brand mt-2 flex flex-col items-center gap-1 text-center">
-          <h1 className="font-display text-3xl tracking-wide text-foreground">
+          <h1 className="font-display bg-gradient-to-b from-white via-amber-100 to-amber-300 bg-clip-text text-3xl font-extrabold tracking-wide text-transparent drop-shadow-[0_2px_12px_rgba(245,158,11,0.3)]">
             کافه عمارت
           </h1>
-          <p className="text-xs font-medium text-muted-foreground">
+          <p className="text-xs font-medium text-amber-200/75">
             با طعم‌های اصیل و ماندگار
           </p>
         </div>
