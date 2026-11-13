@@ -475,7 +475,7 @@ export function MenuExplorer({
             <p className="font-serif-en text-sm text-amber-300/80 italic tracking-wider">
               welcome to
             </p>
-            <h1 className="font-display mt-0.5 bg-gradient-to-b from-white via-stone-100 to-amber-200/90 bg-clip-text text-3xl font-extrabold tracking-tight text-transparent drop-shadow-[0_2px_12px_rgba(217,144,59,0.22)] sm:text-4xl">
+            <h1 className="font-display mt-0.5 bg-gradient-to-b from-white via-stone-100 to-amber-200/90 bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_12px_rgba(217,144,59,0.22)] sm:text-4xl">
               کافه عمارت طاق
             </h1>
             <div className="mt-1.5 flex items-center gap-2 text-amber-300/60">

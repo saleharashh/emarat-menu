@@ -217,7 +217,7 @@ export function SectionDivider({ title, subtitleEn }: SectionDividerProps) {
       <span className="flex items-center gap-2.5">
         <BotanicalSprig />
         <span className="text-center">
-          <h2 className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
+          <h2 className="font-display text-lg font-bold text-white sm:text-xl">
             {title}
           </h2>
           {subtitleEn && (
