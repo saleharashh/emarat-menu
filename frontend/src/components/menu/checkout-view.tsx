@@ -169,7 +169,7 @@ export function CheckoutView({
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.96 }}
               onClick={onClose}
-              className="mt-6 h-11 rounded-full border border-white/35 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-6 text-sm font-black text-stone-950 shadow-[0_8px_24px_rgba(245,158,11,0.4)] backdrop-blur-xl transition hover:brightness-105"
+              className="mt-6 h-11 rounded-full border border-white/35 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] px-6 text-sm font-black text-stone-950 shadow-[0_8px_20px_rgba(217,144,59,0.25)] backdrop-blur-xl transition hover:brightness-105"
             >
               بازگشت به منو
             </motion.button>
@@ -295,7 +295,7 @@ export function CheckoutView({
                   key={payableTotal}
                   initial={{ opacity: 0.8, y: 2 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-lg font-black text-amber-400 sm:text-xl drop-shadow-[0_2px_8px_rgba(245,158,11,0.35)]"
+                  className="text-lg font-black text-amber-300 sm:text-xl drop-shadow-[0_2px_8px_rgba(217,144,59,0.22)]"
                 >
                   {formatToman(payableTotal)}
                 </motion.span>
@@ -303,15 +303,15 @@ export function CheckoutView({
             </div>
 
             {/* Staff instruction banner */}
-            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-amber-500/25 bg-amber-500/[0.07] p-4 text-center backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_6px_20px_rgba(0,0,0,0.4)]">
-              <span className="shrink-0 text-xs text-amber-400" aria-hidden="true">
+            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-amber-500/20 bg-amber-500/[0.05] p-4 text-center backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_6px_20px_rgba(0,0,0,0.4)]">
+              <span className="shrink-0 text-xs text-amber-300" aria-hidden="true">
                 ♥
               </span>
               <p className="text-xs leading-6 text-stone-300 sm:text-sm">
                 لطفاً سفارش خود را به متصدی ثبت سفارش و یا صندوق مجموعه اطلاع
                 دهید.
               </p>
-              <span className="shrink-0 text-xs text-amber-400" aria-hidden="true">
+              <span className="shrink-0 text-xs text-amber-300" aria-hidden="true">
                 ♥
               </span>
             </div>
@@ -322,7 +322,7 @@ export function CheckoutView({
                 whileHover={{ scale: 1.015 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onClose}
-                className="h-11 flex-1 rounded-full border border-white/35 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-sm font-black text-stone-950 shadow-[0_8px_24px_rgba(245,158,11,0.4)] backdrop-blur-xl transition hover:brightness-105"
+                className="h-11 flex-1 rounded-full border border-white/35 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] text-sm font-black text-stone-950 shadow-[0_8px_20px_rgba(217,144,59,0.25)] backdrop-blur-xl transition hover:brightness-105"
               >
                 بازگشت به منو
               </motion.button>

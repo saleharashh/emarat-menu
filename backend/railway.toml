@@ -1,10 +1,5 @@
-[build]
-builder = "railpack"
-buildCommand = "npm run build"
-watchPatterns = ["backend/**"]
-
 [deploy]
-startCommand = "npm run start:prod"
+startCommand = "php -S 0.0.0.0:${PORT:-4000} router.php"
 healthcheckPath = "/api/health"
 healthcheckTimeout = 100
 restartPolicyType = "on_failure"

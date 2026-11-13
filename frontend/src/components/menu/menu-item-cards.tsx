@@ -108,7 +108,7 @@ export function ItemActionControl({
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-white/30 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-1.5 text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_6px_20px_rgba(245,158,11,0.4)] backdrop-blur-xl"
+        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-white/30 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] px-1.5 text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_6px_18px_rgba(217,144,59,0.25)] backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <motion.button
@@ -161,7 +161,7 @@ export function ItemActionControl({
         onAdd();
       }}
       aria-label={`افزودن ${item.name} به سبد`}
-      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/35 bg-gradient-to-br from-amber-500 via-amber-400 to-amber-600 text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_6px_20px_rgba(245,158,11,0.4)] backdrop-blur-xl"
+      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/35 bg-gradient-to-br from-[#ca8234] via-[#df9b47] to-[#ca8234] text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_6px_18px_rgba(217,144,59,0.25)] backdrop-blur-xl"
     >
       <PlusIcon className="size-4.5 stroke-[2.5]" />
     </motion.button>
@@ -258,7 +258,7 @@ export function FeaturedItemCard({
       whileHover={{ y: -3, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-featured transition-all duration-300 hover:border-amber-400/40 hover:shadow-[inset_0_2px_2px_rgba(255,255,255,0.4),0_28px_60px_-8px_rgba(245,158,11,0.3)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent"
+      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-featured transition-all duration-300 hover:border-amber-400/35 hover:shadow-[inset_0_2px_2px_rgba(255,255,255,0.4),0_24px_50px_-8px_rgba(217,144,59,0.18)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/40">
         <ItemThumbnail
@@ -270,7 +270,7 @@ export function FeaturedItemCard({
         {/* Optical Glass Sheen over visual */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-white/10" />
 
-        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-gradient-to-r from-amber-500/95 via-amber-400/95 to-amber-600/95 px-3.5 py-1 text-xs font-bold text-stone-950 shadow-[0_4px_16px_rgba(245,158,11,0.45),inset_0_1px_1px_rgba(255,255,255,0.7)] backdrop-blur-xl">
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-gradient-to-r from-[#ca8234]/95 via-[#df9b47]/95 to-[#ca8234]/95 px-3 py-0.5 text-xs font-bold text-stone-950 shadow-[0_4px_14px_rgba(217,144,59,0.25),inset_0_1px_1px_rgba(255,255,255,0.7)] backdrop-blur-xl">
           <span aria-hidden="true">✦</span>
           پیشنهاد مجموعه
         </span>
@@ -292,7 +292,7 @@ export function FeaturedItemCard({
         )}
 
         <div className="mt-4 flex items-center gap-3">
-          <span className="text-base font-black whitespace-nowrap text-amber-400 drop-shadow-[0_2px_8px_rgba(245,158,11,0.35)] sm:text-lg">
+          <span className="text-base font-black whitespace-nowrap text-amber-300 drop-shadow-[0_2px_8px_rgba(217,144,59,0.22)] sm:text-lg">
             {formatToman(item.price)}
           </span>
           <span className="h-px flex-1 border-b border-dotted border-white/15" />
@@ -325,7 +325,7 @@ export function CompactItemCard({
       whileHover={{ y: -2, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-crystal p-4 transition-all duration-300 hover:border-amber-400/40 hover:shadow-[inset_0_2px_2px_rgba(255,255,255,0.35),0_20px_45px_-6px_rgba(245,158,11,0.25)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/50 before:to-transparent"
+      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-crystal p-4 transition-all duration-300 hover:border-amber-400/35 hover:shadow-[inset_0_2px_2px_rgba(255,255,255,0.35),0_18px_40px_-6px_rgba(217,144,59,0.15)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/50 before:to-transparent"
     >
       {/* Specular Diagonal Sheen Overlay */}
       <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-transparent opacity-80" />
@@ -347,7 +347,7 @@ export function CompactItemCard({
           )}
         </div>
 
-        <div className="relative size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/20 bg-black/50 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.25),0_10px_24px_rgba(0,0,0,0.6)] ring-2 ring-amber-500/25 sm:size-28">
+        <div className="relative size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/20 bg-black/50 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.25),0_10px_24px_rgba(0,0,0,0.6)] ring-1 ring-white/15 sm:size-28">
           <ItemThumbnail
             src={image}
             alt={item.name}
@@ -359,7 +359,7 @@ export function CompactItemCard({
       </div>
 
       <div className="relative mt-3.5 flex items-center gap-3">
-        <span className="text-sm font-black whitespace-nowrap text-amber-400 drop-shadow-[0_2px_8px_rgba(245,158,11,0.35)] sm:text-base">
+        <span className="text-sm font-black whitespace-nowrap text-amber-300 drop-shadow-[0_2px_8px_rgba(217,144,59,0.22)] sm:text-base">
           {formatToman(item.price)}
         </span>
         <span className="h-px flex-1 border-b border-dotted border-white/15" />

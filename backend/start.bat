@@ -1,0 +1,3 @@
+@echo off
+echo Starting Emarat Cafe Menu PHP Backend on http://localhost:4000 ...
+php -S 0.0.0.0:4000 router.php

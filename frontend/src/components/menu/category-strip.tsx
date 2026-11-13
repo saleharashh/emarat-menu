@@ -79,7 +79,7 @@ export function CategoryStrip({
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
               className={`group relative h-[86px] w-[148px] shrink-0 overflow-hidden rounded-2xl backdrop-blur-2xl transition-all sm:h-[94px] sm:w-[168px] ${
                 isActive
-                  ? "border-2 border-amber-400 ring-4 ring-amber-500/25 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.4),0_14px_35px_rgba(245,158,11,0.38)]"
+                  ? "border-2 border-amber-400/60 ring-2 ring-amber-400/20 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.35),0_10px_24px_rgba(0,0,0,0.5),0_0_15px_rgba(217,144,59,0.2)]"
                   : "border border-white/14 bg-white/[0.05] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.18),0_12px_28px_rgba(0,0,0,0.55)] hover:border-white/30 hover:bg-white/[0.09]"
               }`}
             >
@@ -147,7 +147,7 @@ export function CategoryStrip({
                 {isActive && (
                   <motion.div
                     layoutId="activeSubcategoryPill"
-                    className="absolute inset-0 rounded-full border border-white/40 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.7),0_8px_24px_rgba(245,158,11,0.45)]"
+                    className="absolute inset-0 rounded-full border border-white/30 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.5),0_6px_18px_rgba(217,144,59,0.25)]"
                     transition={{ type: "spring", stiffness: 420, damping: 32 }}
                   />
                 )}

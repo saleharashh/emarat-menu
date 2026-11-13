@@ -1,8 +1,7 @@
 "use client";
 
 import { LogOutIcon, UtensilsCrossedIcon } from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/lib/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 import { BannerManager } from "@/components/admin/banner-manager";

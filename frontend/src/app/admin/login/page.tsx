@@ -1,7 +1,7 @@
 "use client";
 
 import { KeyRoundIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/lib/navigation";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";

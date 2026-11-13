@@ -1,40 +1,10 @@
-import { Suspense } from "react";
+import { useEffect, useState } from "react";
 
 import { MenuExplorer } from "@/components/menu-explorer";
 import { SplashScreen } from "@/components/menu/splash-screen";
 import { Skeleton } from "@/components/ui/skeleton";
 import { API_URL } from "@/lib/api";
 import type { Category, MenuItem, SiteSettings } from "@/lib/types";
-
-async function getMenuData(): Promise<{
-  categories: Category[];
-  items: MenuItem[];
-  settings: SiteSettings | null;
-}> {
-  try {
-    const fetchOptions: RequestInit = {
-      next: { revalidate: 30 },
-    };
-    const [categories, items, settings] = await Promise.all([
-      fetch(`${API_URL}/categories`, fetchOptions).then((r) =>
-        r.ok ? r.json() : [],
-      ),
-      fetch(`${API_URL}/menu-items`, fetchOptions).then((r) =>
-        r.ok ? r.json() : [],
-      ),
-      fetch(`${API_URL}/settings`, fetchOptions).then((r) =>
-        r.ok ? r.json() : null,
-      ),
-    ]);
-    return {
-      categories: Array.isArray(categories) ? categories : [],
-      items: Array.isArray(items) ? items : [],
-      settings,
-    };
-  } catch {
-    return { categories: [], items: [], settings: null };
-  }
-}
 
 function PageSkeleton() {
   return (
@@ -68,21 +38,55 @@ function PageSkeleton() {
   );
 }
 
-async function PageServer() {
-  const { categories, items, settings } = await getMenuData();
-
-  return (
-    <MenuExplorer categories={categories} items={items} settings={settings} />
-  );
-}
-
 export default function Home() {
+  const [data, setData] = useState<{
+    categories: Category[];
+    items: MenuItem[];
+    settings: SiteSettings | null;
+  } | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+
+    Promise.all([
+      fetch(`${API_URL}/categories`)
+        .then((r) => (r.ok ? r.json() : []))
+        .catch(() => []),
+      fetch(`${API_URL}/menu-items`)
+        .then((r) => (r.ok ? r.json() : []))
+        .catch(() => []),
+      fetch(`${API_URL}/settings`)
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null),
+    ]).then(([categories, items, settings]) => {
+      if (mounted) {
+        setData({
+          categories: Array.isArray(categories) ? categories : [],
+          items: Array.isArray(items) ? items : [],
+          settings,
+        });
+        setLoading(false);
+      }
+    });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   return (
     <>
       <SplashScreen />
-      <Suspense fallback={<PageSkeleton />}>
-        <PageServer />
-      </Suspense>
+      {loading || !data ? (
+        <PageSkeleton />
+      ) : (
+        <MenuExplorer
+          categories={data.categories}
+          items={data.items}
+          settings={data.settings}
+        />
+      )}
     </>
   );
 }

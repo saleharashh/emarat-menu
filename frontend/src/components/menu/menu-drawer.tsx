@@ -7,7 +7,7 @@ import {
   ShoppingCartIcon,
   XIcon,
 } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/lib/navigation";
 
 import { CafeLogo } from "@/components/menu/cafe-logo";
 import { resolveImageUrl } from "@/lib/api";

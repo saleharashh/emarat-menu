@@ -1,0 +1,12 @@
+{
+  "name": "emarat/menu-backend",
+  "description": "Emarat Cafe Menu Backend in PHP",
+  "type": "project",
+  "require": {
+    "php": ">=8.2"
+  },
+  "scripts": {
+    "start": "php -S 0.0.0.0:4000 backend/router.php",
+    "seed": "php backend/seed.php"
+  }
+}

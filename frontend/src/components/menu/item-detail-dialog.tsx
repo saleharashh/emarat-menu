@@ -58,11 +58,11 @@ export function ItemDetailDialog({
                 {/* Internal ambient glow for glass refraction */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-10 -right-10 h-48 w-48 rounded-full bg-amber-500/15 blur-3xl transform-gpu"
+                  className="pointer-events-none absolute -bottom-10 -right-10 h-48 w-48 rounded-full bg-amber-500/08 blur-3xl transform-gpu"
                 />
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute top-1/2 -left-10 h-40 w-40 rounded-full bg-amber-600/12 blur-3xl transform-gpu"
+                  className="pointer-events-none absolute top-1/2 -left-10 h-40 w-40 rounded-full bg-amber-600/06 blur-3xl transform-gpu"
                 />
 
                 {/* Compact Visual Header */}
@@ -86,7 +86,7 @@ export function ItemDetailDialog({
                     </DialogPrimitive.Close>
 
                     {activeItem.isFeatured && (
-                      <span className="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full border border-white/30 bg-gradient-to-r from-amber-500/95 via-amber-400/95 to-amber-600/95 px-2.5 py-0.5 text-[11px] font-bold text-stone-950 shadow-[0_4px_14px_rgba(245,158,11,0.45),inset_0_1px_1px_rgba(255,255,255,0.7)] backdrop-blur-xl">
+                      <span className="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full border border-white/30 bg-gradient-to-r from-[#ca8234]/95 via-[#df9b47]/95 to-[#ca8234]/95 px-2.5 py-0.5 text-[11px] font-bold text-stone-950 shadow-[0_4px_14px_rgba(217,144,59,0.25),inset_0_1px_1px_rgba(255,255,255,0.7)] backdrop-blur-xl">
                         <span aria-hidden="true">✦</span>
                         پیشنهاد مجموعه
                       </span>
@@ -97,7 +97,7 @@ export function ItemDetailDialog({
                   <div className="relative flex items-center justify-between border-b border-white/10 px-5 py-4">
                     <div>
                       {activeItem.isFeatured && (
-                        <span className="inline-flex items-center gap-1 rounded-full border border-white/30 bg-gradient-to-r from-amber-500/95 via-amber-400/95 to-amber-600/95 px-2.5 py-0.5 text-[11px] font-bold text-stone-950 shadow-xs">
+                        <span className="inline-flex items-center gap-1 rounded-full border border-white/30 bg-gradient-to-r from-[#ca8234]/95 via-[#df9b47]/95 to-[#ca8234]/95 px-2.5 py-0.5 text-[11px] font-bold text-stone-950 shadow-xs">
                           ✦ پیشنهاد مجموعه
                         </span>
                       )}
@@ -144,8 +144,12 @@ export function ItemDetailDialog({
                   </div>
 
                   {activeItem.description && (
-                    <div className="relative z-10 mt-3.5 rounded-2xl border border-white/10 bg-white/[0.04] p-3.5 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.08),0_4px_16px_rgba(0,0,0,0.25)]">
-                      <DialogPrimitive.Description className="text-xs leading-6 text-stone-200/90 sm:text-sm sm:leading-7">
+                    <div className="relative z-10 mt-4 rounded-2xl border-2 border-amber-400/35 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-4 backdrop-blur-xl shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.18),0_8px_24px_rgba(0,0,0,0.35)] ring-1 ring-amber-400/20">
+                      <div className="mb-2 flex items-center gap-2 text-xs font-bold text-amber-300">
+                        <span className="size-1.5 rounded-full bg-amber-400 shadow-[0_0_6px_rgba(245,158,11,0.8)]" />
+                        <span>محتویات و ترکیبات محصول</span>
+                      </div>
+                      <DialogPrimitive.Description className="text-xs leading-6 text-stone-200/95 sm:text-sm sm:leading-7">
                         {activeItem.description}
                       </DialogPrimitive.Description>
                     </div>
@@ -163,9 +167,9 @@ export function ItemDetailDialog({
                         onClose();
                         onOpenCart();
                       }}
-                      className="flex h-11 flex-[1.2] items-center justify-center gap-2 rounded-full border border-white/35 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-3 text-xs font-black whitespace-nowrap text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_8px_20px_rgba(245,158,11,0.4)] backdrop-blur-2xl transition hover:brightness-105 sm:flex-1 sm:text-sm cursor-pointer"
+                      className="flex h-11 flex-[1.2] items-center justify-center gap-2 rounded-full border border-white/35 bg-gradient-to-r from-[#ca8234] via-[#df9b47] to-[#ca8234] px-3 text-xs font-black whitespace-nowrap text-stone-950 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_8px_20px_rgba(217,144,59,0.25)] backdrop-blur-2xl transition hover:brightness-105 sm:flex-1 sm:text-sm cursor-pointer"
                     >
-                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-stone-950 text-[11px] font-black text-amber-400 sm:size-5.5">
+                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-stone-950 text-[11px] font-black text-amber-300 sm:size-5.5">
                         {formatNumber(cartCount)}
                       </span>
                       مشاهده سبد خرید

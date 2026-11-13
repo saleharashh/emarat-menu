@@ -2,6 +2,18 @@
 .DS_Store
 Thumbs.db
 
+# Dependencies
+node_modules/
+
+# Builds
+dist/
+.next/
+
+# Databases & local storage
+*.sqlite
+*.sqlite3
+backend/data/
+
 # Environment
 .env
 .env*.local

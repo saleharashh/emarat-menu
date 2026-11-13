@@ -1,0 +1,12 @@
+{
+  "name": "emarat-menu",
+  "version": "1.0.0",
+  "description": "Emarat Cafe Digital Menu - PHP + Vite.js",
+  "private": true,
+  "scripts": {
+    "dev:backend": "php -S 0.0.0.0:4000 backend/router.php",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend",
+    "seed": "php backend/seed.php"
+  }
+}
