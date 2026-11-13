@@ -74,7 +74,7 @@ export function MenuDrawer({
               </div>
               <DialogPrimitive.Close
                 aria-label="بستن منو"
-                className="flex size-8 items-center justify-center rounded-full border border-white/70 bg-card/75 text-foreground shadow-xs backdrop-blur-md transition hover:border-white hover:bg-card/90"
+                className="flex size-8 items-center justify-center rounded-full border border-white/80 bg-white/60 text-foreground shadow-xs backdrop-blur-2xl transition hover:border-white hover:bg-white/85"
               >
                 <XIcon className="size-4" />
               </DialogPrimitive.Close>
@@ -100,8 +100,8 @@ export function MenuDrawer({
                     }}
                     className={`flex items-center justify-between rounded-2xl px-3.5 py-2.5 text-sm font-medium transition ${
                       isActive
-                        ? "border border-white/35 bg-gradient-to-r from-primary to-[#8c4d2b] font-bold text-primary-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_16px_-2px_rgba(122,67,37,0.3)] backdrop-blur-md"
-                        : "border border-white/70 bg-card/70 text-foreground shadow-xs backdrop-blur-md hover:border-white hover:bg-card/90"
+                        ? "border border-white/60 bg-gradient-to-r from-primary to-[#cf7b24] font-bold text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_8px_20px_-2px_rgba(184,101,27,0.35)] backdrop-blur-2xl"
+                        : "border border-white/80 bg-white/45 text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] backdrop-blur-xl hover:border-white hover:bg-white/70"
                     }`}
                   >
                     <span className="flex items-center gap-2.5">

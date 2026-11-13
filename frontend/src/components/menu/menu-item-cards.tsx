@@ -253,25 +253,28 @@ export function FeaturedItemCard({
   return (
     <motion.article
       onClick={onSelect}
-      whileHover={{ y: -3, scale: 1.008 }}
+      whileHover={{ y: -3, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="cursor-pointer overflow-hidden rounded-3xl border border-white/85 bg-gradient-to-br from-card/85 via-blush/40 to-card/70 backdrop-blur-3xl shadow-[inset_0_2px_2px_rgba(255,255,255,0.95),0_20px_46px_-8px_rgba(78,43,22,0.12)] transition-colors hover:border-white hover:shadow-[inset_0_2px_2px_rgba(255,255,255,1),0_24px_54px_-6px_rgba(184,101,27,0.22)] dark:border-white/16 dark:bg-gradient-to-br dark:from-card/75 dark:to-card/45 dark:shadow-[0_20px_46px_-8px_rgba(0,0,0,0.55)]"
+      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-featured transition-all duration-300 hover:shadow-[inset_0_2px_2px_rgba(255,255,255,1),0_28px_60px_-8px_rgba(184,101,27,0.28)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/95 before:to-transparent"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/60">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/40">
         <ItemThumbnail
           src={image}
           alt={item.name}
-          className="size-full transition-transform duration-500 hover:scale-105"
+          className="size-full transition-transform duration-500 group-hover:scale-105"
           iconClassName="size-12"
         />
-        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/50 bg-gradient-to-r from-primary/95 to-[#cf7b24]/95 px-3.5 py-1 text-xs font-semibold text-primary-foreground shadow-md backdrop-blur-md">
+        {/* Optical Glass Sheen over visual */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-white/20" />
+
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/65 bg-gradient-to-r from-primary/95 to-[#cf7b24]/95 px-3.5 py-1 text-xs font-semibold text-primary-foreground shadow-[0_4px_16px_rgba(184,101,27,0.4),inset_0_1px_1px_rgba(255,255,255,0.7)] backdrop-blur-xl">
           <span aria-hidden="true">✦</span>
           پیشنهاد مجموعه
         </span>
       </div>
 
-      <div className="p-4 sm:p-5">
+      <div className="relative p-4 sm:p-5">
         <h3 className="font-display text-lg font-bold text-foreground sm:text-xl">
           {item.name}
         </h3>
@@ -287,7 +290,7 @@ export function FeaturedItemCard({
         )}
 
         <div className="mt-4 flex items-center gap-3">
-          <span className="text-sm font-extrabold whitespace-nowrap text-primary sm:text-base">
+          <span className="text-sm font-black whitespace-nowrap text-primary drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] dark:drop-shadow-none sm:text-base">
             {formatToman(item.price)}
           </span>
           <span className="h-px flex-1 border-b border-dotted border-border" />
@@ -317,12 +320,15 @@ export function CompactItemCard({
   return (
     <motion.article
       onClick={onSelect}
-      whileHover={{ y: -2, scale: 1.008 }}
+      whileHover={{ y: -2, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="cursor-pointer rounded-3xl border border-white/80 bg-card/70 p-4 backdrop-blur-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.9),0_12px_32px_-4px_rgba(56,30,16,0.08)] transition-colors hover:border-white hover:bg-card/85 hover:shadow-[inset_0_1.5px_1px_rgba(255,255,255,1),0_18px_38px_-4px_rgba(184,101,27,0.16)] dark:border-white/14 dark:bg-card/65 dark:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.4)]"
+      className="group relative cursor-pointer overflow-hidden rounded-3xl glass-crystal p-4 transition-all duration-300 hover:border-white hover:shadow-[inset_0_2px_2px_rgba(255,255,255,1),0_20px_45px_-6px_rgba(184,101,27,0.22)] before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-white/95 before:to-transparent"
     >
-      <div className="flex items-center justify-between gap-3.5">
+      {/* Specular Diagonal Sheen Overlay */}
+      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/25 via-transparent to-transparent opacity-80" />
+
+      <div className="relative flex items-center justify-between gap-3.5">
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-bold text-foreground sm:text-base">
             {item.name}
@@ -339,18 +345,19 @@ export function CompactItemCard({
           )}
         </div>
 
-        <div className="size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/90 bg-muted/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_6px_18px_-2px_rgba(56,30,16,0.1)] ring-2 ring-primary/25 sm:size-28">
+        <div className="relative size-24 shrink-0 overflow-hidden rounded-full border-2 border-white/95 bg-muted/40 shadow-[inset_0_1.5px_2px_rgba(255,255,255,1),0_8px_20px_-2px_rgba(56,30,16,0.12)] ring-2 ring-primary/30 sm:size-28">
           <ItemThumbnail
             src={image}
             alt={item.name}
-            className="size-full transition-transform duration-500 hover:scale-105"
+            className="size-full transition-transform duration-500 group-hover:scale-105"
             iconClassName="size-8"
           />
+          <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-white/30" />
         </div>
       </div>
 
-      <div className="mt-3.5 flex items-center gap-3">
-        <span className="text-sm font-extrabold whitespace-nowrap text-primary sm:text-base">
+      <div className="relative mt-3.5 flex items-center gap-3">
+        <span className="text-sm font-black whitespace-nowrap text-primary drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] dark:drop-shadow-none sm:text-base">
           {formatToman(item.price)}
         </span>
         <span className="h-px flex-1 border-b border-dotted border-border" />

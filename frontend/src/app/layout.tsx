@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Vazirmatn } from "next/font/google";
 import { CartProvider } from "@/components/cart-provider";
+import { AmbientGlassBackground } from "@/components/ui/ambient-glass-background";
 import { Toaster } from "@/components/ui/toast";
 import "./globals.css";
 
@@ -34,7 +35,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       dir="rtl"
       className={`${vazirmatn.variable} ${vazirmatnDisplay.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary/20 selection:text-foreground">
+      <body className="relative min-h-full flex flex-col bg-background text-foreground selection:bg-primary/20 selection:text-foreground">
+        <AmbientGlassBackground />
         <CartProvider>{children}</CartProvider>
         <Toaster />
       </body>

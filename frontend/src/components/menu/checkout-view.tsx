@@ -108,13 +108,13 @@ export function CheckoutView({
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
-      className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background/95 text-foreground backdrop-blur-3xl"
+      className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background/80 text-foreground backdrop-blur-3xl"
       role="dialog"
       aria-modal="true"
       aria-label="تکمیل سفارش"
     >
-      {/* Top Bar with Pure Frosted Glass */}
-      <header className="sticky top-0 z-20 border-b border-white/70 bg-background/70 backdrop-blur-3xl shadow-[0_4px_24px_-4px_rgba(56,30,16,0.06)] dark:border-white/12 dark:bg-background/70">
+      {/* Top Bar with Pure Crystal Glass */}
+      <header className="sticky top-0 z-20 glass-header">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="flex w-10 items-center justify-start">
             {cartItems.length > 0 && (
@@ -125,7 +125,7 @@ export function CheckoutView({
                 onClick={() => setConfirmClearOpen(true)}
                 title="خالی کردن سبد خرید"
                 aria-label="خالی کردن سبد خرید"
-                className="flex size-9 items-center justify-center rounded-xl border border-white/60 bg-card/60 text-muted-foreground backdrop-blur-xl shadow-xs transition hover:border-destructive/40 hover:bg-destructive/10 hover:text-destructive dark:border-white/12 dark:bg-card/50"
+                className="flex size-9 items-center justify-center rounded-xl border border-white/80 bg-white/45 text-muted-foreground backdrop-blur-2xl shadow-xs transition hover:border-destructive/40 hover:bg-destructive/10 hover:text-destructive dark:border-white/12 dark:bg-white/10"
               >
                 <Trash2Icon className="size-4" />
               </motion.button>
@@ -143,7 +143,7 @@ export function CheckoutView({
               whileTap={{ scale: 0.9 }}
               onClick={onClose}
               aria-label="بازگشت به منو"
-              className="flex size-9 items-center justify-center rounded-xl border border-white/60 bg-card/60 text-foreground backdrop-blur-xl shadow-xs transition hover:border-white hover:bg-card/90 dark:border-white/12 dark:bg-card/50"
+              className="flex size-9 items-center justify-center rounded-xl border border-white/80 bg-white/45 text-foreground backdrop-blur-2xl shadow-xs transition hover:border-white hover:bg-white/70 dark:border-white/12 dark:bg-white/10"
             >
               <ChevronLeftIcon className="size-6" />
             </motion.button>
@@ -262,8 +262,8 @@ export function CheckoutView({
               ))}
             </div>
 
-            {/* Summary Box with Frosted Glass */}
-            <div className="mt-6 space-y-3.5 rounded-3xl border border-white/85 bg-card/70 p-4 backdrop-blur-3xl shadow-[inset_0_2px_1.5px_rgba(255,255,255,0.95),0_18px_42px_-6px_rgba(56,30,16,0.08)] sm:p-5 dark:border-white/14 dark:bg-card/65">
+            {/* Summary Box with Frosted Crystal Glass */}
+            <div className="mt-6 space-y-3.5 rounded-3xl glass-crystal p-4 sm:p-5">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">تعداد اقلام سبد</span>
                 <span className="font-semibold text-foreground">
@@ -287,7 +287,7 @@ export function CheckoutView({
                 </div>
               )}
 
-              <div className="flex items-center justify-between border-t border-border pt-3.5">
+              <div className="flex items-center justify-between border-t border-border/80 pt-3.5">
                 <span className="text-base font-bold text-foreground">
                   مبلغ قابل پرداخت
                 </span>
@@ -303,7 +303,7 @@ export function CheckoutView({
             </div>
 
             {/* Staff instruction banner */}
-            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-white/75 bg-gradient-to-r from-blush/60 via-card/70 to-blush/60 p-4 text-center backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.7)] dark:border-white/12 dark:bg-card/60">
+            <div className="mt-4 flex items-center justify-between gap-3 rounded-3xl border border-white/85 bg-white/45 p-4 text-center backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_6px_18px_rgba(56,30,16,0.04)] dark:border-white/12 dark:bg-white/10">
               <span className="shrink-0 text-xs text-primary" aria-hidden="true">
                 ♥
               </span>

@@ -352,7 +352,7 @@ export function MenuExplorer({
 
         {sectionItems.length === 0 ? (
           <div
-            className={`flex flex-col items-center justify-center rounded-3xl border border-white/80 bg-card/70 py-16 text-center backdrop-blur-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.9),0_12px_32px_-4px_rgba(56,30,16,0.08)] dark:border-white/14 dark:bg-card/65 ${animClass}`}
+            className={`flex flex-col items-center justify-center rounded-3xl glass-crystal py-16 text-center ${animClass}`}
             style={{ "--stagger-index": 0 } as CSSProperties}
           >
             <CoffeeIcon className="size-10 text-primary/60" />
@@ -424,8 +424,8 @@ export function MenuExplorer({
 
   return (
     <>
-      {/* Sticky Top Header with Pure Frosted Glass */}
-      <header className="sticky top-0 z-30 border-b border-white/70 bg-background/70 backdrop-blur-3xl shadow-[0_4px_24px_-4px_rgba(56,30,16,0.06)] dark:border-white/12 dark:bg-background/70">
+      {/* Sticky Top Header with Pure Crystal Glass */}
+      <header className="sticky top-0 z-30 glass-header">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="w-10" aria-hidden="true" />
 
@@ -447,7 +447,7 @@ export function MenuExplorer({
               whileTap={{ scale: 0.9 }}
               onClick={handleHeaderBack}
               aria-label="بازگشت"
-              className="flex size-10 items-center justify-center rounded-full border border-white/70 bg-card/60 text-foreground backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] transition hover:border-white hover:bg-card/90 dark:border-white/12 dark:bg-card/50"
+              className="flex size-10 items-center justify-center rounded-full border border-white/85 bg-white/45 text-foreground backdrop-blur-2xl shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.95),0_6px_16px_rgba(56,30,16,0.06)] transition hover:border-white hover:bg-white/70 hover:shadow-[0_8px_20px_rgba(184,101,27,0.22)] dark:border-white/16 dark:bg-white/10 dark:hover:bg-white/20"
             >
               <ChevronLeftIcon className="size-6" />
             </motion.button>
@@ -565,7 +565,7 @@ export function MenuExplorer({
                 whileHover={{ scale: 1.015, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setCartOpen(true)}
-                className="flex w-full items-center justify-between rounded-full border border-white/60 bg-gradient-to-r from-primary via-[#cf7b24] to-[#a45414] px-5 py-3.5 text-primary-foreground shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_18px_48px_-6px_rgba(184,101,27,0.48)] backdrop-blur-3xl backdrop-saturate-200 transition-all hover:brightness-105"
+                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-white/70 bg-gradient-to-r from-primary via-[#cf7b24] to-[#a45414] px-5 py-3.5 text-primary-foreground shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.75),0_20px_50px_-6px_rgba(184,101,27,0.52)] backdrop-blur-3xl backdrop-saturate-200 transition-all hover:brightness-105 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/95 before:to-transparent"
               >
                 <span className="flex items-center gap-2.5">
                   <motion.span

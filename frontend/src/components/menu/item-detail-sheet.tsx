@@ -57,10 +57,10 @@ export function ItemDetailSheet({
               {/* Floating drag handle */}
               <div className="mx-auto mb-2.5 h-1.5 w-12 shrink-0 rounded-full bg-white/70 shadow-sm backdrop-blur-md" />
 
-              <div className="flex flex-col overflow-hidden rounded-t-3xl border border-white/85 bg-gradient-to-b from-card/85 via-card/75 to-card/70 shadow-[0_28px_70px_-12px_rgba(50,28,15,0.36),inset_0_2px_1.5px_rgba(255,255,255,0.95)] backdrop-blur-3xl backdrop-saturate-200 dark:border-white/18 dark:bg-card/75 sm:rounded-3xl">
+              <div className="flex flex-col overflow-hidden rounded-t-3xl border border-white/90 bg-white/55 shadow-[0_32px_80px_-12px_rgba(50,28,15,0.38),inset_0_2px_2px_rgba(255,255,255,1)] backdrop-blur-3xl backdrop-saturate-200 dark:border-white/18 dark:bg-black/60 sm:rounded-3xl">
                 <div className="overflow-y-auto">
                   {/* Top visual */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/60">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/40">
                     <ItemThumbnail
                       src={image}
                       alt={activeItem.name}
@@ -70,13 +70,13 @@ export function ItemDetailSheet({
 
                     <DialogPrimitive.Close
                       aria-label="بستن"
-                      className="absolute top-3 left-3 flex size-9 items-center justify-center rounded-full border border-white/60 bg-card/70 text-primary shadow-xs backdrop-blur-xl transition hover:border-white hover:bg-card/90"
+                      className="absolute top-3 left-3 flex size-9 items-center justify-center rounded-full border border-white/85 bg-white/55 text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-2xl transition hover:border-white hover:bg-white/85"
                     >
                       <XIcon className="size-4" />
                     </DialogPrimitive.Close>
 
                     {activeItem.isFeatured && (
-                      <span className="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full border border-white/50 bg-gradient-to-r from-primary/95 to-[#cf7b24]/95 px-3 py-1 text-xs font-semibold text-primary-foreground shadow-md backdrop-blur-md">
+                      <span className="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full border border-white/65 bg-gradient-to-r from-primary/95 to-[#cf7b24]/95 px-3 py-1 text-xs font-semibold text-primary-foreground shadow-[0_4px_16px_rgba(184,101,27,0.4),inset_0_1px_1px_rgba(255,255,255,0.7)] backdrop-blur-xl">
                         <span aria-hidden="true">✦</span>
                         پیشنهاد مجموعه
                       </span>
@@ -84,7 +84,7 @@ export function ItemDetailSheet({
                   </div>
 
                   {/* Body */}
-                  <div className="bg-gradient-to-b from-white/40 via-white/20 to-white/10 p-5 backdrop-blur-xl dark:from-white/[0.06] dark:via-white/[0.03] dark:to-transparent">
+                  <div className="bg-gradient-to-b from-white/35 via-white/15 to-transparent p-5 backdrop-blur-xl dark:from-white/[0.06] dark:via-white/[0.03] dark:to-transparent">
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0 flex-1">
                         <DialogPrimitive.Title className="font-display text-xl font-bold text-foreground">

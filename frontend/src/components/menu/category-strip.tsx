@@ -77,12 +77,14 @@ export function CategoryStrip({
               whileHover={{ scale: 1.025, y: -1 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
-              className={`group relative h-[86px] w-[148px] shrink-0 overflow-hidden rounded-2xl backdrop-blur-xl transition-all sm:h-[94px] sm:w-[168px] ${
+              className={`group relative h-[86px] w-[148px] shrink-0 overflow-hidden rounded-2xl backdrop-blur-2xl transition-all sm:h-[94px] sm:w-[168px] ${
                 isActive
-                  ? "border-2 border-primary ring-4 ring-primary/25 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.85),0_14px_30px_-4px_rgba(184,101,27,0.35)]"
-                  : "border border-white/75 bg-card/60 opacity-85 shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_6px_18px_-2px_rgba(56,30,16,0.06)] hover:opacity-100 hover:border-white hover:bg-card/85 dark:border-white/12 dark:bg-card/60"
+                  ? "border-2 border-primary ring-4 ring-primary/30 shadow-[inset_0_2px_2px_rgba(255,255,255,0.9),0_16px_34px_-4px_rgba(184,101,27,0.4)]"
+                  : "border border-white/80 bg-white/40 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.85),0_8px_20px_-2px_rgba(56,30,16,0.08)] hover:border-white hover:bg-white/60 dark:border-white/14 dark:bg-white/10"
               }`}
             >
+              {/* Specular Edge Highlight */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent" />
               {coverImage ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
@@ -143,12 +145,12 @@ export function CategoryStrip({
                 {isActive && (
                   <motion.div
                     layoutId="activeSubcategoryPill"
-                    className="absolute inset-0 rounded-full border border-white/55 bg-gradient-to-r from-primary via-[#cf7b24] to-primary shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_8px_24px_-3px_rgba(184,101,27,0.42)]"
+                    className="absolute inset-0 rounded-full border border-white/70 bg-gradient-to-r from-primary via-[#cf7b24] to-primary shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.7),0_10px_28px_-3px_rgba(184,101,27,0.45)]"
                     transition={{ type: "spring", stiffness: 420, damping: 32 }}
                   />
                 )}
                 {!isActive && (
-                  <div className="absolute inset-0 rounded-full border border-white/80 bg-card/70 shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_4px_16px_-2px_rgba(56,30,16,0.06)] hover:bg-card/90 hover:border-white dark:border-white/12 dark:bg-card/65" />
+                  <div className="absolute inset-0 rounded-full border border-white/85 bg-white/45 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_4px_16px_-2px_rgba(56,30,16,0.06)] hover:bg-white/70 hover:border-white dark:border-white/16 dark:bg-white/10" />
                 )}
                 <span
                   className={`relative z-10 block text-xs font-bold sm:text-sm transition-colors ${
