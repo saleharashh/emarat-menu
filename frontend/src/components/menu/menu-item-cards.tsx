@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { FlameIcon, ImageIcon, MinusIcon, PlusIcon, SnowflakeIcon, SparklesIcon } from "lucide-react";
+import { ImageIcon, MinusIcon, PlusIcon, SparklesIcon } from "lucide-react";
 import { useState } from "react";
 
 import { formatNumber, formatToman } from "@/lib/format";
@@ -310,16 +310,6 @@ export function FeaturedItemCard({
           <SparklesIcon className="size-3 text-amber-300" />
           <span>پیشنهاد عمارت طاق</span>
         </div>
-
-        {/* Temperament Tag (طبع سنتی) */}
-        {meta.temperament && (
-          <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-[#0e1622]/85 px-2.5 py-0.5 text-[11px] font-bold text-amber-200 backdrop-blur-md shadow-xs">
-            {meta.isHot && <FlameIcon className="size-3 text-amber-400" />}
-            {meta.isCool && <SnowflakeIcon className="size-3 text-teal-300" />}
-            <span>{meta.temperament}</span>
-            {meta.specialBadge && <span className="opacity-70">• {meta.specialBadge}</span>}
-          </div>
-        )}
       </div>
 
       <div className="relative p-4 sm:p-5">
@@ -371,7 +361,6 @@ export function CompactItemCard({
   onIncrease,
 }: MenuItemCardProps) {
   const image = resolveImageUrl(item.imageUrl);
-  const meta = getTraditionalMeta(item);
 
   return (
     <motion.article
@@ -390,22 +379,6 @@ export function CompactItemCard({
             <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wide text-amber-200/70 italic">
               {item.nameEn}
             </p>
-          )}
-
-          {/* Traditional temper & ingredient pill */}
-          {meta.temperament && (
-            <div className="mt-1 flex flex-wrap items-center gap-1.5">
-              <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/25 bg-amber-400/10 px-2 py-0.5 text-[10px] font-bold text-amber-200">
-                {meta.isHot && <FlameIcon className="size-2.5 text-amber-400" />}
-                {meta.isCool && <SnowflakeIcon className="size-2.5 text-teal-300" />}
-                {meta.temperament}
-              </span>
-              {meta.specialBadge && (
-                <span className="text-[11px] text-teal-300/80">
-                  {meta.specialBadge}
-                </span>
-              )}
-            </div>
           )}
 
           {item.description && (

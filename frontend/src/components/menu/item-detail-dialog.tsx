@@ -2,13 +2,12 @@
 
 import { motion } from "motion/react";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
-import { FlameIcon, SnowflakeIcon, SparklesIcon, XIcon } from "lucide-react";
+import { SparklesIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
 import {
   ItemActionControl,
   ItemThumbnail,
-  getTraditionalMeta,
 } from "@/components/menu/menu-item-cards";
 import { resolveImageUrl } from "@/lib/api";
 import { formatNumber, formatToman } from "@/lib/format";
@@ -42,7 +41,6 @@ export function ItemDetailDialog({
 
   const activeItem = item ?? lastItem;
   const image = activeItem ? resolveImageUrl(activeItem.imageUrl) : null;
-  const meta = activeItem ? getTraditionalMeta(activeItem) : null;
 
   return (
     <DialogPrimitive.Root
@@ -113,22 +111,6 @@ export function ItemDetailDialog({
                         <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wider text-amber-200/75 italic">
                           {activeItem.nameEn}
                         </p>
-                      )}
-
-                      {/* Traditional Temperament Badge */}
-                      {meta?.temperament && (
-                        <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                          <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/30 bg-amber-400/15 px-2.5 py-0.5 text-xs font-bold text-amber-200">
-                            {meta.isHot && <FlameIcon className="size-3 text-amber-400" />}
-                            {meta.isCool && <SnowflakeIcon className="size-3 text-teal-300" />}
-                            {meta.temperament}
-                          </span>
-                          {meta.specialBadge && (
-                            <span className="text-xs text-teal-300/85">
-                              • {meta.specialBadge}
-                            </span>
-                          )}
-                        </div>
                       )}
 
                       <p className="mt-2.5 text-xl font-black text-[#fcd34d] drop-shadow-[0_2px_8px_rgba(229,170,56,0.35)] sm:text-2xl">

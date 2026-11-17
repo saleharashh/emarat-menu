@@ -12,7 +12,6 @@ import { CheckoutView } from "@/components/menu/checkout-view";
 import { ItemDetailDialog } from "@/components/menu/item-detail-dialog";
 import {
   CompactItemCard,
-  FeaturedItemCard,
   SectionDivider,
 } from "@/components/menu/menu-item-cards";
 import {
@@ -108,11 +107,6 @@ export function MenuExplorer({
     return map;
   }, [topCategories, categories, items]);
 
-  const hasExplicitFeatured = useMemo(
-    () => items.some((i) => i.isFeatured),
-    [items],
-  );
-
   const activeTopCategory = useMemo(
     () => topCategories.find((c) => c.id === activeTopCategoryId) ?? null,
     [topCategories, activeTopCategoryId],
@@ -141,20 +135,8 @@ export function MenuExplorer({
       filtered = items;
     }
 
-    // Place featured items first within the section
-    return [...filtered].sort((a, b) => {
-      const aFeat = a.isFeatured ? 1 : 0;
-      const bFeat = b.isFeatured ? 1 : 0;
-      if (aFeat !== bFeat) return bFeat - aFeat;
-      return a.sort - b.sort || a.id - b.id;
-    });
+    return [...filtered].sort((a, b) => a.sort - b.sort || a.id - b.id);
   }, [items, effectiveSubcategoryId, activeTopCategoryId, subcategories]);
-
-  function isItemFeatured(item: MenuItem, index: number): boolean {
-    if (hasExplicitFeatured) return Boolean(item.isFeatured);
-    // Fallback when no item in DB has isFeatured set yet: showcase first item
-    return index === 0;
-  }
 
   const navSteps = useMemo<NavStep[]>(() => {
     const steps: NavStep[] = [];
@@ -367,10 +349,6 @@ export function MenuExplorer({
           <div className="flex flex-col gap-3.5">
             {sectionItems.map((item, idx) => {
               const qty = qtyById.get(item.id) ?? 0;
-              const featured = isItemFeatured(item, idx);
-              const CardComponent = featured
-                ? FeaturedItemCard
-                : CompactItemCard;
 
               return (
                 <motion.div
@@ -395,7 +373,7 @@ export function MenuExplorer({
                     } as CSSProperties
                   }
                 >
-                  <CardComponent
+                  <CompactItemCard
                     item={item}
                     qty={qty}
                     onSelect={
