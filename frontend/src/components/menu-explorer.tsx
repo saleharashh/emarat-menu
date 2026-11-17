@@ -472,32 +472,15 @@ export function MenuExplorer({
         {/* Persian Mansion Heritage Masthead */}
         <div className="px-4 pt-5 pb-2 text-center">
           <div className="mx-auto flex max-w-md flex-col items-center">
-            {/* Top Persian Calligraphy Greeting */}
-            <span className="font-traditional text-base font-semibold tracking-wide text-amber-300/90 sm:text-lg">
-              به حیاط باصفای
-            </span>
-            <h1 className="font-display mt-0.5 bg-gradient-to-b from-amber-100 via-[#fcd34d] to-[#d97706] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_14px_rgba(229,170,56,0.35)] sm:text-4xl">
-              کافه عمارت طاق
+            <h1 className="font-display bg-gradient-to-b from-amber-100 via-[#fcd34d] to-[#d97706] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_14px_rgba(229,170,56,0.35)] sm:text-4xl">
+              عمارت طاق
             </h1>
 
             {/* Persian Ornamental Divider */}
             <div className="mt-2 flex items-center gap-2 text-amber-400/70">
               <span className="h-px w-10 bg-gradient-to-r from-transparent via-amber-400/40 to-amber-400/80" />
-              <span className="text-xs text-teal-400">✦</span>
-              <span className="font-traditional text-xs text-amber-200/80">دیار بادگیرها • یزد</span>
-              <span className="text-xs text-teal-400">✦</span>
+              <span className="text-xs text-amber-300">✦</span>
               <span className="h-px w-10 bg-gradient-to-l from-transparent via-amber-400/40 to-amber-400/80" />
-            </div>
-
-            {/* Nostalgic Haveli Description */}
-            <p className="font-traditional mt-2 text-sm text-[#ddd2c5] leading-relaxed">
-              عطر هل و بهارنارنج، چای قندپهلو در سایه‌سار پنج‌دری
-            </p>
-
-            {/* Welcome banner tag */}
-            <div className="mt-2.5 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-gradient-to-r from-[#172230]/90 via-[#101824]/90 to-[#172230]/90 px-3.5 py-1 text-xs text-amber-200/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-              <span className="size-1.5 rounded-full bg-teal-400 animate-pulse" />
-              <span className="font-traditional text-xs font-medium">سرو با گلاب ناب، زعفران سرگل و نبات یزدی</span>
             </div>
           </div>
         </div>

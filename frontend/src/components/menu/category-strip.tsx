@@ -79,14 +79,14 @@ export function CategoryStrip({
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
               className={`group relative h-[90px] w-[148px] shrink-0 overflow-hidden rounded-t-[26px] rounded-b-xl backdrop-blur-xl transition-all sm:h-[98px] sm:w-[168px] cursor-pointer ${
                 isActive
-                  ? "border-2 border-amber-400 ring-2 ring-teal-500/30 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.25),0_12px_28px_rgba(0,0,0,0.7),0_0_20px_rgba(229,170,56,0.3)]"
+                  ? "border-2 border-amber-400/70 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.25),0_12px_28px_rgba(0,0,0,0.7),0_0_20px_rgba(229,170,56,0.3)]"
                   : "border border-amber-400/20 bg-[#121a24]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_20px_rgba(0,0,0,0.5)] hover:border-amber-400/40 hover:bg-[#162230]/90"
               }`}
             >
               {/* Persian arch peak jewel */}
               <div
                 className={`pointer-events-none absolute top-1 left-1/2 -translate-x-1/2 z-20 size-1 rounded-full ${
-                  isActive ? "bg-amber-300 ring-2 ring-teal-400" : "bg-amber-400/40"
+                  isActive ? "bg-amber-300 ring-2 ring-amber-300/60" : "bg-amber-400/40"
                 }`}
               />
 
