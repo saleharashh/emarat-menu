@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { ImageIcon, MinusIcon, PlusIcon, SparklesIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, useId } from "react";
 
 import { formatNumber, formatToman } from "@/lib/format";
 import { resolveImageUrl } from "@/lib/api";
@@ -199,41 +199,160 @@ export function ItemActionControl({
 }
 
 function PersianEslimiSprig({ flipped = false }: { flipped?: boolean }) {
+  const id = useId();
+
   return (
     <svg
-      viewBox="0 0 36 18"
+      viewBox="0 0 64 26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`h-4.5 w-9 shrink-0 text-amber-400/80 ${flipped ? "-scale-x-100" : ""}`}
+      className={`h-5 w-11 sm:h-6 sm:w-14 shrink-0 transition-transform drop-shadow-[0_2px_8px_rgba(229,170,56,0.28)] ${
+        flipped ? "-scale-x-100" : ""
+      }`}
       aria-hidden="true"
     >
+      <defs>
+        <linearGradient id={`${id}-stem`} x1="0%" y1="50%" x2="100%" y2="50%">
+          <stop offset="0%" stopColor="#b45309" stopOpacity="0.35" />
+          <stop offset="35%" stopColor="#d97706" />
+          <stop offset="75%" stopColor="#fbbf24" />
+          <stop offset="100%" stopColor="#fef08a" />
+        </linearGradient>
+        <linearGradient id={`${id}-leaf-border`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#fef08a" />
+          <stop offset="45%" stopColor="#f59e0b" />
+          <stop offset="100%" stopColor="#b45309" />
+        </linearGradient>
+        <linearGradient id={`${id}-leaf-fill`} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="rgba(254, 240, 138, 0.42)" />
+          <stop offset="100%" stopColor="rgba(20, 143, 150, 0.16)" />
+        </linearGradient>
+      </defs>
+
+      {/* Main flowing stem with organic taper */}
       <path
-        d="M2 14C8 13 16 8 32 4"
-        stroke="currentColor"
-        strokeWidth="1.4"
+        d="M2 19 C 14 18, 28 14, 46 9 C 54 7, 59 5.5, 62 4.5"
+        stroke={`url(#${id}-stem)`}
+        strokeWidth="1.5"
         strokeLinecap="round"
       />
+      {/* Delicate starting scroll */}
       <path
-        d="M10 11.5C8 8.5 9 5 12.5 4C13.5 7 12.5 9.5 10 11.5Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        fill="rgba(20,143,150,0.22)"
+        d="M2 19 C 0 19.5, -0.5 21, 1 22.5 C 2.5 23.5, 4.5 22.5, 4 20.5"
+        stroke={`url(#${id}-stem)`}
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+
+      {/* Leaf 1 (Top Outer) */}
+      <path
+        d="M12 17.5 C 10 13, 12 7.5, 17 6 C 18 10, 16 15, 13 17"
+        fill={`url(#${id}-leaf-fill)`}
+        stroke={`url(#${id}-leaf-border)`}
+        strokeWidth="1.1"
         strokeLinejoin="round"
       />
       <path
-        d="M19 8.5C18 5.5 20 3 23 2.5C23.5 5.5 22 7.5 19 8.5Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        fill="rgba(229,170,56,0.25)"
+        d="M13 16.5 C 14 13, 15 10, 16.5 6.8"
+        stroke="#fef08a"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+
+      {/* Leaf 2 (Bottom Outer) */}
+      <path
+        d="M18 16 C 17 19.5, 18.5 23, 23 23.5 C 23.5 20, 21.5 17, 19 16"
+        fill={`url(#${id}-leaf-fill)`}
+        stroke={`url(#${id}-leaf-border)`}
+        strokeWidth="1.1"
         strokeLinejoin="round"
       />
       <path
-        d="M16 10C18 12.5 21 13 23.5 12C22 9.5 19.5 9 16 10Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        fill="rgba(20,143,150,0.22)"
+        d="M18.5 16.5 C 20 18.5, 21 20.5, 22.5 23"
+        stroke="#fef08a"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+
+      {/* Leaf 3 (Top Middle) */}
+      <path
+        d="M27 14 C 26 9.5, 29 4.5, 34.5 3 C 35 7.5, 32.5 12, 28 13.5"
+        fill={`url(#${id}-leaf-fill)`}
+        stroke={`url(#${id}-leaf-border)`}
+        strokeWidth="1.1"
         strokeLinejoin="round"
       />
+      <path
+        d="M28 13.5 C 29.5 10, 31.5 7, 34 3.8"
+        stroke="#fef08a"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+
+      {/* Leaf 4 (Bottom Middle) */}
+      <path
+        d="M33 12.5 C 33 16.5, 35.5 20, 40 20 C 40.5 16.5, 37.5 13.5, 34 12.5"
+        fill={`url(#${id}-leaf-fill)`}
+        stroke={`url(#${id}-leaf-border)`}
+        strokeWidth="1.1"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M33.8 13 C 35.5 15, 37 17, 39.5 19.5"
+        stroke="#fef08a"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+
+      {/* Leaf 5 (Top Inner) */}
+      <path
+        d="M43 9.5 C 43 5.5, 47 2, 52 1.5 C 51.5 6, 48 9, 44 9.5"
+        fill={`url(#${id}-leaf-fill)`}
+        stroke={`url(#${id}-leaf-border)`}
+        strokeWidth="1.1"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M43.8 9 C 46 6.5, 48.5 4.5, 51.2 2"
+        stroke="#fef08a"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+
+      {/* Leaf 6 (Bottom Inner) */}
+      <path
+        d="M48 8.5 C 49 12, 52 15, 56.5 14.5 C 56 11.5, 53 9, 49 8.5"
+        fill={`url(#${id}-leaf-fill)`}
+        stroke={`url(#${id}-leaf-border)`}
+        strokeWidth="1.1"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M49 9 C 51 10.5, 53 12.5, 55.8 14"
+        stroke="#fef08a"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+
+      {/* Terminal Bud Leaf */}
+      <path
+        d="M57 5.5 C 60 4, 63.5 3.5, 65 3.5 C 64 5.5, 61 7, 58 6.5"
+        fill={`url(#${id}-leaf-fill)`}
+        stroke={`url(#${id}-leaf-border)`}
+        strokeWidth="1.0"
+        strokeLinejoin="round"
+      />
+
+      {/* Royal Persian Golden Pearls */}
+      <circle cx="21" cy="13.5" r="1.3" fill="#fef08a" stroke="#d97706" strokeWidth="0.5" />
+      <circle cx="37" cy="9.5" r="1.3" fill="#fef08a" stroke="#d97706" strokeWidth="0.5" />
+      <circle cx="51" cy="6" r="1.1" fill="#fef08a" stroke="#d97706" strokeWidth="0.5" />
     </svg>
   );
 }
@@ -245,11 +364,11 @@ interface SectionDividerProps {
 
 export function SectionDivider({ title, subtitleEn }: SectionDividerProps) {
   return (
-    <div className="my-5 flex items-center gap-3 py-2">
+    <div className="my-5 flex items-center gap-2 sm:gap-3 py-2">
       <span className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-400/40 to-teal-400/50" />
-      <span className="flex items-center gap-2">
+      <span className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
         <PersianEslimiSprig />
-        <span className="text-center px-1">
+        <span className="text-center px-1 sm:px-2">
           <h2 className="font-heading text-xl font-bold tracking-tight text-[#fbf8f1] sm:text-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
             {title}
           </h2>

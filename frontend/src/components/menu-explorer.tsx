@@ -454,8 +454,18 @@ export function MenuExplorer({
               عمارت طاق
             </h1>
 
+            {/* Persian Slogan / Couplet */}
+            <div className="mt-2.5 flex flex-col items-center text-center">
+              <p className="text-sm font-medium tracking-wide text-amber-100/95 sm:text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+                در گوشه‌ای از شهر بادگیرها
+              </p>
+              <p className="mt-0.5 text-xs font-light tracking-wider text-amber-300/85 sm:text-sm">
+                به تماشای آرامشت بنشین
+              </p>
+            </div>
+
             {/* Persian Ornamental Divider */}
-            <div className="mt-2 flex items-center gap-2 text-amber-400/70">
+            <div className="mt-2.5 flex items-center gap-2 text-amber-400/70">
               <span className="h-px w-10 bg-gradient-to-r from-transparent via-amber-400/40 to-amber-400/80" />
               <span className="text-xs text-amber-300">✦</span>
               <span className="h-px w-10 bg-gradient-to-l from-transparent via-amber-400/40 to-amber-400/80" />
