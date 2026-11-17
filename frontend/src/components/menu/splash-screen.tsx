@@ -79,18 +79,18 @@ export function SplashScreen() {
       {/* Refined subtle ambient radial glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_420px_at_50%_46%,rgba(212,162,118,0.25)_0%,rgba(231,188,145,0.12)_50%,transparent_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_420px_at_50%_46%,rgba(212,162,118,0.25)_0%,rgba(231,188,145,0.12)_50%,transparent_100%)] dark:bg-[radial-gradient(640px_420px_at_50%_46%,rgba(217,144,59,0.09)_0%,rgba(146,64,14,0.03)_50%,transparent_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pattern-botanical pointer-events-none absolute inset-0 opacity-15"
+        className="pattern-botanical pointer-events-none absolute inset-0 opacity-15 dark:opacity-10"
       />
 
       {/* Skip button */}
       <button
         type="button"
         onClick={dismiss}
-        className="absolute top-5 left-5 z-20 rounded-full border border-[#E7BC91] bg-white/80 px-4 py-1.5 text-xs font-semibold text-[#6F4518] shadow-[0_2px_10px_rgba(88,49,1,0.08)] backdrop-blur-md transition hover:border-[#8B5E34] hover:bg-white hover:text-[#583101] active:scale-95 sm:top-6 sm:left-6 sm:text-sm cursor-pointer"
+        className="absolute top-5 left-5 z-20 rounded-full border border-[#E7BC91] bg-white/80 px-4 py-1.5 text-xs font-semibold text-[#6F4518] shadow-[0_2px_10px_rgba(88,49,1,0.08)] backdrop-blur-md transition hover:border-[#8B5E34] hover:bg-white hover:text-[#583101] active:scale-95 sm:top-6 sm:left-6 sm:text-sm cursor-pointer dark:border-white/15 dark:bg-white/[0.06] dark:text-stone-300 dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_16px_rgba(0,0,0,0.5)] dark:hover:border-amber-400/40 dark:hover:bg-white/[0.12] dark:hover:text-white"
       >
         رد کردن
       </button>
@@ -279,10 +279,10 @@ export function SplashScreen() {
 
         {/* Brand reveal */}
         <div className="splash-anim-brand mt-4 flex flex-col items-center gap-1.5 text-center">
-          <h1 className="font-display bg-gradient-to-b from-[#583101] via-[#6F4518] to-[#8B5E34] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-sm">
+          <h1 className="font-display bg-gradient-to-b from-[#583101] via-[#6F4518] to-[#8B5E34] dark:from-white dark:via-stone-100 dark:to-amber-200/90 bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-sm dark:drop-shadow-[0_2px_12px_rgba(217,144,59,0.22)]">
             عمارت طاق
           </h1>
-          <p className="text-xs font-semibold text-[#8B5E34]">
+          <p className="text-xs font-semibold text-[#8B5E34] dark:text-amber-200/80">
             کافه و اقامتگاه سنتی
           </p>
         </div>

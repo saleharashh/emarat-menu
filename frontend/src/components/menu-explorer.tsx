@@ -1,11 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeftIcon, CoffeeIcon } from "lucide-react";
+import { CoffeeIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 
 import { useCart } from "@/components/cart-provider";
+import { useTheme } from "@/components/theme-provider";
 import { CafeLogo } from "@/components/menu/cafe-logo";
 import { CategoryStrip } from "@/components/menu/category-strip";
 import { CheckoutView } from "@/components/menu/checkout-view";
@@ -51,6 +52,7 @@ export function MenuExplorer({
   settings,
 }: MenuExplorerProps) {
   const { items: cartItems, count, total, add, setQty } = useCart();
+  const { theme, toggleTheme } = useTheme();
 
   const topCategories = useMemo(() => {
     const parents = categories.filter((c) => !c.parentId);
@@ -297,13 +299,6 @@ export function MenuExplorer({
     navigateToStep(activeTopCategoryId, subId);
   }
 
-  function handleHeaderBack() {
-    if (topCategories[0] && activeTopCategoryId !== topCategories[0].id) {
-      navigateToStep(topCategories[0].id, undefined, "prev");
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   const taxPercent = settings?.taxPercent ?? 10;
 
   function renderSectionContent({
@@ -411,7 +406,7 @@ export function MenuExplorer({
   return (
     <>
       {/* Sticky Top Header with Persian Arch Heritage */}
-      <header className="sticky top-0 z-30 border-b border-[#E7BC91]/70 bg-[#FFEDD8]/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(88,49,1,0.06)]">
+      <header className="sticky top-0 z-30 border-b border-[#E7BC91]/70 bg-[#FFEDD8]/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(88,49,1,0.06)] dark:border-amber-400/20 dark:bg-[#090e15]/85 dark:shadow-[0_8px_24px_rgba(0,0,0,0.7)]">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="w-10" aria-hidden="true" />
 
@@ -431,11 +426,36 @@ export function MenuExplorer({
               type="button"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.9 }}
-              onClick={handleHeaderBack}
-              aria-label="بازگشت"
-              className="flex size-10 items-center justify-center rounded-full border border-[#D4A276]/45 bg-[#FFFFFF]/85 text-[#6F4518] backdrop-blur-2xl shadow-[0_4px_14px_rgba(88,49,1,0.08)] transition hover:border-[#BC8A5F] hover:bg-[#F3D5B5]/60 hover:text-[#583101] cursor-pointer"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "تغییر به تم روشن" : "تغییر به تم تاریک"}
+              title={theme === "dark" ? "تغییر به تم روشن" : "تغییر به تم تاریک"}
+              className="flex size-10 items-center justify-center rounded-full border border-[#D4A276]/45 bg-[#FFFFFF]/85 text-[#6F4518] backdrop-blur-2xl shadow-[0_4px_14px_rgba(88,49,1,0.08)] transition hover:border-[#BC8A5F] hover:bg-[#F3D5B5]/60 hover:text-[#583101] dark:border-amber-400/30 dark:bg-[#121b27]/80 dark:text-amber-200 dark:shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.15),0_8px_20px_rgba(0,0,0,0.6)] dark:hover:border-amber-400/60 dark:hover:text-white cursor-pointer"
             >
-              <ChevronLeftIcon className="size-6" />
+              <AnimatePresence mode="wait" initial={false}>
+                {theme === "dark" ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, scale: 0.6, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    exit={{ rotate: 90, scale: 0.6, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center justify-center"
+                  >
+                    <SunIcon className="size-5 text-amber-300" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, scale: 0.6, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    exit={{ rotate: -90, scale: 0.6, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center justify-center"
+                  >
+                    <MoonIcon className="size-5 text-[#6F4518]" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.button>
           </div>
         </div>
@@ -450,25 +470,25 @@ export function MenuExplorer({
         {/* Persian Mansion Heritage Masthead */}
         <div className="px-4 pt-5 pb-2 text-center">
           <div className="mx-auto flex max-w-md flex-col items-center">
-            <h1 className="font-display bg-gradient-to-b from-[#583101] via-[#6F4518] to-[#8B5E34] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_10px_rgba(88,49,1,0.12)] sm:text-4xl">
+            <h1 className="font-display bg-gradient-to-b from-[#583101] via-[#6F4518] to-[#8B5E34] dark:from-amber-100 dark:via-[#fcd34d] dark:to-[#d97706] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_10px_rgba(88,49,1,0.12)] dark:drop-shadow-[0_2px_14px_rgba(229,170,56,0.35)] sm:text-4xl">
               عمارت طاق
             </h1>
 
             {/* Persian Slogan / Couplet */}
             <div className="mt-2.5 flex flex-col items-center text-center">
-              <p className="text-sm font-medium tracking-wide text-[#6F4518] sm:text-base">
+              <p className="text-sm font-medium tracking-wide text-[#6F4518] dark:text-amber-100/95 sm:text-base dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
                 در گوشه‌ای از شهر بادگیرها
               </p>
-              <p className="mt-0.5 text-xs font-normal tracking-wider text-[#8B5E34] sm:text-sm">
+              <p className="mt-0.5 text-xs font-normal tracking-wider text-[#8B5E34] dark:text-amber-300/85 sm:text-sm">
                 به تماشای آرامشت بنشین
               </p>
             </div>
 
             {/* Persian Ornamental Divider */}
-            <div className="mt-2.5 flex items-center gap-2 text-[#BC8A5F]">
-              <span className="h-px w-10 bg-gradient-to-r from-transparent via-[#D4A276]/40 to-[#BC8A5F]/80" />
-              <span className="text-xs text-[#8B5E34]">✦</span>
-              <span className="h-px w-10 bg-gradient-to-l from-transparent via-[#D4A276]/40 to-[#BC8A5F]/80" />
+            <div className="mt-2.5 flex items-center gap-2 text-[#BC8A5F] dark:text-amber-400/70">
+              <span className="h-px w-10 bg-gradient-to-r from-transparent via-[#D4A276]/40 to-[#BC8A5F]/80 dark:via-amber-400/40 dark:to-amber-400/80" />
+              <span className="text-xs text-[#8B5E34] dark:text-amber-300">✦</span>
+              <span className="h-px w-10 bg-gradient-to-l from-transparent via-[#D4A276]/40 to-[#BC8A5F]/80 dark:via-amber-400/40 dark:to-amber-400/80" />
             </div>
           </div>
         </div>
@@ -550,7 +570,7 @@ export function MenuExplorer({
                 whileHover={{ scale: 1.015, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setCartOpen(true)}
-                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-[#BC8A5F]/50 bg-gradient-to-r from-[#6F4518] via-[#583101] to-[#6F4518] px-5 py-3.5 text-[#FFEDD8] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.2),0_16px_36px_rgba(88,49,1,0.28)] ring-1 ring-[#D4A276]/40 backdrop-blur-3xl transition-all hover:border-[#D4A276] hover:shadow-[0_20px_45px_rgba(88,49,1,0.35)] cursor-pointer"
+                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-[#BC8A5F]/50 bg-gradient-to-r from-[#6F4518] via-[#583101] to-[#6F4518] px-5 py-3.5 text-[#FFEDD8] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.2),0_16px_36px_rgba(88,49,1,0.28)] ring-1 ring-[#D4A276]/40 backdrop-blur-3xl transition-all hover:border-[#D4A276] hover:shadow-[0_20px_45px_rgba(88,49,1,0.35)] cursor-pointer dark:border-amber-400/40 dark:from-[#172333]/95 dark:via-[#0e1724]/95 dark:to-[#172333]/95 dark:text-white dark:shadow-[inset_0_1.5px_2px_rgba(229,170,56,0.35),0_16px_36px_rgba(0,0,0,0.8)] dark:ring-teal-500/30 dark:hover:border-amber-400/70 dark:hover:shadow-[0_20px_45px_rgba(229,170,56,0.2)]"
               >
                 <span className="flex items-center gap-2.5">
                   <motion.span
@@ -558,11 +578,11 @@ export function MenuExplorer({
                     initial={{ scale: 1.35 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                    className="flex size-7 items-center justify-center rounded-full border border-[#D4A276]/60 bg-[#FFEDD8] text-xs font-black text-[#583101] shadow-xs"
+                    className="flex size-7 items-center justify-center rounded-full border border-[#D4A276]/60 bg-[#FFEDD8] text-xs font-black text-[#583101] shadow-xs dark:border-amber-300/40 dark:bg-gradient-to-br dark:from-[#d97706] dark:to-[#b45309] dark:text-amber-50"
                   >
                     {formatNumber(count)}
                   </motion.span>
-                  <span className="font-heading text-sm font-bold text-[#FFEDD8] sm:text-base">
+                  <span className="font-heading text-sm font-bold text-[#FFEDD8] sm:text-base dark:text-amber-100">
                     مشاهده سینی سفارش‌ها
                   </span>
                 </span>
@@ -571,7 +591,7 @@ export function MenuExplorer({
                   initial={{ opacity: 0.7, y: 3 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-sm font-black text-[#FFEDD8] drop-shadow-xs sm:text-base"
+                  className="text-sm font-black text-[#FFEDD8] drop-shadow-xs sm:text-base dark:text-[#fcd34d] dark:drop-shadow-[0_2px_6px_rgba(229,170,56,0.3)]"
                 >
                   {formatToman(total)}
                 </motion.span>

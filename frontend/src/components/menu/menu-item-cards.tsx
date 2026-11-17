@@ -31,7 +31,7 @@ function ItemImage({
   if (failed) {
     return (
       <div
-        className={`flex items-center justify-center bg-[#F3D5B5]/60 text-[#BC8A5F] ${className}`}
+        className={`flex items-center justify-center bg-[#F3D5B5]/60 text-[#BC8A5F] dark:bg-[#131b26] dark:text-amber-400/40 ${className}`}
       >
         <ImageIcon className={iconClassName} strokeWidth={1.5} />
       </div>
@@ -60,7 +60,7 @@ export function ItemThumbnail({
   if (!src) {
     return (
       <div
-        className={`flex items-center justify-center bg-[#F3D5B5]/60 text-[#BC8A5F] ${className}`}
+        className={`flex items-center justify-center bg-[#F3D5B5]/60 text-[#BC8A5F] dark:bg-[#131b26] dark:text-amber-400/40 ${className}`}
       >
         <ImageIcon className={iconClassName} strokeWidth={1.5} />
       </div>
@@ -125,7 +125,7 @@ export function ItemActionControl({
 }: ItemActionControlProps) {
   if (!item.isAvailable) {
     return (
-      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-[#D4A276]/40 bg-[#F3D5B5]/60 px-3.5 text-xs font-medium text-[#8B5E34] backdrop-blur-md shadow-xs">
+      <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-[#D4A276]/40 bg-[#F3D5B5]/60 px-3.5 text-xs font-medium text-[#8B5E34] backdrop-blur-md shadow-xs dark:border-amber-500/20 dark:bg-stone-900/60 dark:text-stone-400">
         تمام شد
       </span>
     );
@@ -138,7 +138,7 @@ export function ItemActionControl({
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-[#BC8A5F]/60 bg-gradient-to-r from-[#8B5E34] via-[#6F4518] to-[#8B5E34] px-1.5 text-[#FFEDD8] shadow-[0_4px_16px_rgba(88,49,1,0.2)] backdrop-blur-xl"
+        className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border border-[#BC8A5F]/60 bg-gradient-to-r from-[#8B5E34] via-[#6F4518] to-[#8B5E34] px-1.5 text-[#FFEDD8] shadow-[0_4px_16px_rgba(88,49,1,0.2)] backdrop-blur-xl dark:border-amber-300/40 dark:from-[#d97706] dark:via-[#f59e0b] dark:to-[#d97706] dark:text-stone-950 dark:shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.6),0_6px_18px_rgba(229,170,56,0.35)]"
         onClick={(e) => e.stopPropagation()}
       >
         <motion.button
@@ -146,7 +146,7 @@ export function ItemActionControl({
           onClick={onDecrease}
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.85 }}
-          className="flex size-7 items-center justify-center rounded-full text-[#FFEDD8] transition hover:bg-white/20 cursor-pointer"
+          className="flex size-7 items-center justify-center rounded-full text-[#FFEDD8] transition hover:bg-white/20 dark:text-stone-950 dark:hover:bg-black/15 cursor-pointer"
           aria-label={`کاهش تعداد ${item.name}`}
         >
           <MinusIcon className="size-3.5 stroke-[2.5]" />
@@ -159,7 +159,7 @@ export function ItemActionControl({
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.16, ease: "easeOut" }}
-              className="text-center text-sm font-black tabular-nums text-[#FFEDD8]"
+              className="text-center text-sm font-black tabular-nums text-[#FFEDD8] dark:text-stone-950"
             >
               {formatNumber(qty)}
             </motion.span>
@@ -170,7 +170,7 @@ export function ItemActionControl({
           onClick={onIncrease}
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.85 }}
-          className="flex size-7 items-center justify-center rounded-full text-[#FFEDD8] transition hover:bg-white/20 cursor-pointer"
+          className="flex size-7 items-center justify-center rounded-full text-[#FFEDD8] transition hover:bg-white/20 dark:text-stone-950 dark:hover:bg-black/15 cursor-pointer"
           aria-label={`افزودن یک عدد ${item.name}`}
         >
           <PlusIcon className="size-3.5 stroke-[2.5]" />
@@ -191,7 +191,7 @@ export function ItemActionControl({
         onAdd();
       }}
       aria-label={`افزودن ${item.name} به سفارش`}
-      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-[#BC8A5F]/60 bg-gradient-to-br from-[#8B5E34] via-[#6F4518] to-[#8B5E34] text-[#FFEDD8] shadow-[0_4px_14px_rgba(88,49,1,0.2)] backdrop-blur-xl cursor-pointer"
+      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-[#BC8A5F]/60 bg-gradient-to-br from-[#8B5E34] via-[#6F4518] to-[#8B5E34] text-[#FFEDD8] shadow-[0_4px_14px_rgba(88,49,1,0.2)] backdrop-blur-xl cursor-pointer dark:border-amber-300/50 dark:from-[#d97706] dark:via-[#f59e0b] dark:to-[#d97706] dark:text-stone-950 dark:shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.65),0_6px_18px_rgba(229,170,56,0.35)]"
     >
       <PlusIcon className="size-4.5 stroke-[2.5]" />
     </motion.button>
@@ -206,7 +206,7 @@ function PersianEslimiSprig({ flipped = false }: { flipped?: boolean }) {
       viewBox="0 0 64 26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`h-5 w-11 sm:h-6 sm:w-14 shrink-0 transition-transform drop-shadow-[0_2px_4px_rgba(88,49,1,0.12)] ${
+      className={`h-5 w-11 sm:h-6 sm:w-14 shrink-0 transition-transform drop-shadow-[0_2px_4px_rgba(88,49,1,0.12)] dark:drop-shadow-[0_2px_8px_rgba(229,170,56,0.28)] ${
         flipped ? "-scale-x-100" : ""
       }`}
       aria-hidden="true"
@@ -365,22 +365,22 @@ interface SectionDividerProps {
 export function SectionDivider({ title, subtitleEn }: SectionDividerProps) {
   return (
     <div className="my-5 flex items-center gap-2 sm:gap-3 py-2">
-      <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#D4A276]/50 to-[#BC8A5F]/70" />
+      <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#D4A276]/50 to-[#BC8A5F]/70 dark:via-amber-400/40 dark:to-teal-400/50" />
       <span className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
         <PersianEslimiSprig />
         <span className="text-center px-1 sm:px-2">
-          <h2 className="font-heading text-xl font-bold tracking-tight text-[#583101] sm:text-2xl drop-shadow-xs">
+          <h2 className="font-heading text-xl font-bold tracking-tight text-[#583101] sm:text-2xl drop-shadow-xs dark:text-[#fbf8f1] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
             {title}
           </h2>
           {subtitleEn && (
-            <p className="font-serif-en mt-0.5 text-xs font-semibold tracking-[0.22em] text-[#8B5E34] uppercase">
+            <p className="font-serif-en mt-0.5 text-xs font-semibold tracking-[0.22em] text-[#8B5E34] uppercase dark:text-amber-200/80">
               {subtitleEn}
             </p>
           )}
         </span>
         <PersianEslimiSprig flipped />
       </span>
-      <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#D4A276]/50 to-[#BC8A5F]/70" />
+      <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#D4A276]/50 to-[#BC8A5F]/70 dark:via-amber-400/40 dark:to-teal-400/50" />
     </div>
   );
 }
@@ -411,10 +411,10 @@ export function FeaturedItemCard({
       whileHover={{ y: -3, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="group relative cursor-pointer overflow-hidden rounded-[32px] sm:rounded-[38px] border border-[#E7BC91] bg-gradient-to-b from-[#FFFFFF] via-[#FFFBF6] to-[#FFF6EB] p-0.5 shadow-[0_12px_32px_rgba(88,49,1,0.08)] transition-all duration-300 hover:border-[#D4A276] hover:shadow-[0_16px_40px_rgba(88,49,1,0.14)] ring-1 ring-[#D4A276]/25"
+      className="group relative cursor-pointer overflow-hidden rounded-[32px] sm:rounded-[38px] border border-[#E7BC91] bg-gradient-to-b from-[#FFFFFF] via-[#FFFBF6] to-[#FFF6EB] p-0.5 shadow-[0_12px_32px_rgba(88,49,1,0.08)] transition-all duration-300 hover:border-[#D4A276] hover:shadow-[0_16px_40px_rgba(88,49,1,0.14)] ring-1 ring-[#D4A276]/25 dark:border-amber-400/30 dark:from-[#182332]/85 dark:via-[#111925]/85 dark:to-[#0a0f18]/90 dark:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.12),0_16px_40px_rgba(0,0,0,0.7)] dark:ring-teal-500/20 dark:hover:border-amber-400/60 dark:hover:shadow-[0_20px_45px_rgba(229,170,56,0.15)]"
     >
       {/* Persian Arch-styled Header Image */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-[30px] sm:rounded-t-[36px] bg-[#F3D5B5]/30">
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-[30px] sm:rounded-t-[36px] bg-[#F3D5B5]/30 dark:bg-[#090d14]">
         <ItemThumbnail
           src={image}
           alt={item.name}
@@ -422,11 +422,11 @@ export function FeaturedItemCard({
           iconClassName="size-12"
         />
         {/* Warm lantern gradient over visual */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#FFF6EB] via-transparent to-black/20" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#FFF6EB] via-transparent to-black/20 dark:from-[#0a0f18] dark:via-transparent dark:to-black/40" />
 
         {/* Persian Arch Badge - تحفه عمارت */}
-        <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-[#BC8A5F]/50 bg-gradient-to-r from-[#8B5E34] via-[#6F4518] to-[#8B5E34] px-3 py-1 text-xs font-bold text-[#FFEDD8] shadow-[0_4px_16px_rgba(88,49,1,0.2)] backdrop-blur-md">
-          <SparklesIcon className="size-3 text-[#F3D5B5]" />
+        <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-[#BC8A5F]/50 bg-gradient-to-r from-[#8B5E34] via-[#6F4518] to-[#8B5E34] px-3 py-1 text-xs font-bold text-[#FFEDD8] shadow-[0_4px_16px_rgba(88,49,1,0.2)] backdrop-blur-md dark:border-amber-300/40 dark:from-[#99222c]/95 dark:via-[#b91c1c]/95 dark:to-[#99222c]/95 dark:text-amber-100 dark:shadow-[0_4px_16px_rgba(153,34,44,0.4)]">
+          <SparklesIcon className="size-3 text-[#F3D5B5] dark:text-amber-300" />
           <span>پیشنهاد عمارت طاق</span>
         </div>
       </div>
@@ -434,11 +434,11 @@ export function FeaturedItemCard({
       <div className="relative p-4 sm:p-5">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-heading text-xl font-bold text-[#583101] sm:text-2xl">
+            <h3 className="font-heading text-xl font-bold text-[#583101] sm:text-2xl dark:text-[#fbf8f1]">
               {item.name}
             </h3>
             {item.nameEn && (
-              <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wider text-[#8B5E34] italic">
+              <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wider text-[#8B5E34] italic dark:text-amber-200/80">
                 {item.nameEn}
               </p>
             )}
@@ -446,18 +446,18 @@ export function FeaturedItemCard({
         </div>
 
         {item.description && (
-          <p className="mt-2 line-clamp-2 text-xs leading-6 text-[#6F4518]/85 sm:text-sm">
+          <p className="mt-2 line-clamp-2 text-xs leading-6 text-[#6F4518]/85 sm:text-sm dark:text-stone-300/85">
             {item.description}
           </p>
         )}
 
         <div className="mt-4 flex items-center gap-3">
           <div className="flex items-baseline gap-1">
-            <span className="text-lg font-black whitespace-nowrap text-[#6F4518] sm:text-xl">
+            <span className="text-lg font-black whitespace-nowrap text-[#6F4518] sm:text-xl dark:text-[#fcd34d] dark:drop-shadow-[0_2px_8px_rgba(229,170,56,0.3)]">
               {formatToman(item.price)}
             </span>
           </div>
-          <span className="h-px flex-1 border-b border-dotted border-[#D4A276]/40" />
+          <span className="h-px flex-1 border-b border-dotted border-[#D4A276]/40 dark:border-amber-400/20" />
           <ItemActionControl
             item={item}
             qty={qty}
@@ -487,28 +487,28 @@ export function CompactItemCard({
       whileHover={{ y: -2, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="group relative cursor-pointer overflow-hidden rounded-[26px] sm:rounded-[30px] border border-[#E7BC91] bg-gradient-to-b from-[#FFFFFF] via-[#FFFBF6] to-[#FFF7EE] p-4 shadow-[0_6px_20px_rgba(88,49,1,0.06)] ring-1 ring-[#D4A276]/20 transition-all duration-300 hover:border-[#D4A276] hover:shadow-[0_12px_28px_rgba(88,49,1,0.12)]"
+      className="group relative cursor-pointer overflow-hidden rounded-[26px] sm:rounded-[30px] border border-[#E7BC91] bg-gradient-to-b from-[#FFFFFF] via-[#FFFBF6] to-[#FFF7EE] p-4 shadow-[0_6px_20px_rgba(88,49,1,0.06)] ring-1 ring-[#D4A276]/20 transition-all duration-300 hover:border-[#D4A276] hover:shadow-[0_12px_28px_rgba(88,49,1,0.12)] dark:border-amber-400/25 dark:from-[#151f2d]/85 dark:via-[#0f1722]/85 dark:to-[#0b1018]/90 dark:shadow-[inset_0_1.5px_1.5px_rgba(255,255,255,0.1),0_12px_32px_rgba(0,0,0,0.65)] dark:ring-teal-500/15 dark:hover:border-amber-400/50 dark:hover:shadow-[0_16px_36px_rgba(229,170,56,0.12)]"
     >
       <div className="relative flex items-center justify-between gap-3.5">
         <div className="min-w-0 flex-1">
-          <h3 className="font-heading text-base font-bold text-[#583101] sm:text-lg">
+          <h3 className="font-heading text-base font-bold text-[#583101] sm:text-lg dark:text-[#fbf8f1]">
             {item.name}
           </h3>
           {item.nameEn && (
-            <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wide text-[#8B5E34] italic">
+            <p className="font-serif-en mt-0.5 text-xs font-medium tracking-wide text-[#8B5E34] italic dark:text-amber-200/70">
               {item.nameEn}
             </p>
           )}
 
           {item.description && (
-            <p className="mt-1.5 line-clamp-2 text-xs leading-5.5 text-[#6F4518]/85 sm:text-sm">
+            <p className="mt-1.5 line-clamp-2 text-xs leading-5.5 text-[#6F4518]/85 sm:text-sm dark:text-stone-300/80">
               {item.description}
             </p>
           )}
         </div>
 
         {/* Persian Arch-framed Thumbnail (قاب طاقچه و پنج‌دری) */}
-        <div className="relative h-24 w-22 sm:h-28 sm:w-26 shrink-0 overflow-hidden rounded-t-[2.2rem] rounded-b-xl border-2 border-[#E7BC91] bg-[#F3D5B5]/40 shadow-xs ring-1 ring-[#D4A276]/30">
+        <div className="relative h-24 w-22 sm:h-28 sm:w-26 shrink-0 overflow-hidden rounded-t-[2.2rem] rounded-b-xl border-2 border-[#E7BC91] bg-[#F3D5B5]/40 shadow-xs ring-1 ring-[#D4A276]/30 dark:border-amber-400/40 dark:bg-[#090e15] dark:shadow-[inset_0_1.5px_2px_rgba(229,170,56,0.25),0_8px_20px_rgba(0,0,0,0.65)] dark:ring-teal-400/25">
           <ItemThumbnail
             src={image}
             alt={item.name}
@@ -516,16 +516,16 @@ export function CompactItemCard({
             iconClassName="size-8"
           />
           {/* Subtle stained glass glare */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-[#E7BC91]/15 to-[#BC8A5F]/15" />
-          <span className="pointer-events-none absolute top-1 left-1/2 -translate-x-1/2 size-1 rounded-full bg-[#8B5E34]/80" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-[#E7BC91]/15 to-[#BC8A5F]/15 dark:via-amber-400/10 dark:to-teal-400/15" />
+          <span className="pointer-events-none absolute top-1 left-1/2 -translate-x-1/2 size-1 rounded-full bg-[#8B5E34]/80 dark:bg-amber-300/80" />
         </div>
       </div>
 
       <div className="relative mt-3.5 flex items-center gap-3">
-        <span className="text-sm font-black whitespace-nowrap text-[#6F4518] sm:text-base">
+        <span className="text-sm font-black whitespace-nowrap text-[#6F4518] sm:text-base dark:text-[#fcd34d] dark:drop-shadow-[0_2px_8px_rgba(229,170,56,0.25)]">
           {formatToman(item.price)}
         </span>
-        <span className="h-px flex-1 border-b border-dotted border-[#D4A276]/40" />
+        <span className="h-px flex-1 border-b border-dotted border-[#D4A276]/40 dark:border-amber-400/20" />
         <ItemActionControl
           item={item}
           qty={qty}
