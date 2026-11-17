@@ -411,7 +411,7 @@ export function MenuExplorer({
   return (
     <>
       {/* Sticky Top Header with Persian Arch Heritage */}
-      <header className="sticky top-0 z-30 border-b border-amber-400/20 bg-[#090e15]/85 backdrop-blur-2xl shadow-[0_8px_24px_rgba(0,0,0,0.7)]">
+      <header className="sticky top-0 z-30 border-b border-[#E7BC91]/70 bg-[#FFEDD8]/90 backdrop-blur-2xl shadow-[0_4px_20px_rgba(88,49,1,0.06)]">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
           <div className="w-10" aria-hidden="true" />
 
@@ -433,7 +433,7 @@ export function MenuExplorer({
               whileTap={{ scale: 0.9 }}
               onClick={handleHeaderBack}
               aria-label="بازگشت"
-              className="flex size-10 items-center justify-center rounded-full border border-amber-400/30 bg-[#121b27]/80 text-amber-200 backdrop-blur-2xl shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.15),0_8px_20px_rgba(0,0,0,0.6)] transition hover:border-amber-400/60 hover:text-white cursor-pointer"
+              className="flex size-10 items-center justify-center rounded-full border border-[#D4A276]/45 bg-[#FFFFFF]/85 text-[#6F4518] backdrop-blur-2xl shadow-[0_4px_14px_rgba(88,49,1,0.08)] transition hover:border-[#BC8A5F] hover:bg-[#F3D5B5]/60 hover:text-[#583101] cursor-pointer"
             >
               <ChevronLeftIcon className="size-6" />
             </motion.button>
@@ -450,25 +450,25 @@ export function MenuExplorer({
         {/* Persian Mansion Heritage Masthead */}
         <div className="px-4 pt-5 pb-2 text-center">
           <div className="mx-auto flex max-w-md flex-col items-center">
-            <h1 className="font-display bg-gradient-to-b from-amber-100 via-[#fcd34d] to-[#d97706] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_14px_rgba(229,170,56,0.35)] sm:text-4xl">
+            <h1 className="font-display bg-gradient-to-b from-[#583101] via-[#6F4518] to-[#8B5E34] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_10px_rgba(88,49,1,0.12)] sm:text-4xl">
               عمارت طاق
             </h1>
 
             {/* Persian Slogan / Couplet */}
             <div className="mt-2.5 flex flex-col items-center text-center">
-              <p className="text-sm font-medium tracking-wide text-amber-100/95 sm:text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+              <p className="text-sm font-medium tracking-wide text-[#6F4518] sm:text-base">
                 در گوشه‌ای از شهر بادگیرها
               </p>
-              <p className="mt-0.5 text-xs font-light tracking-wider text-amber-300/85 sm:text-sm">
+              <p className="mt-0.5 text-xs font-normal tracking-wider text-[#8B5E34] sm:text-sm">
                 به تماشای آرامشت بنشین
               </p>
             </div>
 
             {/* Persian Ornamental Divider */}
-            <div className="mt-2.5 flex items-center gap-2 text-amber-400/70">
-              <span className="h-px w-10 bg-gradient-to-r from-transparent via-amber-400/40 to-amber-400/80" />
-              <span className="text-xs text-amber-300">✦</span>
-              <span className="h-px w-10 bg-gradient-to-l from-transparent via-amber-400/40 to-amber-400/80" />
+            <div className="mt-2.5 flex items-center gap-2 text-[#BC8A5F]">
+              <span className="h-px w-10 bg-gradient-to-r from-transparent via-[#D4A276]/40 to-[#BC8A5F]/80" />
+              <span className="text-xs text-[#8B5E34]">✦</span>
+              <span className="h-px w-10 bg-gradient-to-l from-transparent via-[#D4A276]/40 to-[#BC8A5F]/80" />
             </div>
           </div>
         </div>
@@ -550,7 +550,7 @@ export function MenuExplorer({
                 whileHover={{ scale: 1.015, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setCartOpen(true)}
-                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-amber-400/40 bg-gradient-to-r from-[#172333]/95 via-[#0e1724]/95 to-[#172333]/95 px-5 py-3.5 text-white shadow-[inset_0_1.5px_2px_rgba(229,170,56,0.35),0_16px_36px_rgba(0,0,0,0.8)] ring-1 ring-teal-500/30 backdrop-blur-3xl transition-all hover:border-amber-400/70 hover:shadow-[0_20px_45px_rgba(229,170,56,0.2)] cursor-pointer"
+                className="group relative flex w-full items-center justify-between overflow-hidden rounded-full border border-[#BC8A5F]/50 bg-gradient-to-r from-[#6F4518] via-[#583101] to-[#6F4518] px-5 py-3.5 text-[#FFEDD8] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.2),0_16px_36px_rgba(88,49,1,0.28)] ring-1 ring-[#D4A276]/40 backdrop-blur-3xl transition-all hover:border-[#D4A276] hover:shadow-[0_20px_45px_rgba(88,49,1,0.35)] cursor-pointer"
               >
                 <span className="flex items-center gap-2.5">
                   <motion.span
@@ -558,11 +558,11 @@ export function MenuExplorer({
                     initial={{ scale: 1.35 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                    className="flex size-7 items-center justify-center rounded-full border border-amber-300/40 bg-gradient-to-br from-[#d97706] to-[#b45309] text-xs font-black text-amber-50 shadow-xs"
+                    className="flex size-7 items-center justify-center rounded-full border border-[#D4A276]/60 bg-[#FFEDD8] text-xs font-black text-[#583101] shadow-xs"
                   >
                     {formatNumber(count)}
                   </motion.span>
-                  <span className="font-heading text-sm font-bold text-amber-100 sm:text-base">
+                  <span className="font-heading text-sm font-bold text-[#FFEDD8] sm:text-base">
                     مشاهده سینی سفارش‌ها
                   </span>
                 </span>
@@ -571,7 +571,7 @@ export function MenuExplorer({
                   initial={{ opacity: 0.7, y: 3 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-sm font-black text-[#fcd34d] drop-shadow-[0_2px_6px_rgba(229,170,56,0.3)] sm:text-base"
+                  className="text-sm font-black text-[#FFEDD8] drop-shadow-xs sm:text-base"
                 >
                   {formatToman(total)}
                 </motion.span>

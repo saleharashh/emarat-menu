@@ -79,14 +79,14 @@ export function CategoryStrip({
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
               className={`group relative h-[90px] w-[148px] shrink-0 overflow-hidden rounded-t-[26px] rounded-b-xl backdrop-blur-xl transition-all sm:h-[98px] sm:w-[168px] cursor-pointer ${
                 isActive
-                  ? "border-2 border-amber-400/70 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.25),0_12px_28px_rgba(0,0,0,0.7),0_0_20px_rgba(229,170,56,0.3)]"
-                  : "border border-amber-400/20 bg-[#121a24]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_20px_rgba(0,0,0,0.5)] hover:border-amber-400/40 hover:bg-[#162230]/90"
+                  ? "border-2 border-[#8B5E34] shadow-[0_12px_28px_rgba(88,49,1,0.22)]"
+                  : "border border-[#E7BC91] bg-[#FFFFFF]/80 shadow-[0_4px_14px_rgba(88,49,1,0.06)] hover:border-[#BC8A5F] hover:bg-[#FFF9F2]"
               }`}
             >
               {/* Persian arch peak jewel */}
               <div
                 className={`pointer-events-none absolute top-1 left-1/2 -translate-x-1/2 z-20 size-1 rounded-full ${
-                  isActive ? "bg-amber-300 ring-2 ring-amber-300/60" : "bg-amber-400/40"
+                  isActive ? "bg-[#8B5E34] ring-2 ring-[#BC8A5F]/60" : "bg-[#D4A276]/60"
                 }`}
               />
 
@@ -98,13 +98,13 @@ export function CategoryStrip({
                   loading="lazy"
                   decoding="async"
                   className={`absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-105 ${
-                    isActive ? "brightness-95 contrast-105" : "brightness-65"
+                    isActive ? "brightness-95 contrast-105" : "brightness-75"
                   }`}
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#0d141e]">
+                <div className="absolute inset-0 flex items-center justify-center bg-[#F3D5B5]/60">
                   {Icon && (
-                    <Icon className="size-8 text-amber-400/60" strokeWidth={1.5} />
+                    <Icon className="size-8 text-[#8B5E34]" strokeWidth={1.5} />
                   )}
                 </div>
               )}
@@ -113,8 +113,8 @@ export function CategoryStrip({
               <div
                 className={`absolute inset-0 ${
                   isActive
-                    ? "bg-gradient-to-t from-[#0a0f18]/95 via-[#0a0f18]/50 to-black/20"
-                    : "bg-gradient-to-t from-[#0a0f18]/90 via-[#0a0f18]/60 to-black/30"
+                    ? "bg-gradient-to-t from-[#583101]/95 via-[#583101]/45 to-black/15"
+                    : "bg-gradient-to-t from-[#583101]/90 via-[#583101]/50 to-black/20"
                 }`}
               />
 
@@ -123,7 +123,7 @@ export function CategoryStrip({
                   {category.name}
                 </span>
                 {category.nameEn && (
-                  <span className="font-serif-en mt-0.5 line-clamp-1 text-xs font-medium tracking-wider text-amber-200/80 italic drop-shadow-sm">
+                  <span className="font-serif-en mt-0.5 line-clamp-1 text-xs font-medium tracking-wider text-[#F3D5B5] italic drop-shadow-sm">
                     {category.nameEn}
                   </span>
                 )}
@@ -153,16 +153,16 @@ export function CategoryStrip({
                 {isActive && (
                   <motion.div
                     layoutId="activeSubcategoryPill"
-                    className="absolute inset-0 rounded-full border border-amber-300/40 bg-gradient-to-r from-[#d97706] via-[#f59e0b] to-[#d97706] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.5),0_6px_18px_rgba(229,170,56,0.3)]"
+                    className="absolute inset-0 rounded-full border border-[#BC8A5F]/60 bg-gradient-to-r from-[#8B5E34] via-[#6F4518] to-[#8B5E34] shadow-[0_6px_18px_rgba(88,49,1,0.25)]"
                     transition={{ type: "spring", stiffness: 420, damping: 32 }}
                   />
                 )}
                 {!isActive && (
-                  <div className="absolute inset-0 rounded-full border border-amber-400/20 bg-[#121a24]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_14px_rgba(0,0,0,0.4)] hover:border-amber-400/40 hover:bg-[#182330]" />
+                  <div className="absolute inset-0 rounded-full border border-[#E7BC91] bg-[#FFFFFF]/85 shadow-[0_2px_8px_rgba(88,49,1,0.04)] hover:border-[#D4A276] hover:bg-[#F3D5B5]/50" />
                 )}
                 <span
                   className={`font-heading relative z-10 block text-xs font-bold sm:text-sm transition-colors ${
-                    isActive ? "text-stone-950 font-black" : "text-[#eae3dc]"
+                    isActive ? "text-[#FFEDD8] font-black" : "text-[#6F4518]"
                   }`}
                 >
                   {sub.name}

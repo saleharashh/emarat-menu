@@ -79,18 +79,18 @@ export function SplashScreen() {
       {/* Refined subtle ambient radial glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_420px_at_50%_46%,rgba(217,144,59,0.09)_0%,rgba(146,64,14,0.03)_50%,transparent_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_420px_at_50%_46%,rgba(212,162,118,0.25)_0%,rgba(231,188,145,0.12)_50%,transparent_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pattern-botanical pointer-events-none absolute inset-0 opacity-10"
+        className="pattern-botanical pointer-events-none absolute inset-0 opacity-15"
       />
 
       {/* Skip button */}
       <button
         type="button"
         onClick={dismiss}
-        className="absolute top-5 left-5 z-20 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold text-stone-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_16px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition hover:border-amber-400/40 hover:bg-white/[0.12] hover:text-white active:scale-95 sm:top-6 sm:left-6 sm:text-sm cursor-pointer"
+        className="absolute top-5 left-5 z-20 rounded-full border border-[#E7BC91] bg-white/80 px-4 py-1.5 text-xs font-semibold text-[#6F4518] shadow-[0_2px_10px_rgba(88,49,1,0.08)] backdrop-blur-md transition hover:border-[#8B5E34] hover:bg-white hover:text-[#583101] active:scale-95 sm:top-6 sm:left-6 sm:text-sm cursor-pointer"
       >
         رد کردن
       </button>
@@ -121,16 +121,16 @@ export function SplashScreen() {
 
             {/* Ground Contact Shadow */}
             <radialGradient id="splash-floor-shadow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#1c120c" stopOpacity="0.45" />
-              <stop offset="65%" stopColor="#1c120c" stopOpacity="0.12" />
-              <stop offset="100%" stopColor="#1c120c" stopOpacity="0" />
+              <stop offset="0%" stopColor="#583101" stopOpacity="0.25" />
+              <stop offset="65%" stopColor="#583101" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#583101" stopOpacity="0" />
             </radialGradient>
 
             {/* Natural Steam Wisps Gradient */}
             <linearGradient id="splash-steam-grad" x1="0" y1="1" x2="0" y2="0">
-              <stop offset="0%" stopColor="#d4b494" stopOpacity="0.75" />
-              <stop offset="60%" stopColor="#ba9979" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#9a7858" stopOpacity="0" />
+              <stop offset="0%" stopColor="#BC8A5F" stopOpacity="0.75" />
+              <stop offset="60%" stopColor="#D4A276" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#E7BC91" stopOpacity="0" />
             </linearGradient>
 
             <clipPath id="splash-cup-clip">
@@ -279,10 +279,10 @@ export function SplashScreen() {
 
         {/* Brand reveal */}
         <div className="splash-anim-brand mt-4 flex flex-col items-center gap-1.5 text-center">
-          <h1 className="font-display bg-gradient-to-b from-white via-stone-100 to-amber-200/90 bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-[0_2px_12px_rgba(217,144,59,0.22)]">
+          <h1 className="font-display bg-gradient-to-b from-[#583101] via-[#6F4518] to-[#8B5E34] bg-clip-text text-3xl font-extrabold text-transparent drop-shadow-sm">
             عمارت طاق
           </h1>
-          <p className="text-xs font-medium text-amber-200/80">
+          <p className="text-xs font-semibold text-[#8B5E34]">
             کافه و اقامتگاه سنتی
           </p>
         </div>
